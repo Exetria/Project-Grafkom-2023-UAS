@@ -40,7 +40,7 @@ public class Utils {
         return arr;
     }
 
-    private TextureData decodeTextureFile(String fileName) {
+    private static TextureData decodeTextureFile(String fileName) {
         int width = 0;
         int height = 0;
         ByteBuffer textureData = null;
@@ -61,7 +61,7 @@ public class Utils {
         return new TextureData(textureData, width, height);
     }
 
-    public int loadCubeMap(String[] textureFileNames)
+    public static int loadCubeMap(String[] textureFileNames)
     {
         int textureID = GL11.glGenTextures();
         GL13.glActiveTexture(GL13.GL_TEXTURE0);

@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Skybox 1/2 jadi - Tiro">
-      <change afterPath="$PROJECT_DIR$/resources/shaders/skybox.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/shaders/skybox.vert" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxShader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/TextureData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SkyBox.java" afterDir="false" />
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Skybox 3/4 jadi - Tiro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/sceneWithVerticesColor.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/sceneWithVerticesColor.vert" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Rectangle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Star.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Tiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -241,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687581476369</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Skybox 3/4 jadi - Tiro">
+      <created>1687608094997</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1687608094997</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -276,6 +274,7 @@
     <MESSAGE value="Init2" />
     <MESSAGE value="Init3" />
     <MESSAGE value="Skybox 1/2 jadi - Tiro" />
-    <option name="LAST_COMMIT_MESSAGE" value="Skybox 1/2 jadi - Tiro" />
+    <MESSAGE value="Skybox 3/4 jadi - Tiro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Skybox 3/4 jadi - Tiro" />
   </component>
 </project>

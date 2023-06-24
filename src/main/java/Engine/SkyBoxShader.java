@@ -9,21 +9,25 @@ import static org.lwjgl.opengl.GL20.GL_VERTEX_SHADER;
 
 public class SkyBoxShader extends ShaderProgram
 {
-    private static final String VERTEX_FILE = "src/skybox/skyboxVertexShader.txt";
-    private static final String FRAGMENT_FILE = "src/skybox/skyboxFragmentShader.txt";
-
-    private int location_projectionMatrix;
-    private int location_viewMatrix;
-
     UniformsMap uniformsMap;
 
-    public SkyBoxShader(Matrix4f projMatrix, Matrix4f viewMatrix)
+    public SkyBoxShader()
     {
         super(Arrays.asList(new ShaderProgram.ShaderModuleData("resources/shaders/skybox.vert",
                 GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/skybox.frag", GL_FRAGMENT_SHADER)));
         uniformsMap = new UniformsMap(getProgramId());
-        createUniforms(projMatrix, viewMatrix);
+//        createUniforms(projMatrix, viewMatrix);
         super.bind();
+    }
+
+    public void createViewUniform(Matrix4f viewMatrix)
+    {
+        uniformsMap.setUniform("viewMatrix",viewMatrix);
+    }
+
+    public void createProjectionUniform(Matrix4f projMatrix)
+    {
+        uniformsMap.setUniform("projectionMatrix",projMatrix);
     }
 
     public void createUniforms(Matrix4f projMatrix, Matrix4f viewMatrix)
