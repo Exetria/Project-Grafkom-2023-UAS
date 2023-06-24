@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Week 14 - Multiple lighting kelas">
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Init">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tugas/TugasWeekII.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tugas/TugasWeekIII.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tugas/TugasWeekIV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tugas/TugasWeekXI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tugas/TugasWeekXII.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tugas/TugasWeekXIII.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +33,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2Lfs4RwwdP0bVXlxLaU3QLq79W4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -38,8 +51,8 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vince/OneDrive/Documents/GitHub/Exetria-Grafkom-2022-2023/resources&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vince/OneDrive/Documents/GitHub/Project-Grafkom-2023-UAS&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -59,7 +72,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TugasWeekXIII">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="untitled" />
@@ -122,8 +135,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TugasWeekXIII" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.TugasWeekXIII" />
         <item itemvalue="Application.TugasWeekXII" />
         <item itemvalue="Application.TugasWeekXI" />
         <item itemvalue="Application.Tiro" />
@@ -230,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686329646741</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Init">
+      <created>1687509964500</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1687509964500</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -261,6 +281,7 @@
     <MESSAGE value="Week 13 - Mulai Tugas" />
     <MESSAGE value="Week 13 - tinggal normal masih kacau" />
     <MESSAGE value="Week 14 - Multiple lighting kelas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Week 14 - Multiple lighting kelas" />
+    <MESSAGE value="Init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init" />
   </component>
 </project>

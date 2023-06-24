@@ -1,29 +1,27 @@
 import Engine.*;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
+
+import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.opengl.GL11.glClearColor;
+import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL20.*;
 
 public class Main
 {
-    private final Window window = new Window(800, 800, "window");
+    private final Window window = new Window(1000, 1000, "window");
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
 
     ArrayList<Objects> objects = new ArrayList<>();
     ArrayList<Sphere> spheres = new ArrayList<>();
-    ArrayList<Objects> multipleColorObjects = new ArrayList<>();
-    ArrayList<Objects> objectsPointControl =  new ArrayList<>();
 
-    float movement= 0.01f, x, y, z;
-    int q, e = 0;
+    float movement= 0.1f;
 
     public static void main(String[] args)
     {
@@ -44,147 +42,34 @@ public class Main
         camera.setPosition(0, 0,  0.5f);
         camera.setRotation((float) Math.toRadians(0f),  (float) Math.toRadians(0f));
 
-        //segitiga pake 1 warna
-        /*{
-            objects.add(new Objects(
-                            Arrays.asList
-                                    (
-                                            new ShaderProgram.ShaderModuleData
-                                                    ("resources/shaders/scene.vert", GL_VERTEX_SHADER),
-                                            new ShaderProgram.ShaderModuleData
-                                                    ("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-                                    ),
-                            new ArrayList<>
-                                    (
-                                            List.of
-                                                    (
-                                                            new Vector3f(0.0f, 0.5f, 0.0f),
-                                                            new Vector3f(-0.5f, -0.5f, 0.0f),
-                                                            new Vector3f(0.5f, -0.5f, 0.0f)
-                                                    )
-                                    ),
-                            new Vector4f(0.0f, 1.0f, 1.0f, 1.0f)    //color
-                    )
-            );
-        }
-        objects.get(0).translateObject(0.2f, 0.2f, 0.2f);
-        objects.get(0).rotateObject((float) Math.toRadians(45), 0f, 0f, 1f);
-        objects.get(0).scaleObject(0.5f, 0.5f, 0.5f);*/
-
-       //segitiga pake banyak warna
-        /*{
-            multipleColorObjects.add(new Object2d(
-                            Arrays.asList
-                                    (
-                                            new ShaderProgram.ShaderModuleData
-                                                    ("resources/shaders/sceneWithVerticesColor.vert", GL_VERTEX_SHADER),
-                                            new ShaderProgram.ShaderModuleData
-                                                    ("resources/shaders/sceneWithVerticescolor.frag", GL_FRAGMENT_SHADER)
-                                    ),
-                            new ArrayList<>
-                                    (
-                                            List.of
-                                                    (
-                                                            new Vector3f(0.0f, 0.5f, 0.0f),
-                                                            new Vector3f(-0.5f, -0.5f, 0.0f),
-                                                            new Vector3f(0.5f, -0.5f, 0.0f)
-                                                    )
-                                    ),
-                            new ArrayList<>                                         //color
-                                    (
-                                            List.of
-                                                    (
-                                                            new Vector3f(0.75f, 0.50f, 0.60f),
-                                                            new Vector3f(0.50f, 1.0f, 0.80f),
-                                                            new Vector3f(0.5f, 0.0f, 1.0f)
-                                                    )
-                                    )
-                    )
-            );
-        }*/
-
-        //bikin kotak pake 2 segitiga yang digambar urut per titik
-        /*{
-            objects.add(new Rectangle
-                    (
-                            Arrays.asList
-                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
-                            new ArrayList<>
-                                    (
-                                            List.of
-                                                    (
-                                                            new Vector3f(0.0f, 0.0f, 0.0f),
-                                                            new Vector3f(0.5f, 0.0f, 0.0f),
-                                                            new Vector3f(0.0f, 0.5f, 0.0f),
-                                                            new Vector3f(0.5f, 0.5f, 0.0f)
-                                                    )
-                                    ),
-                            new Vector4f(0.0f, 1.0f, 1.0f, 1.0f),    //color,
-                            Arrays.asList(0, 1, 2, 1, 2, 3)
-                    )
-            );
-        }*/
-
-        //objectsPointControl
-        /*{
-            objectsPointControl.add(new Objects(
-                            Arrays.asList
-                                    (
-                                            new ShaderProgram.ShaderModuleData
-                                                    ("resources/shaders/scene.vert", GL_VERTEX_SHADER),
-                                            new ShaderProgram.ShaderModuleData
-                                                    ("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)
-                                    ),
-                            new ArrayList<>(),
-                            new Vector4f(0.0f, 1.0f, 1.0f, 1.0f)    //color
-                    )
-            );
-        }*/
-
-        //bikin sphere
-        /*{
-            spheres.add(new Sphere
+        spheres.add(new Sphere
                 (
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
-                        new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),0.1, 0.1, 0.1, 0, 0, 0, 3
+                        new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),
+                        "C:/Users/Vince/OneDrive/Documents/GitHub/Obj/squidward.obj"
                 )
-            );
-        }
+        );
+        spheres.get(0).translateObject(0, 0, -2);
 
-        {
-            spheres.get(0).getChildObjects().add(new Sphere
-                    (
-                            Arrays.asList
-                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
-                            new ArrayList<>(),
-                            new Vector4f(0.0f, 0.0f, 1.0f, 1.0f),0.1, 0.1, 0.1, 0, 0, 0, 1
-                    )
-            );
-
-            spheres.get(0).translateObject(-0.25f, -0.25f, 0);
-            spheres.get(0).getChildObjects().get(0).translateObject(0.5f, 0.5f, 1f);
-        }*/
-
-        //bikin box (shading)
-        {
-            spheres.add(new Sphere
-                    (
-                            Arrays.asList
-                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
-                            new ArrayList<>(),
-                            new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),0.1, 0.1, 0.1, 0, 0, 0, 0
-                    )
-            );
-        }
+        spheres.add(new Sphere
+                (
+                        Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                        new ArrayList<>(),
+                        new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),
+                        "C:/Users/Vince/OneDrive/Documents/GitHub/Obj/testing2.obj"
+                )
+        );
+        spheres.get(0).translateObject(0, 0, 10);
     }
 
     public void input()
     {
         //WASDQE BUAT ROTATE ATAU TRANSLATE CAMERA
         {
-            if(window.isKeyPressed(GLFW_KEY_Q) && q == 0)
+            if(window.isKeyPressed(GLFW_KEY_Q))
             {
                 camera.moveDown(movement);
             }
@@ -297,12 +182,18 @@ public class Main
 
         if(window.isKeyPressed(GLFW_KEY_LEFT_SHIFT))
         {
-            camera.moveForward(movement);
+            for (Sphere i: spheres)
+            {
+                camera.moveUp(movement);
+            }
         }
 
         if(window.isKeyPressed(GLFW_KEY_LEFT_CONTROL))
         {
-            camera.moveBackwards(movement);
+            for (Sphere i: spheres)
+            {
+                camera.moveDown(movement);
+            }
         }
 
         if(window.getMouseInput().isLeftButtonPressed())
