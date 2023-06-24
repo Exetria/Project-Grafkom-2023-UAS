@@ -51,16 +51,16 @@ public class Okky
                         "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\asset\\badan.obj"
                 )
         );
-        spheres.add(new Sphere
+        spheres.get(0).getChildObjects().add(new Sphere
                 (
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),
-                        "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\asset\\gagangdepan.obj"
+                        "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\asset\\mainsail.obj"
                 )
         );
-        spheres.get(1).translateObject(0, 0, 10);
+        spheres.get(0).getChildObjects().get(0).translateObject(0, 0, 5);
 
 
     }
