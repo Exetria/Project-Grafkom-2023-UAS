@@ -10,14 +10,11 @@ public class MouseInput {
     private Vector2f displVec;
     private Vector2f scroll;
     private boolean inWindow;
-    private Vector2f previousPos;
     private boolean leftButtonPressed;
+    private Vector2f previousPos;
     private boolean rightButtonPressed;
-    private boolean leftButtonReleased;
-    private boolean rightButtonReleased;
 
-    public MouseInput(long windowHandle)
-    {
+    public MouseInput(long windowHandle) {
         previousPos = new Vector2f(-1, -1);
         currentPos = new Vector2f();
         scroll = new Vector2f();
@@ -25,31 +22,19 @@ public class MouseInput {
         leftButtonPressed = false;
         rightButtonPressed = false;
         inWindow = false;
-
-        //detect posisi mouse dalam window
         glfwSetCursorPosCallback(windowHandle, (handle, xpos, ypos) -> {
             currentPos.x = (float) xpos;
             currentPos.y = (float) ypos;
         });
-
-        //tiap mouse masuk window
         glfwSetCursorEnterCallback(windowHandle, (handle, entered) -> inWindow = entered);
-
-        //untuk scroll
         glfwSetScrollCallback(windowHandle, (handle, xoffset, yoffset)->{
             scroll.x = (float)xoffset;
             scroll.y = (float)yoffset;
         });
-
-        //deteksi left/right click atau tahan
         glfwSetMouseButtonCallback(windowHandle, (handle, button, action, mode) -> {
             leftButtonPressed = button == GLFW_MOUSE_BUTTON_1 && action == GLFW_PRESS;
             rightButtonPressed = button == GLFW_MOUSE_BUTTON_2 && action == GLFW_PRESS;
-            leftButtonReleased = button == GLFW_MOUSE_BUTTON_1 && action == GLFW_RELEASE;
-            rightButtonReleased = button == GLFW_MOUSE_BUTTON_2 && action == GLFW_RELEASE;
         });
-
-
     }
 
     public Vector2f getCurrentPos() {
@@ -59,7 +44,9 @@ public class MouseInput {
     public Vector2f getScroll() {
         return scroll;
     }
-
+    public void setScroll(Vector2f scroll){
+        this.scroll = scroll;
+    }
     public Vector2f getDisplVec() {
         return displVec;
     }
@@ -84,23 +71,11 @@ public class MouseInput {
     }
 
     public boolean isLeftButtonPressed() {
+
         return leftButtonPressed;
     }
 
     public boolean isRightButtonPressed() {
         return rightButtonPressed;
-    }
-
-    public boolean isLeftButtonReleased() {
-        return leftButtonReleased;
-    }
-
-    public boolean isRightButtonReleased() {
-        return rightButtonReleased;
-    }
-
-    public void setScroll(Vector2f scroll)
-    {
-        this.scroll = scroll;
     }
 }

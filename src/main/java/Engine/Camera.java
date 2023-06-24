@@ -2,8 +2,6 @@ package Engine;
 
 import org.joml.*;
 
-import java.lang.Math;
-
 public class Camera {
 
     private Vector3f direction;
@@ -27,21 +25,12 @@ public class Camera {
         recalculate();
     }
 
-    public void rotateTowardsPoint(float rotateX, float rotateY, float x, float y, float z)
-    {
-        //ambil vector camera-obj
-        Vector3f temp = new Vector3f(getPosition().x - x, getPosition().y - y, getPosition().z - z);
+    public Vector3f getPosition() {
+        return position;
+    }
 
-        //translate camera
-        float newX = (float) ((temp.x* Math.cos(rotateY)) + (temp.z* Math.sin(rotateY)));
-        float newY = temp.y;
-        float newZ = (float) ((-temp.x* Math.sin(rotateY)) + (temp.z* Math.cos(rotateY)));
-
-        //update
-        setPosition(x + newX, y + newY, z + newZ);
-
-        //rotate camera berlawanan sama rotate thd obj
-        addRotation(-rotateX, -rotateY);
+    public Matrix4f getViewMatrix() {
+        return viewMatrix;
     }
 
     public void moveBackwards(float inc) {
@@ -60,6 +49,10 @@ public class Camera {
         viewMatrix.positiveZ(direction).negate().mul(inc);
         position.add(direction);
         recalculate();
+    }
+
+    public Vector3f getDirection() {
+        return direction;
     }
 
     public void moveLeft(float inc) {
@@ -87,27 +80,8 @@ public class Camera {
                 .translate(-position.x, -position.y, -position.z);
     }
 
-    public Vector3f getPosition() {
-        return position;
-    }
-
-    public Matrix4f getViewMatrix() {
-        return viewMatrix;
-    }
-
-    public Vector3f getDirection()
-    {
-        return direction;
-    }
-
-
     public void setPosition(float x, float y, float z) {
         position.set(x, y, z);
-        recalculate();
-    }
-
-    public void addPosition(float x, float y, float z) {
-        position.set(position.x + x, position.y + y, position.z + z);
         recalculate();
     }
 

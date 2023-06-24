@@ -6,152 +6,69 @@ import org.joml.Vector4f;
 import java.util.List;
 
 import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
-public class Circle extends Objects
-{
-    double x, y, r, cpx, cpy;
+public class Circle extends Object {
 
-    //constructor standar
-    public Circle(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, double r, double cpx, double cpy)
-    {
+    Float radiusX;
+    Float radiusY;
+    public Circle(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, List<Float> centerPoint, Float radiusX,Float radiusY) {
         super(shaderModuleDataList, vertices, color);
-        this.r = r;
-        this.cpx = cpx;
-        this.cpy = cpy;
+        this.centerPoint = centerPoint;
+        this.radiusX = radiusX;
+        this.radiusY = radiusY;
+        createCircle();
+//        setupVAOVBO();
     }
 
-    //constructor lingkaran(1), persegi(2), segitiga(3)
-    public Circle(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, double r, double cpx, double cpy, int option)
-    {
+    public Circle(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color) {
         super(shaderModuleDataList, vertices, color);
-        this.r = r;
-        this.cpx = cpx;
-        this.cpy = cpy;
-
-        //Setup VAO VBO sudah include dalam create()
-        if(option == 1)
-            createCircle();
-        else if(option == 2)
-            createRectangle();
-        else if(option == 3)
-            createTriangle();
     }
 
-    //constructor khusus ellipse (1 horizontal, 2 vertical)
-    public Circle(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color, double r, double cpx, double cpy, double ratio, int option)
-    {
-        super(shaderModuleDataList, vertices, color);
-        this.r = r;
-        this.cpx = cpx;
-        this.cpy = cpy;
-
-        //Setup VAO VBO sudah include dalam create()
-        if(option == 1)
-            createHorizontalEllipse(ratio);
-        else if(option == 2)
-            createVerticalEllipse(ratio);
+    public double degToRad(float degree){
+        return (degree * Math.PI / (float) 180);
     }
-
-    public void createCircle()
-    {
-        //clear vertices
+    public void createCircle(){
         vertices.clear();
-
-        for (double i = 0; i < 360; i+=0.01)
-        {
-            x = cpx + r * (float)Math.cos(Math.toRadians(i));
-            y = cpy + r * (float)Math.sin(Math.toRadians(i));
-
-            vertices.add(new Vector3f((float)x, (float)y, 0.0f));
+        for(float i = 0;i<360;i+=0.1){
+            double rad = degToRad(i);
+            Float x = (float) (centerPoint.get(0)+Math.cos(rad)*radiusX);
+            Float y = (float) (centerPoint.get(1)+Math.sin(rad)*radiusY);
+            Float z = 0.0f;
+            vertices.add(new Vector3f(x,y,z));
         }
-//        setupVAOVBO();
     }
-
-    public void createRectangle()
-    {
-        //clear vertices
+    public void createRectangle(){
         vertices.clear();
-
-        for (double i = 45; i < 360; i+=90)
-        {
-            x = cpx + r * (float)Math.cos(Math.toRadians(i));
-            y = cpy + r * (float)Math.sin(Math.toRadians(i));
-
-            x = (double)Math.round(x*100)/100;
-            y = (double)Math.round(y*100)/100;
-            vertices.add(new Vector3f((float)x, (float)y, 0.0f));
+        int degree = 45;
+        for(float i = 0;i<4;i++){
+            double rad = degToRad(degree);
+            Float x = (float) (centerPoint.get(0)+Math.cos(rad)*radiusX);
+            Float y = (float) (centerPoint.get(1)+Math.sin(rad)*radiusY);
+            Float z = 0.0f;
+            vertices.add(new Vector3f(x,y,z));
+            degree+=90;
         }
-//        setupVAOVBO();
     }
-
-    public void createTriangle()
-    {
-        //clear vertices
+    public void createTriangle(){
         vertices.clear();
-
-        for (double i = 90; i < 360; i+=120)
-        {
-            x = cpx + r * (float)Math.cos(Math.toRadians(i));
-            y = cpy + r * (float)Math.sin(Math.toRadians(i));
-
-            x = (double)Math.round(x*100)/100;
-            y = (double)Math.round(y*100)/100;
-            vertices.add(new Vector3f((float)x, (float)y, 0.0f));
+        int degree = 90;
+        for(float i = 0;i<3;i++){
+            double rad = degToRad(degree);
+            Float x = (float) (centerPoint.get(0)+Math.cos(rad)*radiusX);
+            Float y = (float) (centerPoint.get(1)+Math.sin(rad)*radiusY);
+            Float z = 0.0f;
+            vertices.add(new Vector3f(x,y,z));
+            if(degree == 90){
+                degree += 135;
+            }
+            else{
+                degree += 90;
+            }
         }
-//        setupVAOVBO();
     }
-
-    public void createHorizontalEllipse(double yRatio)
-    {
-        vertices.clear();
-
-        for (double i = 0; i < 360; i+=0.01)
-        {
-            x = cpx + r * (float)Math.cos(Math.toRadians(i));
-            y = cpy + r/yRatio * (float)Math.sin(Math.toRadians(i));
-
-            vertices.add(new Vector3f((float)x, (float)y, 0.0f));
-        }
-//        setupVAOVBO();
-    }
-
-    public void createVerticalEllipse(double xRatio)
-    {
-        vertices.clear();
-
-        for (double i = 0; i < 360; i+=0.01)
-        {
-            x = cpx + r/xRatio * (float)Math.cos(Math.toRadians(i));
-            y = cpy + r * (float)Math.sin(Math.toRadians(i));
-
-            vertices.add(new Vector3f((float)x, (float)y, 0.0f));
-        }
-//        setupVAOVBO();
-    }
-
-    public float getCpx()
-    {
-        return (float) cpx;
-    }
-
-    public float getCpy()
-    {
-        return (float) cpy;
-    }
-
-    public void updateCP(double cpx, double cpy)
-    {
-        this.cpx = cpx;
-        this.cpy = cpy;
-        vertices.clear();
-        createRectangle();
-    }
-
-    public void draw()
-    {
-        drawSetup();
-        glLineWidth(1);
-        glPointSize(0);
-        glDrawArrays(GL_POLYGON, 0, vertices.size());
-    }
+//    public void draw(){
+//        drawSetup();
+//        glDrawArrays(GL_TRIANGLE_FAN, 0, vertices.size());
+//    }
 }
