@@ -17,11 +17,12 @@ public class Tiro
     private final Window window = new Window(1000, 1000, "window");
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
+    SkyBoxRenderer skybox = new SkyBoxRenderer(projection.getProjMatrix());
 
     ArrayList<Objects> objects = new ArrayList<>();
     ArrayList<Sphere> spheres = new ArrayList<>();
 
-    float movement= 1f;
+    float movement= 0.01f;
 
     public static void main(String[] args)
     {
@@ -48,7 +49,7 @@ public class Tiro
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),
-                        "resources/objects/bismarck2.obj"
+                        "resources/objects/box2.obj"
                 )
         );
         spheres.get(0).translateObject(0, 0, -1);
@@ -213,6 +214,7 @@ public class Tiro
                 //gambar sekalian child
                 objects.draw(camera, projection);
             }
+            skybox.render(camera);
 
             //Poll for window event
             glDisableVertexAttribArray(0);

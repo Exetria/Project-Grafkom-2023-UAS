@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="okky: ngasi objek">
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Skybox 1/2 jadi - Tiro">
+      <change afterPath="$PROJECT_DIR$/resources/shaders/skybox.frag" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/shaders/skybox.vert" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxShader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/TextureData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SkyBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Okky.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Okky.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/sceneWithVerticesColor.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/sceneWithVerticesColor.vert" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Star.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,19 +52,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Vince/IdeaProjects/Others/PNGDecoder.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vince/IdeaProjects/Others/PNGDecoder.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Exetria-Grafkom-2022-2023\resources" />
@@ -66,16 +78,9 @@
       <recent name="Tugas" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Okky">
+  <component name="RunManager" selected="Application.Tiro">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="untitled" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Okky" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Okky" />
       <module name="untitled" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -103,14 +108,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Okky" />
       <item itemvalue="Application.SkyBox" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Tiro" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Okky" />
         <item itemvalue="Application.Tiro" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.SkyBox" />
@@ -238,14 +241,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687581476369</updated>
     </task>
-    <task id="LOCAL-00017" summary="okky: ngasi objek">
-      <created>1687609668564</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1687609668564</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -280,7 +276,6 @@
     <MESSAGE value="Init2" />
     <MESSAGE value="Init3" />
     <MESSAGE value="Skybox 1/2 jadi - Tiro" />
-    <MESSAGE value="okky: ngasi objek" />
-    <option name="LAST_COMMIT_MESSAGE" value="okky: ngasi objek" />
+    <option name="LAST_COMMIT_MESSAGE" value="Skybox 1/2 jadi - Tiro" />
   </component>
 </project>
