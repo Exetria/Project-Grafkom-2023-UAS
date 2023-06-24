@@ -1,14 +1,6 @@
 package Engine;
-import de.matthiasmann.twl.utils.PNGDecoder;
 import org.joml.Vector3f;
-import org.lwjgl.opengl.GL;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-import org.lwjgl.opengl.GL13;
-
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.nio.file.*;
 import java.util.List;
 

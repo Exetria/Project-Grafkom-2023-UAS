@@ -14,7 +14,8 @@ public class Model {
     public List<Vector2f> lineTextures = new ArrayList<>();
     public List<Face> faces = new ArrayList<>();
 
-    public Model(){
+    public Model()
+    {
 
     }
 }

@@ -24,6 +24,7 @@ public class ObjLoader {
                 float z = Float.parseFloat(line.split("\\s+")[3]);
                 m.vertices.add(new Vector3f(x,y,z));
             }
+
             // Vector Titik Normal (Shading/Lighting)
             else if(line.startsWith("vn "))
             {
@@ -33,12 +34,14 @@ public class ObjLoader {
                 float z = Float.parseFloat(line.split("\\s+")[3]);
                 m.normals.add(new Vector3f(x,y,z));
             }
+
             else if(line.startsWith("vt "))
             {
                 float x = Float.parseFloat(line.split("\\s+")[1]);
                 float y = Float.parseFloat(line.split("\\s+")[2]);
                 m.textures.add(new Vector2f(x, y));
             }
+
             else if(line.startsWith("f "))
             {
 
@@ -56,6 +59,7 @@ public class ObjLoader {
                 );
                 m.faces.add(new Face(vertexIndices, normalIndices));
             }
+
             else if(line.startsWith("l "))
             {
                 float x = Float.parseFloat(line.split("\\s+")[1]);

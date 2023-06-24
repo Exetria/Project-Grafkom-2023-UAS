@@ -1,11 +1,8 @@
 import Engine.*;
-import Engine.Object;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
 
-import java.io.File;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,7 +17,7 @@ public class Main
     Projection projection = new Projection(window.getWidth(), window.getHeight());
 
     ArrayList<Object> objects = new ArrayList<>();
-    ArrayList<Sphere> spheres = new ArrayList<>();
+    ArrayList<Objects> spheres = new ArrayList<>();
 
     float movement= 0.01f;
 
@@ -43,7 +40,7 @@ public class Main
         camera.setPosition(0, 0,  0.5f);
         camera.setRotation((float) Math.toRadians(0f),  (float) Math.toRadians(0f));
 
-        spheres.add(new Sphere
+        spheres.add(new Objects
                 (
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
@@ -121,7 +118,7 @@ public class Main
         {
             if(window.isKeyPressed(GLFW_KEY_U))
             {
-                for (Sphere i: spheres)
+                for (Objects i: spheres)
                 {
                     i.translateObject(0f, 0f, 0.001f);
                 }
@@ -129,7 +126,7 @@ public class Main
 
             if(window.isKeyPressed(GLFW_KEY_O))
             {
-                for (Sphere i: spheres)
+                for (Objects i: spheres)
                 {
                     i.translateObject(0f, 0f, -0.001f);
                 }
@@ -137,7 +134,7 @@ public class Main
 
             if(window.isKeyPressed(GLFW_KEY_I))
             {
-                for (Sphere i: spheres)
+                for (Objects i: spheres)
                 {
                     i.translateObject(0f, 0.001f, 0f);
                 }
@@ -145,7 +142,7 @@ public class Main
 
             if(window.isKeyPressed(GLFW_KEY_K))
             {
-                for (Sphere i: spheres)
+                for (Objects i: spheres)
                 {
                     i.translateObject(0f, -0.001f, 0f);
                 }
@@ -153,7 +150,7 @@ public class Main
 
             if(window.isKeyPressed(GLFW_KEY_J))
             {
-                for (Sphere i: spheres)
+                for (Objects i: spheres)
                 {
                     i.translateObject(-0.001f, 0f, 0f);
                 }
@@ -161,7 +158,7 @@ public class Main
 
             if(window.isKeyPressed(GLFW_KEY_L))
             {
-                for (Sphere i: spheres)
+                for (Objects i: spheres)
                 {
                     i.translateObject(0.001f, 0f, 0f);
                 }
@@ -172,7 +169,7 @@ public class Main
 
         if(window.isKeyPressed(GLFW_KEY_LEFT_SHIFT))
         {
-            for (Sphere i: spheres)
+            for (Objects i: spheres)
             {
                 camera.moveUp(movement);
             }
@@ -180,7 +177,7 @@ public class Main
 
         if(window.isKeyPressed(GLFW_KEY_LEFT_CONTROL))
         {
-            for (Sphere i: spheres)
+            for (Objects i: spheres)
             {
                 camera.moveDown(movement);
             }
@@ -209,7 +206,7 @@ public class Main
 
             //Code
 
-            for (Sphere objects : this.spheres)
+            for (Objects objects : this.spheres)
             {
                 //gambar sekalian child
                 objects.draw(camera, projection);

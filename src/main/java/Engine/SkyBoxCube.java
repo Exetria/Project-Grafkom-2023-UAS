@@ -121,7 +121,7 @@ public class SkyBoxCube extends ShaderProgram
     public void draw(Camera camera, Projection projection)
     {
         drawSetup(camera, projection);
-        glDrawArrays(GL_TRIANGLES, 0, 48);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
 //        glDisableVertexAttribArray(0);
 //        glBindVertexArray(0);
     }
@@ -149,6 +149,7 @@ public class SkyBoxCube extends ShaderProgram
 
     private static int loadCubeMap(String[] textureFileNames)
     {
+        GL.getCapabilities();
         int textureID = GL11.glGenTextures();
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
         GL11.glBindTexture(GL13.GL_TEXTURE_CUBE_MAP, textureID);

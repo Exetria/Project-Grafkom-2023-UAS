@@ -1,5 +1,4 @@
 import Engine.*;
-import Engine.Object;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
@@ -16,12 +15,12 @@ public class Okky {
     private Window window =
             new Window
                     (800,800,"Hello World");
-    private ArrayList<Object> objects
+    private ArrayList<Objects> objects
             = new ArrayList<>();
-    private ArrayList<Object> objectsRectangle
+    private ArrayList<Objects> objectsRectangle
             = new ArrayList<>();
 
-    private ArrayList<Object> objectsPointsControl
+    private ArrayList<Objects> objectsPointsControl
             = new ArrayList<>();
 
     private MouseInput mouseInput;
@@ -62,7 +61,7 @@ public class Okky {
 //            ),
 //            new Vector4f(0.0f,1.0f,1.0f,1.0f)
 //        ));
-//        objects.add(new Object(
+//        objects.add(new Objects(
 //            Arrays.asList(
 //                //shaderFile lokasi menyesuaikan objectnya
 //                new ShaderProgram.ShaderModuleData
@@ -111,7 +110,7 @@ public class Okky {
 //            Arrays.asList(0,1,2,1,2,3)
 //
 //        ));
-//        objectsPointsControl.add(new Object(
+//        objectsPointsControl.add(new Objects(
 //            Arrays.asList(
 //                //shaderFile lokasi menyesuaikan objectnya
 //                new ShaderProgram.ShaderModuleData
@@ -144,7 +143,7 @@ public class Okky {
                                 , GL_FRAGMENT_SHADER)
         );
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnakapal),
@@ -152,7 +151,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\badan.obj"
 
         ));
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnakapal),
@@ -161,7 +160,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnalayar),
@@ -169,7 +168,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\layardepan.obj"
 
         ));
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnalayar),
@@ -178,7 +177,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnalayar),
@@ -187,7 +186,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnamoncong),
@@ -197,7 +196,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnamoncong),
@@ -205,7 +204,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\meriamkiri.obj"
 
         ));
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnamoncong),
@@ -213,7 +212,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\moncong.obj"
 
         ));
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -222,7 +221,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -231,7 +230,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -240,7 +239,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -249,7 +248,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -258,7 +257,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -267,7 +266,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -276,7 +275,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkat),
@@ -284,7 +283,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\tongkatdepan.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkat),
@@ -294,7 +293,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkat),
@@ -303,7 +302,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkatbawah),
@@ -312,7 +311,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkatbawah),
@@ -321,7 +320,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkatbawah),
@@ -330,7 +329,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -339,7 +338,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -348,7 +347,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -357,7 +356,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -366,7 +365,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -376,7 +375,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -385,7 +384,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -395,7 +394,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -404,7 +403,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -412,7 +411,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\pagarkanandepan.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -420,7 +419,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\pagarkiridepan.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -428,7 +427,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\pagarsetir.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -437,7 +436,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -446,7 +445,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -455,7 +454,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -464,7 +463,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(163/255f, 160/255f, 52/255f,1.0f),
@@ -473,7 +472,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -483,7 +482,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -493,7 +492,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -502,7 +501,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -512,7 +511,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatangga),
@@ -521,7 +520,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatangga),
@@ -531,7 +530,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -540,7 +539,7 @@ public class Okky {
 
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -550,7 +549,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -560,7 +559,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -569,7 +568,7 @@ public class Okky {
         ));
 
         // Kitchen Set
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -577,7 +576,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\setirdalam4.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -585,7 +584,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\setir.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -593,7 +592,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\setir1.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -602,7 +601,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -611,7 +610,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -619,7 +618,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\setir4.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -627,7 +626,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\setir5.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -635,7 +634,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\setir6.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -643,7 +642,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\setir7.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -651,7 +650,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\setir8.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -660,7 +659,7 @@ public class Okky {
         ));
 
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -668,7 +667,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\pagarintai3.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -676,7 +675,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\pagarintai4.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -684,7 +683,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\pagarintai5.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -692,7 +691,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\pagarintai6.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -700,7 +699,7 @@ public class Okky {
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\Aset\\okky\\pagarintai7.obj"
         ));
 
-        objects.add(new Sphere(
+        objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnasetir),
@@ -756,13 +755,13 @@ public class Okky {
             input();
 
             //code
-            for(Object object: objects){
+            for(Objects object: objects){
                 object.draw(camera,projection);
             }
-//            for(Object object: objectsRectangle){
+//            for(Objects object: objectsRectangle){
 //                object.draw();
 //            }
-//            for(Object object: objectsPointsControl){
+//            for(Objects object: objectsPointsControl){
 //                object.drawLine();
 //            }
 
