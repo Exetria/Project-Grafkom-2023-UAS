@@ -240,6 +240,7 @@ public class Sphere extends Circle
         //set nbo
         nbo = glGenBuffers();
         ibo = glGenBuffers();
+
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ibo);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER,Utils.listoInt(index),GL_STATIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, nbo);

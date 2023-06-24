@@ -21,7 +21,7 @@ public class Main
     ArrayList<Objects> objects = new ArrayList<>();
     ArrayList<Sphere> spheres = new ArrayList<>();
 
-    float movement= 0.1f;
+    float movement= 0.01f;
 
     public static void main(String[] args)
     {
@@ -48,21 +48,10 @@ public class Main
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),
-                        "C:/Users/Vince/OneDrive/Documents/GitHub/Obj/squidward.obj"
+                        "resources/objects/box1.obj"
                 )
         );
-        spheres.get(0).translateObject(0, 0, -2);
-
-        spheres.add(new Sphere
-                (
-                        Arrays.asList
-                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
-                        new ArrayList<>(),
-                        new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),
-                        "C:/Users/Vince/OneDrive/Documents/GitHub/Obj/testing2.obj"
-                )
-        );
-        spheres.get(0).translateObject(0, 0, 10);
+        spheres.get(0).translateObject(0, 0, -1);
     }
 
     public void input()
