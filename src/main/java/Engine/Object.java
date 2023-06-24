@@ -43,38 +43,14 @@ public class Object extends ShaderProgram{
         return centerPoint;
     }
 
-    public void setCenterPoint(List<Float> centerPoint) {
-        this.centerPoint = centerPoint;
-    }
-
-    List<Vector3f> verticesColor;
-    public Object(List<ShaderModuleData> shaderModuleDataList
-            , List<Vector3f> vertices
-            , Vector4f color) {
+    public Object(List<ShaderModuleData> shaderModuleDataList, List<Vector3f> vertices, Vector4f color) {
         super(shaderModuleDataList);
         this.vertices = vertices;
-//        setupVAOVBO();
         uniformsMap = new UniformsMap(getProgramId());
-//        uniformsMap.createUniform(
-//                "uni_color");
-//        uniformsMap.createUniform(
-//                "model");
-//        uniformsMap.createUniform(
-//                "projection");
-//        uniformsMap.createUniform(
-//                "view");
         this.color = color;
         model = new Matrix4f().identity();
         childObject = new ArrayList<>();
         centerPoint = Arrays.asList(0f,0f,0f);
-    }
-    public Object(List<ShaderModuleData> shaderModuleDataList,
-                  List<Vector3f> vertices,
-                  List<Vector3f> verticesColor) {
-        super(shaderModuleDataList);
-        this.vertices = vertices;
-        this.verticesColor = verticesColor;
-        setupVAOVBOWithVerticesColor();
     }
     public void setupVAOVBO(){
         //set vao
@@ -86,25 +62,6 @@ public class Object extends ShaderProgram{
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glBufferData(GL_ARRAY_BUFFER,
                 Utils.listoFloat(vertices),
-                GL_STATIC_DRAW);
-    }
-    public void setupVAOVBOWithVerticesColor(){
-        //set vao
-        vao = glGenVertexArrays();
-        glBindVertexArray(vao);
-
-        //set vbo
-        vbo = glGenBuffers();
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER,
-                Utils.listoFloat(vertices),
-                GL_STATIC_DRAW);
-
-        //set vboColor
-        vboColor = glGenBuffers();
-        glBindBuffer(GL_ARRAY_BUFFER, vboColor);
-        glBufferData(GL_ARRAY_BUFFER,
-                Utils.listoFloat(verticesColor),
                 GL_STATIC_DRAW);
     }
     public void drawSetup(Camera camera, Projection projection){
@@ -164,33 +121,6 @@ public class Object extends ShaderProgram{
             child.draw(camera,projection);
         }
     }
-    public void drawWithVerticesColor(){
-        drawSetupWithVerticesColor();
-        // Draw the vertices
-        //optional
-        glLineWidth(10); //ketebalan garis
-        glPointSize(10); //besar kecil vertex
-        //wajib
-        //GL_LINES
-        //GL_LINE_STRIP
-        //GL_LINE_LOOP
-        //GL_TRIANGLES
-        //GL_TRIANGLE_FAN
-        //GL_POINT
-        glDrawArrays(GL_TRIANGLES,
-                0,
-                vertices.size());
-    }
-//    public void drawLine(){
-//        drawSetup();
-//        // Draw the vertices
-//        //optional
-//        glLineWidth(1); //ketebalan garis
-//        glPointSize(1); //besar kecil vertex
-//        glDrawArrays(GL_LINE_STRIP,
-//                0,
-//                vertices.size());
-//    }
     public void addVertices(Vector3f newVertices){
         vertices.add(newVertices);
         setupVAOVBO();

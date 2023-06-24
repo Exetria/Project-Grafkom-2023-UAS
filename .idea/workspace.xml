@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Skybox 1/2 jadi - Tiro">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxCube.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/TextureData.java" afterDir="false" />
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Refactor directory asset - Tiro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxCube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxCube.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/TextureData.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +64,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Exetria-Grafkom-2022-2023\resources" />
       <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Exetria-Grafkom-2022-2023\resources\shaders" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Project-Grafkom-2023-UAS\resources\Objects\Tiro" />
+      <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Project-Grafkom-2023-UAS\resources\objects" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -236,19 +240,19 @@
       <option name="project" value="LOCAL" />
       <updated>1687581476369</updated>
     </task>
-    <task id="LOCAL-00017" summary="Skybox 3/4 jadi - Tiro">
-      <created>1687608094997</created>
+    <task id="LOCAL-00017" summary="Skybox - Tiro">
+      <created>1687628608779</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1687608094997</updated>
+      <updated>1687628608779</updated>
     </task>
-    <task id="LOCAL-00018" summary="Skybox 3.5/4 jadi - Tiro">
-      <created>1687610321183</created>
+    <task id="LOCAL-00018" summary="Refactor directory asset - Tiro">
+      <created>1687628831703</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1687610321183</updated>
+      <updated>1687628831703</updated>
     </task>
     <task id="LOCAL-00019" summary="PNG decoder - Tiro">
       <created>1687610445683</created>
@@ -257,7 +261,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687610445683</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -295,6 +299,8 @@
     <MESSAGE value="Skybox 3/4 jadi - Tiro" />
     <MESSAGE value="Skybox 3.5/4 jadi - Tiro" />
     <MESSAGE value="PNG decoder - Tiro" />
-    <option name="LAST_COMMIT_MESSAGE" value="PNG decoder - Tiro" />
+    <MESSAGE value="Skybox - Tiro" />
+    <MESSAGE value="Refactor directory asset - Tiro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor directory asset - Tiro" />
   </component>
 </project>

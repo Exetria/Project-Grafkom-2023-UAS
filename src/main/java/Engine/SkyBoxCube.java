@@ -1,11 +1,13 @@
 package Engine;
 
+import de.matthiasmann.twl.utils.PNGDecoder;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.GL30;
+import org.lwjgl.opengl.*;
 
+import java.io.FileInputStream;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,7 +32,6 @@ public class SkyBoxCube extends ShaderProgram
             {
                     -size,  size, -size,
                     -size, -size, -size,
-
                     size, -size, -size,
                     size, -size, -size,
                     size,  size, -size,
@@ -73,19 +74,19 @@ public class SkyBoxCube extends ShaderProgram
             };
 
     private final static String[] TEXTURE_FILE_NAMES = {"resources/skybox/right.png", "resources/skybox/left.png", "resources/skybox/top.png",
-            "resources/skybox/bottom.png", "resources/skybox/back.png", "resources/skybox/front.png"};
+                                                        "resources/skybox/bottom.png", "resources/skybox/back.png", "resources/skybox/front.png"};
 
     int vao, vbo, texture;
     UniformsMap uniformsMap;
 
-    //constructor 1 warna
     public SkyBoxCube()
     {
-        super(Arrays.asList(new ShaderProgram.ShaderModuleData("resources/shaders/skybox.vert",
-                GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/skybox.frag", GL_FRAGMENT_SHADER)));
-        setupVAOVBO();
-        texture = Utils.loadCubeMap(TEXTURE_FILE_NAMES);
+        super(Arrays.asList(new ShaderProgram.ShaderModuleData("resources/shaders/skybox.vert", GL_VERTEX_SHADER),
+                            new ShaderProgram.ShaderModuleData("resources/shaders/skybox.frag", GL_FRAGMENT_SHADER)));
         uniformsMap = new UniformsMap(getProgramId());
+        setupVAOVBO();
+        texture = loadCubeMap(TEXTURE_FILE_NAMES);
+
     }
 
     public void setupVAOVBO()
@@ -128,4 +129,70 @@ public class SkyBoxCube extends ShaderProgram
         glDisableVertexAttribArray(0);
 //        glBindVertexArray(0);
     }
+    private static TextureData decodeTextureFile(String fileName) {
+        int width = 0;
+        int height = 0;
+        ByteBuffer textureData = null;
+        try {
+            FileInputStream in = new FileInputStream(fileName);
+            PNGDecoder decoder = new PNGDecoder(in);
+            width = decoder.getWidth();
+            height = decoder.getHeight();
+            textureData = ByteBuffer.allocateDirect(4 * width * height);
+            decoder.decode(textureData, width * 4, PNGDecoder.Format.RGBA);
+            textureData.flip();
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Tried to load texture " + fileName + ", didn't work");
+            System.exit(-1);
+        }
+        return new TextureData(textureData, width, height);
+    }
+
+    private static int loadCubeMap(String[] textureFileNames)
+    {
+        GL.createCapabilities();
+        int textureID = GL11.glGenTextures();
+        GL13.glActiveTexture(GL13.GL_TEXTURE0);
+        GL11.glBindTexture(GL13.GL_TEXTURE_CUBE_MAP, textureID);
+
+        for(int i = 0; i < textureFileNames.length; i++)
+        {
+            TextureData data = decodeTextureFile(textureFileNames[i]);
+            GL11.glTexImage2D(GL13.GL_TEXTURE_CUBE_MAP_POSITIVE_X+i, 0, GL11.GL_RGBA, data.getWidth(), data.getHeight(), 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, data.getBuffer());
+        }
+
+        GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
+        GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
+        GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
+        GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
+
+        return textureID;
+    }
 }
+
+class TextureData
+{
+    private int width, height;
+    private ByteBuffer data;
+
+    public TextureData(ByteBuffer data, int width, int height) {
+        this.width = width;
+        this.height = height;
+        this.data = data;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public ByteBuffer getBuffer() {
+        return data;
+    }
+}
+
