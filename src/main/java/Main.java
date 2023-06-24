@@ -1,4 +1,5 @@
 import Engine.*;
+import Engine.Object;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
@@ -18,7 +19,7 @@ public class Main
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
 
-    ArrayList<Objects> objects = new ArrayList<>();
+    ArrayList<Object> objects = new ArrayList<>();
     ArrayList<Sphere> spheres = new ArrayList<>();
 
     float movement= 0.01f;
@@ -47,11 +48,11 @@ public class Main
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
-                        new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),
+                        new Vector4f(1.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
                         "resources/objects/box1.obj"
                 )
         );
-        spheres.get(0).translateObject(0, 0, -1);
+        spheres.get(0).translateObject(0f, 0f, -1f);
     }
 
     public void input()
@@ -122,7 +123,7 @@ public class Main
             {
                 for (Sphere i: spheres)
                 {
-                    i.translateObject(0f, 0, 0.001f);
+                    i.translateObject(0f, 0f, 0.001f);
                 }
             }
 
@@ -130,7 +131,7 @@ public class Main
             {
                 for (Sphere i: spheres)
                 {
-                    i.translateObject(0f, 0, -0.001f);
+                    i.translateObject(0f, 0f, -0.001f);
                 }
             }
 

@@ -1,4 +1,5 @@
 import Engine.*;
+import Engine.Object;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
@@ -17,9 +18,9 @@ public class Tiro
     private final Window window = new Window(1000, 1000, "window");
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
-    SkyBoxRenderer skybox = new SkyBoxRenderer(projection.getProjMatrix());
 
-    ArrayList<Objects> objects = new ArrayList<>();
+    SkyBoxCube skybox;
+    ArrayList<Object> objects = new ArrayList<>();
     ArrayList<Sphere> spheres = new ArrayList<>();
 
     float movement= 0.01f;
@@ -43,16 +44,18 @@ public class Tiro
         camera.setPosition(0, 0,  0.5f);
         camera.setRotation((float) Math.toRadians(0f),  (float) Math.toRadians(0f));
 
+        skybox = new SkyBoxCube();
+
         spheres.add(new Sphere
                 (
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
-                        new Vector4f(1.0f, 0.0f, 0.0f, 1.0f),
+                        new Vector4f(1.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
                         "resources/objects/box2.obj"
                 )
         );
-        spheres.get(0).translateObject(0, 0, -1);
+        spheres.get(0).translateObject(0f, 0f, -1f);
     }
 
     public void input()
@@ -123,7 +126,7 @@ public class Tiro
             {
                 for (Sphere i: spheres)
                 {
-                    i.translateObject(0f, 0, 0.001f);
+                    i.translateObject(0f, 0f, 0.001f);
                 }
             }
 
@@ -131,7 +134,7 @@ public class Tiro
             {
                 for (Sphere i: spheres)
                 {
-                    i.translateObject(0f, 0, -0.001f);
+                    i.translateObject(0f, 0f, -0.001f);
                 }
             }
 
@@ -208,13 +211,12 @@ public class Tiro
             GL.createCapabilities();
 
             //Code
-
             for (Sphere objects : this.spheres)
             {
                 //gambar sekalian child
                 objects.draw(camera, projection);
             }
-            skybox.render(camera);
+            skybox.draw(camera, projection);
 
             //Poll for window event
             glDisableVertexAttribArray(0);
