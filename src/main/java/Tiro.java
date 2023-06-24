@@ -5,6 +5,7 @@ import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
 
 import java.io.File;
+import java.nio.ByteBuffer;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +53,7 @@ public class Tiro
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(1.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
-                        "resources/objects/box2.obj"
+                        "resources/objects/Tiro/smallBox.obj"
                 )
         );
         spheres.get(0).translateObject(0f, 0f, -1f);
@@ -224,5 +225,29 @@ public class Tiro
 
             input();
         }
+    }
+}
+
+class TextureData
+{
+    private int width, height;
+    private ByteBuffer data;
+
+    public TextureData(ByteBuffer data, int width, int height) {
+        this.width = width;
+        this.height = height;
+        this.data = data;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public ByteBuffer getBuffer() {
+        return data;
     }
 }

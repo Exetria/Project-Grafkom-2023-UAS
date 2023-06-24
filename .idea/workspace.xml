@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Refactor directory asset - Tiro">
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Remake SkyBoxCube - Tiro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/skybox.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/skybox.vert" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxCube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxCube.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/TextureData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +64,8 @@
       <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Exetria-Grafkom-2022-2023\resources\shaders" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Project-Grafkom-2023-UAS\resources\objects\Clement" />
+      <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Project-Grafkom-2023-UAS\resources\objects\Tiro" />
       <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Project-Grafkom-2023-UAS\resources\Objects\Tiro" />
       <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Project-Grafkom-2023-UAS\resources\objects" />
     </key>
@@ -254,14 +254,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687628831703</updated>
     </task>
-    <task id="LOCAL-00019" summary="PNG decoder - Tiro">
-      <created>1687610445683</created>
+    <task id="LOCAL-00019" summary="Remake SkyBoxCube - Tiro">
+      <created>1687631432412</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1687610445683</updated>
+      <updated>1687631432412</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00020" summary="Remake SkyBoxCube - Tiro">
+      <created>1687631612779</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1687631612779</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -301,6 +308,7 @@
     <MESSAGE value="PNG decoder - Tiro" />
     <MESSAGE value="Skybox - Tiro" />
     <MESSAGE value="Refactor directory asset - Tiro" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor directory asset - Tiro" />
+    <MESSAGE value="Remake SkyBoxCube - Tiro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remake SkyBoxCube - Tiro" />
   </component>
 </project>
