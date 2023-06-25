@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="air - Tiro">
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="air-finish - Tiro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/objects/Tiro/ocean.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/objects/Tiro/ocean.obj" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,13 +293,25 @@
       <option name="project" value="LOCAL" />
       <updated>1687673549129</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="air-finish - Tiro">
+      <created>1687677607166</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1687677607166</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.obj" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="bbf7dc36-f601-4998-80ae-9b90e835feb4" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -309,11 +319,35 @@
             <State />
           </value>
         </entry>
+        <entry key="bbf7dc36-f601-4998-80ae-9b90e835feb4">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/Users/Vince/OneDrive/Documents/GitHub/Project-Grafkom-2023-UAS/resources/objects/Tiro" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tugas week3 bagian rumah selesai" />
     <MESSAGE value="Tugas week 3 tinggal bintang" />
     <MESSAGE value="Tugas week 3 SELESAI" />
     <MESSAGE value="Tugas Week III - smape kotak bisa spawn + collision detection" />
@@ -338,6 +372,7 @@
     <MESSAGE value="SkyBoxCube selesai - Tiro" />
     <MESSAGE value="Overhaul class - Tiro" />
     <MESSAGE value="air - Tiro" />
-    <option name="LAST_COMMIT_MESSAGE" value="air - Tiro" />
+    <MESSAGE value="air-finish - Tiro" />
+    <option name="LAST_COMMIT_MESSAGE" value="air-finish - Tiro" />
   </component>
 </project>
