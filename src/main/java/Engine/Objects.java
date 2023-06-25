@@ -139,7 +139,8 @@ public class Objects extends ShaderProgram
         setupVAOVBO();
     }
 
-    public void drawSetup(Camera camera, Projection projection){
+    public void drawSetup(Camera camera, Projection projection)
+    {
         bind();
         uniformsMap.setUniform("uni_color", color);
         uniformsMap.setUniform("model", model);
@@ -157,8 +158,8 @@ public class Objects extends ShaderProgram
         glVertexAttribPointer(1, 3, GL_FLOAT, false, 0, 0);
 
         //kirim direction ke shader
-        uniformsMap.setUniform("dirLight.direction", new Vector3f(-1f,-.5f,-0.0f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.05f,0.05f,0.05f));
+        uniformsMap.setUniform("dirLight.direction", new Vector3f(-0f,-1f,-0.0f));
+        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f,0.4f,0.4f));
         uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f,0.5f));
 
