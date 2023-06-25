@@ -52,14 +52,13 @@ public class Okky {
         glDepthRange(0.0f, 0.5f);
 
         skybox =new SkyBoxCube();
-        pos=false;
-        lurus=0.0f;
+        pos=true;
         belok=0.0f;
         temp=new Vector3f(0.0f, 2.5f, -2.25f);
 
         mouseInput = window.getMouseInput();
-        camera.setPosition(0,0,1.0f);
-        camera.setRotation((float)Math.toRadians(0.0f),(float)Math.toRadians(30.0f));
+        camera.setPosition(posx,posy,posz);
+        camera.setRotation(0,roty);
         //code
 //        objects.add(new Object2d(
 //            Arrays.asList(
@@ -798,7 +797,6 @@ public class Okky {
             }
             camera.rotateTowardsPoint(0.0f,(float)Math.toRadians(-0.1),0,0,0);
             belok=belok+0.1f;
-            lurus=lurus+0.1f;
             posx=camera.getPosition().x();
             posy=camera.getPosition().y();
             posz=camera.getPosition().z();
@@ -811,7 +809,6 @@ public class Okky {
             }
             camera.rotateTowardsPoint(0.0f,(float)Math.toRadians(0.1),0,0,0);
             belok=belok-0.1f;
-            lurus=lurus-0.1f;
             posx=camera.getPosition().x();
             posy=camera.getPosition().y();
             posz=camera.getPosition().z();
@@ -821,9 +818,17 @@ public class Okky {
         if (window.isKeyPressed(GLFW_KEY_UP)) {
 
             for (Objects i : objects) {
-                i.translateObject((float)Math.sin(Math.toRadians(lurus))*-0.01f, 0.0f, (float)Math.cos(Math.toRadians(lurus))*0.01f);
+                i.translateObject((float)Math.sin(Math.toRadians(belok))*-0.01f, 0.0f, (float)Math.cos(Math.toRadians(belok))*0.01f);
             }
-            camera.moveForward(move);
+            if(!pos){
+                camera.setRotation(0,roty);
+                camera.moveForward(move);
+                camera.setRotation((float)Math.toRadians(30),roty);
+            }
+            else{
+                camera.moveForward(move);
+            }
+
             posx=camera.getPosition().x();
             posy=camera.getPosition().y();
             posz=camera.getPosition().z();
@@ -834,9 +839,17 @@ public class Okky {
 
         if (window.isKeyPressed(GLFW_KEY_DOWN)) {
             for(Objects i: objects){
-                i.translateObject((float)Math.sin(Math.toRadians(lurus))*0.01f,0.0f,-(float)Math.cos(Math.toRadians(lurus))*0.01f);
+                i.translateObject((float)Math.sin(Math.toRadians(belok))*0.01f,0.0f,-(float)Math.cos(Math.toRadians(belok))*0.01f);
             }
-            camera.moveBackwards(move);
+            if(!pos){
+                camera.setRotation(0,roty);
+                camera.moveBackwards(move);
+                camera.setRotation((float)Math.toRadians(30),roty);
+            }
+            else{
+                camera.moveBackwards(move);
+            }
+
             posx=camera.getPosition().x();
             posy=camera.getPosition().y();
             posz=camera.getPosition().z();
@@ -844,15 +857,57 @@ public class Okky {
             roty=camera.getRotation().y();
         }
 
-        if (window.isKeyPressed(GLFW_KEY_X)) {
-            camera.setPosition(posx,posy,posz);
-            camera.setRotation(rotx,roty);
+        if(!pos){
+            if (window.isKeyPressed(GLFW_KEY_Q)) {
+                camera.rotateTowardsPoint(0.0f, (float)Math.toRadians(1.0f),0,0,1);
+
+                posx=camera.getPosition().x();
+                posy=camera.getPosition().y();
+                posz=camera.getPosition().z();
+            }
+            if (window.isKeyPressed(GLFW_KEY_E)) {
+                camera.rotateTowardsPoint(0.0f, -(float)Math.toRadians(1.0f),0,0,1);
+
+                posx=camera.getPosition().x();
+                posy=camera.getPosition().y();
+                posz=camera.getPosition().z();
+            }
         }
+
+        if (window.isKeyPressed(GLFW_KEY_X)) {
+            if(!pos){
+                posx=posx-5*(float)Math.sin(Math.toRadians(belok));
+                posy-=5;
+                posz=posz+5*(float)Math.cos(Math.toRadians(belok));
+                camera.setPosition(posx,posy,posz);
+            }
+            else{
+                camera.setPosition(posx,posy,posz);
+            }
+
+            pos=true;
+            camera.setRotation(0,roty);
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_Z)) {
+            if (pos) {
+                posx = (posx + 5 * (float) Math.sin(Math.toRadians(belok)));
+                posy += 5;
+                posz = posz - 5 * (float) Math.cos(Math.toRadians(belok));
+                camera.setPosition(posx, posy, posz);
+            } else {
+                camera.setPosition(posx, posy, posz);
+            }
+            pos = false;
+            camera.setRotation((float)Math.toRadians(30),roty);
+        }
+
+
+
+
         if (window.isKeyPressed(GLFW_KEY_SPACE)) {
             objects.get(objects.size()-1).rotateObjectOnPoint(0.5f,0f,1f,0f);
         }
-
-
 
     }
     public void loop(){
