@@ -1,0 +1,55 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,13 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Refactor directory asset - Tiro">
++    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Init">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Object.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxCube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxCube.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/TextureData.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Utils.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Clement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Clement.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -77,7 +73,14 @@
+       <recent name="Tugas" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.Tiro">
++  <component name="RunManager" selected="Application.Clement">
++    <configuration name="Clement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="Clement" />
++      <module name="Project-Grafkom-2023-UAS" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="Main" />
+       <module name="untitled" />
+@@ -107,12 +110,14 @@
+       </method>
+     </configuration>
+     <list>
++      <item itemvalue="Application.Clement" />
+       <item itemvalue="Application.SkyBox" />
+       <item itemvalue="Application.Main" />
+       <item itemvalue="Application.Tiro" />
+     </list>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.Clement" />
+         <item itemvalue="Application.Tiro" />
+         <item itemvalue="Application.SkyBox" />
+         <item itemvalue="Application.Main" />

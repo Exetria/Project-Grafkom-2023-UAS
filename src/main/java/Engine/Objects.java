@@ -20,7 +20,7 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class Objects extends ShaderProgram
 {
-    int vao, vbo, nbo, pick, texture;
+    int vao, vbo, nbo;
 
     String path;
     UniformsMap uniformsMap;
@@ -61,15 +61,30 @@ public class Objects extends ShaderProgram
             child.translateObject(offsetX,offsetY,offsetZ);
         }
     }
+
     public void rotateObject(Float degree, Float x,Float y,Float z)
     {
-        model = new Matrix4f().rotate(degree,x,y,z).mul(new Matrix4f(model));
+        model = new Matrix4f().rotate((float) Math.toRadians(degree),x,y,z).mul(new Matrix4f(model));
         updateCenterPoint();
         for(Objects child:childObject)
         {
             child.rotateObject(degree,x,y,z);
         }
     }
+
+    public void rotateObjectOnPoint(Float degree, Float x,Float y,Float z)
+    {
+        Vector3f temp = new Vector3f(getCenterPoint().get(0), getCenterPoint().get(1), getCenterPoint().get(2));
+        translateObject(-temp.x, -temp.y, -temp.z);
+        model = new Matrix4f().rotate((float) Math.toRadians(degree),x,y,z).mul(new Matrix4f(model));
+        updateCenterPoint();
+        for(Objects child:childObject)
+        {
+            child.rotateObject(degree,x,y,z);
+        }
+        translateObject(temp.x, temp.y, temp.z);
+    }
+
     public void scaleObject(Float scaleX,Float scaleY,Float scaleZ)
     {
         model = new Matrix4f().scale(scaleX,scaleY,scaleZ).mul(new Matrix4f(model));
@@ -172,7 +187,7 @@ public class Objects extends ShaderProgram
         //kirim posisi light dan config light ke shader
         uniformsMap.setUniform("spotLight.position",camera.getPosition());
         uniformsMap.setUniform("spotLight.direction",camera.getDirection());
-        uniformsMap.setUniform("spotLight.ambient",new Vector3f(0.0f,0.0f,0.0f));
+        uniformsMap.setUniform("spotLight.ambient",new Vector3f(1f, 1f, 1f));
         uniformsMap.setUniform("spotLight.diffuse",new Vector3f(1.0f,1.0f,1.0f));
         uniformsMap.setUniform("spotLight.specular",new Vector3f(1.0f,1.0f,1.0f));
         uniformsMap.setUniform("spotLight.constant",1.0f);
