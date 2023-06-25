@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="air-finish - Tiro">
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/BismarckNoGun.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/BismarckNoGun.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/body.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/body.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/fence.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/fence.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/gun.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/gun.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/secondaryGun.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/secondaryGun.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2023_2_38_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2023_2_38_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2023_2_38_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2023_2_38_AM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/banDalamMobil.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/banDalamMobil.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/banMobil.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/banMobil.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/senjataMobil.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/objects/Clement/senjataMobil.mtl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/senjataMobil.obj" beforeDir="false" afterPath="$PROJECT_DIR$/resources/objects/Clement/senjataMobil.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Clement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Clement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Okky.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Okky.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Tiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,19 +50,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Vince/OneDrive/Documents/GitHub/Project-Grafkom-2023-UAS",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propGUI"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vince/OneDrive/Documents/GitHub/Project-Grafkom-2023-UAS&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propGUI&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Vince\OneDrive\Documents\GitHub\Exetria-Grafkom-2022-2023\resources" />
@@ -82,7 +79,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Clement">
     <configuration name="Clement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Clement" />
       <module name="Project-Grafkom-2023-UAS" />
@@ -139,8 +136,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Clement" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TugasWeekXIII" />
         <item itemvalue="Application.TugasWeekXII" />

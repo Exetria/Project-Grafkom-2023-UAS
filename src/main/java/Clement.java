@@ -1,5 +1,6 @@
 import Engine.*;
 import org.joml.Vector2f;
+import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
 
@@ -14,10 +15,13 @@ public class Clement
 {
     private final Window window = new Window(1920, 1080, "window");
     Camera camera = new Camera();
+
+
     Projection projection = new Projection(window.getWidth(), window.getHeight());
 
     SkyBoxCube skybox;
     ArrayList<Objects> spheres = new ArrayList<>();
+    ArrayList<Objects> objects = new ArrayList<>();
 
     boolean cameraMode = true;
     float movement= 0.1f;
@@ -44,6 +48,18 @@ public class Clement
 
         skybox = new SkyBoxCube();
 
+//        objects.add(new Objects
+//                (
+//                        Arrays.asList
+//                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+//                        new ArrayList<>(),
+//                        new Vector4f(0.0f, 0.0f, 1f, 1.0f), new ArrayList<>(),
+//                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Tiro\\ocean.obj"
+//                )
+//        );
+//
+//        objects.get(0).translateObject(0f,-1f,0f);
+
         spheres.add(new Objects
                 (
                         Arrays.asList
@@ -54,27 +70,29 @@ public class Clement
                 )
         );
 
-        spheres.add(new Objects
-                (
-                        Arrays.asList
-                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
-                        new ArrayList<>(),
-                        new Vector4f(0.5f, 0.52f, 0.53f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banDalamMobil.obj"
-                )
-        );
-
-        spheres.add(new Objects
+        spheres.get(0).getChildObject().add(new Objects
                 (
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(0.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banMobil.obj"
+                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banMobilDepan.obj"
                 )
         );
+        spheres.get(0).getChildObject().get(0).translateObject(1.03f,-0.64f,3.35f);
 
-        spheres.add(new Objects
+        spheres.get(0).getChildObject().add(new Objects
+                (
+                        Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                        new ArrayList<>(),
+                        new Vector4f(0.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
+                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banMobilBelakang.obj"
+                )
+        );
+        spheres.get(0).getChildObject().get(1).translateObject(1.03f,-0.64f,0.17f);
+
+        spheres.get(0).getChildObject().add(new Objects
                 (
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
@@ -84,17 +102,17 @@ public class Clement
                 )
         );
 
-        spheres.add(new Objects
+        spheres.get(0).getChildObject().add(new Objects
                 (
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(1.0f, 1.0f, 1.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\objectWarnaPutih.obj"
+                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\kacaMobil.obj"
                 )
         );
 
-        spheres.add(new Objects
+        spheres.get(0).getChildObject().add(new Objects
                 (
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
@@ -104,7 +122,7 @@ public class Clement
                 )
         );
 
-        spheres.add(new Objects
+        spheres.get(0).getChildObject().add(new Objects
                 (
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
@@ -114,15 +132,43 @@ public class Clement
                 )
         );
 
-        spheres.add(new Objects
+        spheres.get(0).getChildObject().add(new Objects
                 (
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
-                        new Vector4f(0.0f, 1.0f, 0.0f, 1.0f), new ArrayList<>(),
+                        new Vector4f(0.98f, 0.8f, 0.64f, 1.0f), new ArrayList<>(),
                         "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\senjataMobil.obj"
                 )
         );
+
+        spheres.get(0).getChildObject().get(6).translateObject(1.05f,0.9f,1.2f);
+
+        spheres.get(0).getChildObject().add(new Objects
+                (
+                        Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                        new ArrayList<>(),
+                        new Vector4f(1.0f, 1.0f, 1.0f, 1.0f), new ArrayList<>(),
+                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\lampuMobil.obj"
+                )
+        );
+
+//        objects.add(new Objects
+//                (
+//                        Arrays.asList
+//                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+//                        new ArrayList<>(),
+//                        new Vector4f(0.0f, 0.0f, 1.0f, 1.0f), new ArrayList<>(),
+//                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Tiro\\ocean.obj"
+//                )
+//        );
+//
+//        objects.get(0).translateObject(0f,-1f,0f);
+
+
+
+
 
 
     }
@@ -199,6 +245,8 @@ public class Clement
             }
         }
 
+
+
         //================================================================================
 
         //ARROWS BUAT ROTATE CAMERA
@@ -232,7 +280,9 @@ public class Clement
             {
                 for (Objects i: spheres)
                 {
-                    i.translateObject(0f, 0f, 0.001f);
+                    i.translateObject(0f, 0f, 0.01f);
+                    spheres.get(0).getChildObject().get(0).rotateObjectOnPoint(0.3f,1f,0f,0f);
+                    spheres.get(0).getChildObject().get(1).rotateObjectOnPoint(0.3f,1f,0f,0f);
                 }
             }
 
@@ -240,7 +290,9 @@ public class Clement
             {
                 for (Objects i: spheres)
                 {
-                    i.translateObject(0f, 0f, -0.001f);
+                    i.translateObject(0f, 0f, -0.01f);
+                    spheres.get(0).getChildObject().get(0).rotateObjectOnPoint(0.3f,-1f,0f,0f);
+                    spheres.get(0).getChildObject().get(1).rotateObjectOnPoint(0.3f,-1f,0f,0f);
                 }
             }
 
@@ -248,7 +300,7 @@ public class Clement
             {
                 for (Objects i: spheres)
                 {
-                    i.translateObject(0f, 0.001f, 0f);
+                    i.translateObject(0f, 0.1f, 0f);
                 }
             }
 
@@ -256,7 +308,7 @@ public class Clement
             {
                 for (Objects i: spheres)
                 {
-                    i.translateObject(0f, -0.001f, 0f);
+                    i.translateObject(0f, -0.1f, 0f);
                 }
             }
 
@@ -264,7 +316,7 @@ public class Clement
             {
                 for (Objects i: spheres)
                 {
-                    i.translateObject(-0.001f, 0f, 0f);
+                    i.translateObject(-0.1f, 0f, 0f);
                 }
             }
 
@@ -272,13 +324,18 @@ public class Clement
             {
                 for (Objects i: spheres)
                 {
-                    i.translateObject(0.001f, 0f, 0f);
+                    i.translateObject(0.1f, 0f, 0f);
                 }
             }
 
-            if (window.isKeyPressed(GLFW_KEY_E))
+            if (window.isKeyPressed(GLFW_KEY_N))
             {
+                spheres.get(0).getChildObject().get(6).rotateObjectOnPoint(0.1f,0f,-1f,0f);
+            }
 
+            if (window.isKeyPressed(GLFW_KEY_M))
+            {
+                spheres.get(0).getChildObject().get(6).rotateObjectOnPoint(0.1f,0f,1f,0f);
             }
         }
 
@@ -304,6 +361,21 @@ public class Clement
             }
         }
 
+//        if(window.isKeyPressed(GLFW_KEY_Y))
+//        {
+//            for (Objects i: spheres)
+//            {
+//                i.translateObject(0f,0f,0.1f);
+//            }
+//        }
+//
+//        if(window.isKeyPressed(GLFW_KEY_H))
+//        {
+//            for (Objects i: spheres)
+//            {
+//                i.translateObject(0f,0f,-0.1f);
+//            }
+//        }
         if(window.isKeyPressed(GLFW_KEY_LEFT_CONTROL))
         {
             for (Objects i: spheres)
@@ -323,6 +395,7 @@ public class Clement
             projection.setFOV(projection.getFOV() - (window.getMouseInput().getScroll().y * 0.01f));
             window.getMouseInput().setScroll(new Vector2f());
         }
+        camera.printPos();
     }
 
     public void loop()
@@ -336,6 +409,12 @@ public class Clement
 
             //Code
             for (Objects objects : this.spheres)
+            {
+                //gambar sekalian child
+                objects.draw(camera, projection);
+            }
+
+            for (Objects objects : this.objects)
             {
                 //gambar sekalian child
                 objects.draw(camera, projection);
