@@ -121,7 +121,7 @@ public class SkyBoxCube extends ShaderProgram
     public void draw(Camera camera, Projection projection)
     {
         drawSetup(camera, projection);
-        glDrawArrays(GL_TRIANGLES, 0, 48);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
 //        glDisableVertexAttribArray(0);
 //        glBindVertexArray(0);
     }

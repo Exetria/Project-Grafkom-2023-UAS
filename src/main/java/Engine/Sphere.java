@@ -246,10 +246,10 @@ public class Sphere extends Circle{
                 false,
                 0, 0);
         //directional Light
-        uniformsMap.setUniform("dirLight.direction", new Vector3f(-1f,-.5f,-0.0f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.05f,0.05f,0.05f));
-        uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f,0.4f,0.4f));
-        uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("dirLight.direction", new Vector3f(0.5f,-0.5f,0.5f));
+        uniformsMap.setUniform("dirLight.ambient", new Vector3f(1.0f,1.0f,1.0f));
+        uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("dirLight.specular", new Vector3f(0.8f,0.8f,0.8f));
         //posisi pointLight
         Vector3f[] _pointLightPositions = {
             new Vector3f(6.751f, -7.0331f, 3.1479f),
@@ -272,8 +272,8 @@ public class Sphere extends Circle{
         uniformsMap.setUniform("spotLight.position",camera.getPosition());
         uniformsMap.setUniform("spotLight.direction",camera.getDirection());
         uniformsMap.setUniform("spotLight.ambient",new Vector3f(0.0f,0.0f,0.0f));
-        uniformsMap.setUniform("spotLight.diffuse",new Vector3f(1.0f,1.0f,1.0f));
-        uniformsMap.setUniform("spotLight.specular",new Vector3f(1.0f,1.0f,1.0f));
+        uniformsMap.setUniform("spotLight.diffuse",new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("spotLight.specular",new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("spotLight.constant",1.0f);
         uniformsMap.setUniform("spotLight.linear",0.09f);
         uniformsMap.setUniform("spotLight.quadratic",0.032f);
