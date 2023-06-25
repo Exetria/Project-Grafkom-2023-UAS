@@ -53,7 +53,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(0.98f, 0.83f, 0.64f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\badanMobil.obj"
+                        "resources\\objects\\Clement\\badanMobil.obj"
                 )
         );
 
@@ -63,7 +63,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(0.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banDepanMobil.obj"
+                        "resources\\objects\\Clement\\banDepanMobil.obj"
                 )
         );
         spheres.get(0).getChildObject().get(0).translateObject(1.03f,-0.64f,3.35f);
@@ -74,7 +74,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(0.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banBelakangMobil.obj"
+                        "resources\\objects\\Clement\\banBelakangMobil.obj"
                 )
         );
         spheres.get(0).getChildObject().get(1).translateObject(1.03f,-0.64f,0.17f);
@@ -85,7 +85,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(0.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\objectWarnaHitam.obj"
+                        "resources\\objects\\Clement\\objectWarnaHitam.obj"
                 )
         );
 
@@ -95,7 +95,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(1.0f, 1.0f, 1.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\kacaMobil.obj"
+                        "resources\\objects\\Clement\\kacaMobil.obj"
                 )
         );
 
@@ -105,7 +105,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(1.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\lampuMerah.obj"
+                        "resources\\objects\\Clement\\lampuMerah.obj"
                 )
         );
 
@@ -115,7 +115,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(1.0f, 0.45f, 0.09f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\lampuOrange.obj"
+                        "resources\\objects\\Clement\\lampuOrange.obj"
                 )
         );
 
@@ -125,7 +125,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(0.98f, 0.8f, 0.64f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\senjataMobil.obj"
+                        "resources\\objects\\Clement\\senjataMobil.obj"
                 )
         );
 
@@ -137,7 +137,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(1.0f, 1.0f, 1.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\lampuMobil.obj"
+                        "resources\\objects\\Clement\\lampuMobil.obj"
                 )
         );
 
@@ -146,12 +146,13 @@ public class Clement
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
-                        new Vector4f(0.0f, 0.0f, 1.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Tiro\\ocean.obj"
+                        new Vector4f(1.0f, 1.0f, 1.0f, 1.0f), new ArrayList<>(),
+                        "resources\\objects\\Tiro\\box2.obj"
                 )
         );
 
-        objects.get(0).translateObject(0f,-1f,0f);
+        objects.get(0).translateObject(0f,-3f,0f);
+        objects.get(0).scaleObject(10f, 0.1f, 10f);
 
 
 
