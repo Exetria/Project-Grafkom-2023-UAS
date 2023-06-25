@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="light Progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Clement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/sceneWithVerticesColor.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/sceneWithVerticesColor.vert" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +72,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Clement">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Clement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Clement" />
       <module name="Project-Grafkom-2023-UAS" />
@@ -127,8 +129,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Clement" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Clement" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TugasWeekXIII" />
         <item itemvalue="Application.TugasWeekXII" />

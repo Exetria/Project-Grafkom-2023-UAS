@@ -156,8 +156,20 @@ public class Main
                             "resources/objects/Tiro/fence.obj"
                     )
             );
+
+            objects.add(new Objects
+                (
+                        Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                        new ArrayList<>(),
+                        new Vector4f(0.1f, 0.1f, 0.1f, 1.0f), new ArrayList<>(),
+                        "resources/objects/Tiro/box1.obj"
+                )
+            );
         }
         objects.get(0).translateObject(-100f, 0f, -100f);
+//        objects.get(0).rotateObject(90f, 0f, 1f, 0f);
+        objects.get(1).translateObject(-100f, 0f, 200f);
 
         //FABIAN OKKY D. S.
         //C14210196
@@ -281,14 +293,14 @@ public class Main
             );
             environment.get(9).translateObject(-160f, 0f, -160f);
 
-            environment.add(new Objects
-                    (
-                            Arrays.asList
-                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
-                            environment.get(1)
-                    )
-            );
-            environment.get(9).translateObject(320f, 0f, 0f);
+//            environment.add(new Objects
+//                    (
+//                            Arrays.asList
+//                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+//                            environment.get(1)
+//                    )
+//            );
+//            environment.get(9).translateObject(320f, 0f, 0f);
         }
     }
 
@@ -401,48 +413,54 @@ public class Main
             {
                 for (Objects i: objects)
                 {
-                    i.translateObject(0f, 0f, movement);
+//                    i.translateObject(0f, 0f, movement, objects);
                 }
+                objects.get(0).translateObject(0f, 0f, movement, objects);
             }
 
             if(window.isKeyPressed(GLFW_KEY_O))
             {
                 for (Objects i: objects)
                 {
-                    i.translateObject(0f, 0f, -movement);
+//                    i.translateObject(0f, 0f, -movement, objects);
                 }
+                objects.get(0).translateObject(0f, 0f, -movement, objects);
             }
 
             if(window.isKeyPressed(GLFW_KEY_I))
             {
                 for (Objects i: objects)
                 {
-                    i.translateObject(0f, movement, 0f);
+//                    i.translateObject(0f, movement, 0f, objects);
                 }
+                objects.get(0).translateObject(0f, movement, 0f, objects);
             }
 
             if(window.isKeyPressed(GLFW_KEY_K))
             {
                 for (Objects i: objects)
                 {
-                    i.translateObject(0f, -movement, 0f);
+//                    i.translateObject(0f, -movement, 0f, objects);
                 }
+                objects.get(0).translateObject(0f, -movement, 0f, objects);
             }
 
             if(window.isKeyPressed(GLFW_KEY_J))
             {
                 for (Objects i: objects)
                 {
-                    i.translateObject(-movement, 0f, 0f);
+//                    i.translateObject(-movement, 0f, 0f, objects);
                 }
+                objects.get(0).translateObject(-movement, 0f, 0f, objects);
             }
 
             if(window.isKeyPressed(GLFW_KEY_L))
             {
                 for (Objects i: objects)
                 {
-                    i.translateObject(movement, 0f, 0f);
+//                    i.translateObject(movement, 0f, 0f, objects);
                 }
+                objects.get(0).translateObject(movement, 0f, 0f, objects);
             }
         }
 
