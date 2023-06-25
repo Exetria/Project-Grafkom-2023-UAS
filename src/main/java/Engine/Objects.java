@@ -13,21 +13,23 @@ import java.util.List;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL15.GL_STATIC_DRAW;
-import static org.lwjgl.opengl.GL20.glEnableVertexAttribArray;
-import static org.lwjgl.opengl.GL20.glVertexAttribPointer;
+import static org.lwjgl.opengl.GL20.*;
+import static org.lwjgl.opengl.GL20.GL_FRAGMENT_SHADER;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class Objects extends ShaderProgram
 {
+    boolean collision;
     int vao, vbo, nbo;
 
     String path;
     UniformsMap uniformsMap;
+    Vector3f positiveBorder, negativeBorder;
     Vector4f color;
     Matrix4f model;
 
-    List<Vector3f> vertices;
+    List<Vector3f> vertices, waypoints;
     List<Vector3f> normal;
     List<Objects> childObject;
     List<Float> centerPoint;
@@ -46,13 +48,33 @@ public class Objects extends ShaderProgram
         childObject = new ArrayList<>();
         centerPoint = Arrays.asList(0f,0f,0f);
 
+        positiveBorder = new Vector3f(0, 0, 0);
+        negativeBorder = new Vector3f(0, 0, 0);
+
         loadObject();
+
+        updateBorders();
 
         setupVAOVBO();
     }
 
     //translate, rotate dan scale object
-    public void translateObject(Float offsetX,Float offsetY,Float offsetZ)
+    public void translateObject(Float offsetX, Float offsetY, Float offsetZ)
+    {
+        model = new Matrix4f().translate(offsetX,offsetY,offsetZ).mul(new Matrix4f(model));
+        updateCenterPoint();
+        positiveBorder.x += offsetX;
+        positiveBorder.y += offsetY;
+        positiveBorder.z += offsetZ;
+        negativeBorder.x += offsetX;
+        negativeBorder.y += offsetY;
+        negativeBorder.z += offsetZ;
+        for(Objects child:childObject)
+        {
+            child.translateObject(offsetX,offsetY,offsetZ);
+        }
+    }
+    public void translateObject(Float offsetX,Float offsetY,Float offsetZ, List<Objects> otherObjects)
     {
         model = new Matrix4f().translate(offsetX,offsetY,offsetZ).mul(new Matrix4f(model));
         updateCenterPoint();
@@ -60,18 +82,88 @@ public class Objects extends ShaderProgram
         {
             child.translateObject(offsetX,offsetY,offsetZ);
         }
-    }
 
-    public void rotateObject(Float degree, Float x,Float y,Float z)
+        positiveBorder.x += offsetX;
+        positiveBorder.y += offsetY;
+        positiveBorder.z += offsetZ;
+        negativeBorder.x += offsetX;
+        negativeBorder.y += offsetY;
+        negativeBorder.z += offsetZ;
+
+//        System.out.println(positiveBorder.x + " " + positiveBorder.y + " " + positiveBorder.z);
+//        System.out.println(negativeBorder.x + " " + negativeBorder.y + " " + negativeBorder.z);
+
+        for(Objects i: otherObjects)
+        {
+            System.out.println(i.positiveBorder.x + " " + i.positiveBorder.y + " " + i.positiveBorder.z);
+            System.out.println(i.negativeBorder.x + " " + i.negativeBorder.y + " " + i.negativeBorder.z);
+
+            System.out.println(positiveBorder.x + " " + positiveBorder.y + " " + positiveBorder.z);
+            System.out.println(negativeBorder.x + " " + negativeBorder.y + " " + negativeBorder.z);
+            System.out.println();
+            for(Vector3f j: vertices)
+            {
+//                if((positiveBorder.x <= i.positiveBorder.x && negativeBorder.x >= i.negativeBorder.x) && (positiveBorder.y <= i.positiveBorder.y && negativeBorder.y >= i.negativeBorder.y) && (positiveBorder.z <= i.positiveBorder.z && negativeBorder.z >= i.negativeBorder.z))
+                if((j.x <= i.positiveBorder.x && j.x >= i.negativeBorder.x) && (j.y <= i.positiveBorder.y && j.y >= i.negativeBorder.y))
+                {
+                    collision = true;
+                    break;
+                }
+                else if((j.x <= i.positiveBorder.x && j.x >= i.negativeBorder.x) && (j.z <= i.positiveBorder.z && j.z >= i.negativeBorder.z))
+                {
+                    collision = true;
+                    break;
+                }
+                else if((j.y <= i.positiveBorder.y && j.y >= i.negativeBorder.y) && (j.z <= i.positiveBorder.z && j.z >= i.negativeBorder.z))
+                {
+                    collision = true;
+                    break;
+                }
+            }
+            if(collision)
+                break;
+        }
+
+        if(collision)
+        {
+            model = new Matrix4f().translate(-offsetX,-offsetY,-offsetZ).mul(new Matrix4f(model));
+            updateCenterPoint();
+            for(Objects child:childObject)
+            {
+                child.translateObject(offsetX,offsetY,offsetZ);
+            }
+            positiveBorder.x += -offsetX;
+            positiveBorder.y += -offsetY;
+            positiveBorder.z += -offsetZ;
+            negativeBorder.x += -offsetX;
+            negativeBorder.y += -offsetY;
+            negativeBorder.z += -offsetZ;
+        }
+        System.out.println(collision);
+        System.out.println();
+        collision = false;
+    }
+    public void rotateObjects(Float degree, Float x, Float y, Float z)
     {
         model = new Matrix4f().rotate((float) Math.toRadians(degree),x,y,z).mul(new Matrix4f(model));
         updateCenterPoint();
         for(Objects child:childObject)
         {
-            child.rotateObject(degree,x,y,z);
+            child.rotateObjects(degree,x,y,z);
         }
     }
-
+    public void rotateObject(Float degree, Float x,Float y,Float z)
+    {
+        if(!collision)
+        {
+            model = new Matrix4f().rotate((float) Math.toRadians(degree),x,y,z).mul(new Matrix4f(model));
+            updateCenterPoint();
+            for(Objects child:childObject)
+            {
+                child.rotateObjects(degree,x,y,z);
+            }
+        }
+    }
     public void rotateObjectOnPoint(Float degree, Float x,Float y,Float z)
     {
         Vector3f temp = new Vector3f(getCenterPoint().get(0), getCenterPoint().get(1), getCenterPoint().get(2));
@@ -84,14 +176,68 @@ public class Objects extends ShaderProgram
         }
         translateObject(temp.x, temp.y, temp.z);
     }
-
+    public void rotateObjectOnPoint(Float degree, Float x,Float y,Float z, List<Objects> otherObjects)
+    {
+        Vector3f temp = new Vector3f(getCenterPoint().get(0), getCenterPoint().get(1), getCenterPoint().get(2));
+        translateObject(-temp.x, -temp.y, -temp.z, otherObjects);
+        model = new Matrix4f().rotate((float) Math.toRadians(degree),x,y,z).mul(new Matrix4f(model));
+        updateCenterPoint();
+        for(Objects child:childObject)
+        {
+            child.rotateObject(degree,x,y,z);
+        }
+        translateObject(temp.x, temp.y, temp.z, otherObjects);
+    }
     public void scaleObject(Float scaleX,Float scaleY,Float scaleZ)
     {
         model = new Matrix4f().scale(scaleX,scaleY,scaleZ).mul(new Matrix4f(model));
         for(Objects child:childObject)
         {
-            child.translateObject(scaleX,scaleY,scaleZ);
+            child.scaleObject(scaleX,scaleY,scaleZ);
         }
+    }
+
+    public boolean moveToNextPoint(ArrayList<Vector3f> waypoints)
+    {
+        if(waypoints.size() != 0)
+        {
+            float diffX, diffY, diffZ;
+            diffX = (waypoints.get(0).x - getCenterPoint().get(0));
+            diffY = (waypoints.get(0).y - getCenterPoint().get(1));
+            diffZ = (waypoints.get(0).z - getCenterPoint().get(2));
+            translateObject(diffX, diffY, diffZ);
+            waypoints.remove(0);
+            return true;
+        }
+        else
+        {
+            vertices.clear();
+            return true;
+        }
+    }
+
+    public ArrayList<Vector3f> generateBezierPoints(float firstX, float firstY, float firstZ, float secondX, float secondY, float secondZ, float thirdX, float thirdY, float thirdZ)
+    {
+        ArrayList<Vector3f> result = new ArrayList<>();
+        float newX, newY, newZ;
+        for(double i = 0; i <=1; i+= 0.005)
+        {
+            newX = (float) ((Math.pow((1-i), 2) * firstX) + (2 * (1-i) * i * secondX) + (Math.pow(i, 2) * thirdX));
+            newY = (float) ((Math.pow((1-i), 2) * firstY) + (2 * (1-i) * i * secondY) + (Math.pow(i, 2) * thirdY));
+            newZ = (float) ((Math.pow((1-i), 2) * firstZ) + (2 * (1-i) * i * secondZ) + (Math.pow(i, 2) * thirdZ));
+            result.add(new Vector3f(newX, newY, newZ));
+        }
+
+//        childObject.add(new Objects(
+//                Arrays.asList
+//                        (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+//                new ArrayList<>(),
+//                new Vector4f(66/255f, 80/255f, 93/255f, 1.0f), new ArrayList<>(),
+//                "resources/objects/Tiro/shell.obj"
+//                )
+//        );
+        waypoints = new ArrayList<>(result);
+        return result;
     }
 
     public void loadObject()
@@ -130,6 +276,73 @@ public class Objects extends ShaderProgram
         nbo = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, nbo);
         glBufferData(GL_ARRAY_BUFFER, Utils.listoFloat(normal), GL_STATIC_DRAW);
+    }
+
+    public void updateBorders()
+    {
+        for(Vector3f i: vertices)
+        {
+            if(positiveBorder.x < i.x)
+            {
+                positiveBorder.x = i.x;
+            }
+            if(negativeBorder.x > i.x)
+            {
+                positiveBorder.x = i.x;
+            }
+
+            if(positiveBorder.y < i.y)
+            {
+                positiveBorder.y = i.y;
+            }
+            if(negativeBorder.y > i.y)
+            {
+                positiveBorder.y = i.y;
+            }
+
+            if(positiveBorder.z < i.z)
+            {
+                positiveBorder.z = i.z;
+            }
+            if(negativeBorder.z > i.z)
+            {
+                positiveBorder.z = i.z;
+            }
+        }
+        for(Objects obj: childObject)
+        {
+            for(Vector3f i: obj.vertices)
+            {
+                if(positiveBorder.x < i.x)
+                {
+                    positiveBorder.x = i.x;
+                }
+                if(negativeBorder.x > i.x)
+                {
+                    positiveBorder.x = i.x;
+                }
+
+                if(positiveBorder.y < i.y)
+                {
+                    positiveBorder.y = i.y;
+                }
+                if(negativeBorder.y > i.y)
+                {
+                    positiveBorder.y = i.y;
+                }
+
+                if(positiveBorder.z < i.z)
+                {
+                    positiveBorder.z = i.z;
+                }
+                if(negativeBorder.z > i.z)
+                {
+                    positiveBorder.z = i.z;
+                }
+            }
+        }
+//        System.out.println(positiveBorder.x + " " + positiveBorder.y + " " + positiveBorder.z);
+//        System.out.println(negativeBorder.x + " " + negativeBorder.y + " " + negativeBorder.z);
     }
 
     public void addVertices(Vector3f newVertices)
