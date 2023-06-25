@@ -50,9 +50,10 @@ public class Tiro
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(0.7f, 0.7f, 0.7f, 1.0f), new ArrayList<>(),
-                        "resources/objects/Tiro/bismarck2.obj"
+                        "resources/objects/Tiro/BismarckNoGun.obj"
                 )
         );
+        spheres.get(0).scaleObject(0.5f, 0.5f, 0.5f);
 
         spheres.add(new Objects
                 (

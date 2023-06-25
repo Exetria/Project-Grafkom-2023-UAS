@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Init">
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="air-finish - Tiro">
+      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/BismarckNoGun.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/BismarckNoGun.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/body.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/body.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/fence.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/fence.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/gun.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/gun.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/secondaryGun.mtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/secondaryGun.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2023_2_38_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2023_2_38_AM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2023_2_38_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2023_2_38_AM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Clement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +59,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Clement/Intellij/grafkom2022Tugas2",
+    "last_opened_file_path": "C:/Users/Vince/OneDrive/Documents/GitHub/Project-Grafkom-2023-UAS",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -70,7 +82,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Clement">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Clement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Clement" />
       <module name="Project-Grafkom-2023-UAS" />
@@ -85,15 +97,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TugasWeekXI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Tugas.TugasWeekXI" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="untitled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tugas.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,19 +131,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Test" />
       <item itemvalue="Application.Clement" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.TugasWeekXIII" />
       <item itemvalue="Application.TugasWeekXII" />
-      <item itemvalue="Application.TugasWeekXI" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Clement" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TugasWeekXIII" />
         <item itemvalue="Application.TugasWeekXII" />
-        <item itemvalue="Application.TugasWeekXI" />
       </list>
     </recent_temporary>
   </component>
