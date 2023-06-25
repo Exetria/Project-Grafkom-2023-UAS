@@ -12,15 +12,15 @@ import static org.lwjgl.opengl.GL20.*;
 
 public class Tiro
 {
-    private final Window window = new Window(1000, 1000, "window");
+    private final Window window = new Window(1920, 1080, "window");
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
 
     SkyBoxCube skybox;
-    ArrayList<Object> objects = new ArrayList<>();
     ArrayList<Objects> spheres = new ArrayList<>();
 
-    float movement= 0.01f;
+    boolean cameraMode = true;
+    float movement= 0.1f;
 
     public static void main(String[] args)
     {
@@ -38,8 +38,9 @@ public class Tiro
         window.init();
         GL.createCapabilities();
         glEnable(GL_DEPTH_TEST);
-        camera.setPosition(0, 0,  0.5f);
-        camera.setRotation((float) Math.toRadians(0f),  (float) Math.toRadians(0f));
+//        camera.setPosition(0, 40,  -60f);
+        camera.setPosition(0, 0f,0f);
+//        camera.setRotation((float) Math.toRadians(25f),  (float) Math.toRadians(180f));
 
         skybox = new SkyBoxCube();
 
@@ -48,45 +49,93 @@ public class Tiro
                         Arrays.asList
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
-                        new Vector4f(1.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
+                        new Vector4f(0.7f, 0.7f, 0.7f, 1.0f), new ArrayList<>(),
                         "resources/objects/Tiro/smallBox.obj"
                 )
         );
         spheres.get(0).translateObject(0f, 0f, -1f);
+
+        spheres.add(new Objects
+                (
+                        Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                        new ArrayList<>(),
+                        new Vector4f(50/255f, 130/255f, 140/255f, 1.0f), new ArrayList<>(),
+                        "resources/objects/Tiro/airBanyak.obj"
+                )
+        );
+        spheres.get(1).translateObject(0f, -10f, 0f);
     }
 
     public void input()
     {
         //WASDQE BUAT ROTATE ATAU TRANSLATE CAMERA
         {
-            if(window.isKeyPressed(GLFW_KEY_Q))
+            if(cameraMode)
             {
-                camera.moveDown(movement);
-            }
+                if(window.isKeyPressed(GLFW_KEY_Q))
+                {
+                    camera.moveDown(movement);
+                }
 
-            if(window.isKeyPressed(GLFW_KEY_E))
-            {
-                camera.moveUp(movement);
-            }
+                if(window.isKeyPressed(GLFW_KEY_E))
+                {
+                    camera.moveUp(movement);
+                }
 
-            if(window.isKeyPressed(GLFW_KEY_W))
-            {
-                camera.moveForward(movement);
-            }
+                if(window.isKeyPressed(GLFW_KEY_W))
+                {
+                    camera.moveForward(movement);
+                }
 
-            if(window.isKeyPressed(GLFW_KEY_S))
-            {
-                camera.moveBackwards(movement);
-            }
+                if(window.isKeyPressed(GLFW_KEY_S))
+                {
+                    camera.moveBackwards(movement);
+                }
 
-            if(window.isKeyPressed(GLFW_KEY_A))
-            {
-                camera.moveLeft(movement);
-            }
+                if(window.isKeyPressed(GLFW_KEY_A))
+                {
+                    camera.moveLeft(movement);
+                }
 
-            if(window.isKeyPressed(GLFW_KEY_D))
+                if(window.isKeyPressed(GLFW_KEY_D))
+                {
+                    camera.moveRight(movement);
+                }
+            }
+            else
             {
-                camera.moveRight(movement);
+                if(window.isKeyPressed(GLFW_KEY_Q))
+                {
+                    camera.moveUp(movement);
+                }
+
+                if(window.isKeyPressed(GLFW_KEY_E))
+                {
+                    camera.moveUp(movement);
+                }
+
+                if(window.isKeyPressed(GLFW_KEY_W))
+                {
+                    camera.moveForward(movement);
+                }
+
+                if(window.isKeyPressed(GLFW_KEY_S))
+                {
+                    camera.moveBackwards(movement);
+                }
+
+                if(window.isKeyPressed(GLFW_KEY_A))
+                {
+                    camera.moveLeft(movement);
+                    camera.rotateTowardsPoint(0, -0.01f, spheres.get(0).getCenterPoint().get(0), spheres.get(0).getCenterPoint().get(1), spheres.get(0).getCenterPoint().get(2));
+                }
+
+                if(window.isKeyPressed(GLFW_KEY_D))
+                {
+                    camera.moveRight(movement);
+                    camera.rotateTowardsPoint(0, 0.01f, spheres.get(0).getCenterPoint().get(0), spheres.get(0).getCenterPoint().get(1), spheres.get(0).getCenterPoint().get(2));
+                }
             }
         }
 
@@ -170,6 +219,18 @@ public class Tiro
 
         //================================================================================
 
+        if(window.isKeyPressed(GLFW_KEY_F))
+        {
+            cameraMode = false;
+            System.out.println("Alternative Camera Mode!");
+        }
+
+        if(window.isKeyPressed(GLFW_KEY_G))
+        {
+            cameraMode = true;
+            System.out.println("Normal Mode");
+        }
+
         if(window.isKeyPressed(GLFW_KEY_LEFT_SHIFT))
         {
             for (Objects i: spheres)
@@ -191,6 +252,7 @@ public class Tiro
             Vector2f displayVector = window.getMouseInput().getDisplVec();
             camera.addRotation((float) Math.toRadians(displayVector.x * 0.1f), (float) Math.toRadians(displayVector.y * 0.1f));
         }
+
         if(window.getMouseInput().getScroll().y != 0)
         {
             projection.setFOV(projection.getFOV() - (window.getMouseInput().getScroll().y * 0.01f));

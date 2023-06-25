@@ -16,7 +16,7 @@ public class Main
     Camera camera = new Camera();
     Projection projection = new Projection(window.getWidth(), window.getHeight());
 
-    ArrayList<Object> objects = new ArrayList<>();
+    SkyBoxCube skybox;
     ArrayList<Objects> spheres = new ArrayList<>();
 
     float movement= 0.01f;
@@ -39,7 +39,7 @@ public class Main
         glEnable(GL_DEPTH_TEST);
         camera.setPosition(0, 0,  0.5f);
         camera.setRotation((float) Math.toRadians(0f),  (float) Math.toRadians(0f));
-
+        skybox = new SkyBoxCube();
         spheres.add(new Objects
                 (
                         Arrays.asList
@@ -205,12 +205,12 @@ public class Main
             GL.createCapabilities();
 
             //Code
-
             for (Objects objects : this.spheres)
             {
                 //gambar sekalian child
                 objects.draw(camera, projection);
             }
+            skybox.draw(camera, projection);
 
             //Poll for window event
             glDisableVertexAttribArray(0);

@@ -95,26 +95,9 @@ public class Objects extends ShaderProgram
             e.printStackTrace();
         }
 
-        for (Face face : model.faces)
-        {
-            Vector3f n1 = model.normals.get((int) face.normal.x - 1);
-            normal.add(n1);
-
-            Vector3f v1 = model.vertices.get((int) face.vertex.x - 1);
-            vertices.add(v1);
-
-            Vector3f n2 = model.normals.get((int) face.normal.y - 1);
-            normal.add(n2);
-
-            Vector3f v2 = model.vertices.get((int) face.vertex.y - 1);
-            vertices.add(v2);
-
-            Vector3f n3 = model.normals.get((int) face.normal.z - 1);
-            normal.add(n3);
-
-            Vector3f v3 = model.vertices.get((int) face.vertex.z - 1);
-            vertices.add(v3);
-        }
+        model.sortVertex();
+        vertices = model.sortedVertices;
+        normal = model.sortedNormals;
     }
 
     public void setupVAOVBO()
@@ -177,7 +160,7 @@ public class Objects extends ShaderProgram
         for(int i = 0;i< _pointLightPositions.length;i++)
         {
             uniformsMap.setUniform("pointLights["+ i +"].position",_pointLightPositions[i]);
-            uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(0.5f,0.5f,0.05f));
+            uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(1f,1f,1f));
             uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.8f,0.8f,0.8f));
             uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(1.0f,1.0f,1.0f));
             uniformsMap.setUniform("pointLights["+ i +"].constant",1.0f );
@@ -225,7 +208,6 @@ public class Objects extends ShaderProgram
         centerPoint.set(0,destTemp.x);
         centerPoint.set(1,destTemp.y);
         centerPoint.set(2,destTemp.z);
-        System.out.println(centerPoint.get(0) + " " + centerPoint.get(1));
     }
 
     //getter center point object
