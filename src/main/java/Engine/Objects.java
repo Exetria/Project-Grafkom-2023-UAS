@@ -58,6 +58,25 @@ public class Objects extends ShaderProgram
         setupVAOVBO();
     }
 
+    public Objects(List<ShaderModuleData> shaderModuleDataListObjects, Objects otherObject)
+    {
+        super(shaderModuleDataListObjects);
+        this.path = otherObject.path;
+        this.uniformsMap = new UniformsMap(getProgramId());
+        this.color = new Vector4f(otherObject.color);
+        model = new Matrix4f().identity();
+
+        this.vertices = new ArrayList<>(otherObject.vertices);
+        this.normal = new ArrayList<>(otherObject.normal);
+        childObject = new ArrayList<>();
+        centerPoint = otherObject.centerPoint;
+
+        positiveBorder = new Vector3f(otherObject.positiveBorder);
+        negativeBorder = new Vector3f(otherObject.negativeBorder);
+
+        setupVAOVBO();
+    }
+
     //translate, rotate dan scale object
     public void translateObject(Float offsetX, Float offsetY, Float offsetZ)
     {

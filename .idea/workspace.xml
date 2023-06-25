@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="pulau - Tiro">
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/shell.mtl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/objects/Tiro/shell.obj" afterDir="false" />
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="bezier - Tiro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/box2.obj" beforeDir="false" afterPath="$PROJECT_DIR$/resources/objects/Tiro/box2.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.frag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +71,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Tiro">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Clement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Clement" />
       <module name="Project-Grafkom-2023-UAS" />
@@ -85,7 +81,7 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Project-Grafkom-2023-UAS" />
+      <module name="untitled" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,11 +116,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Tiro" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Okky" />
         <item itemvalue="Application.Clement" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687696693542</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="bezier - Tiro">
+      <created>1687712062015</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1687712062015</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -283,6 +286,7 @@
     <MESSAGE value="Init" />
     <MESSAGE value="rotateOnPoint balik - Tiro" />
     <MESSAGE value="pulau - Tiro" />
-    <option name="LAST_COMMIT_MESSAGE" value="pulau - Tiro" />
+    <MESSAGE value="bezier - Tiro" />
+    <option name="LAST_COMMIT_MESSAGE" value="bezier - Tiro" />
   </component>
 </project>
