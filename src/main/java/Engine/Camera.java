@@ -53,6 +53,10 @@ public class Camera {
         recalculate();
     }
 
+    public void printPos(Camera camera) {
+        System.out.println(camera.getPosition());
+    }
+
     public Vector3f getDirection() {
         return direction;
     }

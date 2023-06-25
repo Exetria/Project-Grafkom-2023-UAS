@@ -16,7 +16,6 @@ public class Clement
     private final Window window = new Window(1920, 1080, "window");
     Camera camera = new Camera();
 
-
     Projection projection = new Projection(window.getWidth(), window.getHeight());
 
     SkyBoxCube skybox;
@@ -47,18 +46,6 @@ public class Clement
 //        camera.setRotation((float) Math.toRadians(25f),  (float) Math.toRadians(180f));
 
         skybox = new SkyBoxCube();
-
-//        objects.add(new Objects
-//                (
-//                        Arrays.asList
-//                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
-//                        new ArrayList<>(),
-//                        new Vector4f(0.0f, 0.0f, 1f, 1.0f), new ArrayList<>(),
-//                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Tiro\\ocean.obj"
-//                )
-//        );
-//
-//        objects.get(0).translateObject(0f,-1f,0f);
 
         spheres.add(new Objects
                 (
@@ -154,17 +141,19 @@ public class Clement
                 )
         );
 
-//        objects.add(new Objects
-//                (
-//                        Arrays.asList
-//                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
-//                        new ArrayList<>(),
-//                        new Vector4f(0.0f, 0.0f, 1.0f, 1.0f), new ArrayList<>(),
-//                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Tiro\\ocean.obj"
-//                )
-//        );
-//
-//        objects.get(0).translateObject(0f,-1f,0f);
+        objects.add(new Objects
+                (
+                        Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                        new ArrayList<>(),
+                        new Vector4f(0.0f, 0.0f, 1.0f, 1.0f), new ArrayList<>(),
+                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Tiro\\ocean.obj"
+                )
+        );
+
+        objects.get(0).translateObject(0f,-1f,0f);
+
+
 
 
 
@@ -418,6 +407,7 @@ public class Clement
                 //gambar sekalian child
                 objects.draw(camera, projection);
             }
+
             skybox.draw(camera, projection);
 
             //Poll for window event
