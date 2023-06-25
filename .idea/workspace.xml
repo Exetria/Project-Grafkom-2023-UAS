@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="Object Clement">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxCube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/SkyBoxCube.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" afterDir="false" />
+    <list default="true" id="60e28a64-9ee6-4424-aa5f-24ae422e8416" name="Changes" comment="Object Clement">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/ban.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Clement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Clement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Sphere.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +77,7 @@
       <recent name="Tugas" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Clement">
+  <component name="RunManager" selected="Application.Okky">
     <configuration name="Clement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Clement" />
       <module name="Project-Grafkom-2023-UAS" />
@@ -86,6 +88,13 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="untitled" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Okky" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Okky" />
+      <module name="Project-Grafkom-2023-UAS" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,6 +121,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Okky" />
       <item itemvalue="Application.Clement" />
       <item itemvalue="Application.SkyBox" />
       <item itemvalue="Application.Main" />
@@ -119,6 +129,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Okky" />
         <item itemvalue="Application.Clement" />
         <item itemvalue="Application.Tiro" />
         <item itemvalue="Application.SkyBox" />
