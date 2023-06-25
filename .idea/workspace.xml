@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="air - Tiro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/objects/Tiro/ocean.mtl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/objects/Tiro/ocean.obj" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
