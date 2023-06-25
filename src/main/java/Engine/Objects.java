@@ -348,10 +348,10 @@ public class Objects extends ShaderProgram
         glVertexAttribPointer(1, 3, GL_FLOAT, false, 0, 0);
 
         //kirim direction ke shader
-        uniformsMap.setUniform("dirLight.direction", new Vector3f(0f,-1f,0f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.5f,0f,0.5f));
-        uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f,0.4f,0.4f));
-        uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("dirLight.direction", new Vector3f(0f, 0f, 0f));
+        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.f,0.f,0.f));
+        uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.f,0.f,0.4f));
+        uniformsMap.setUniform("dirLight.specular", new Vector3f(0.f,0.f,0.5f));
 
         //posisi point light
         Vector3f[] _pointLightPositions =
@@ -368,15 +368,15 @@ public class Objects extends ShaderProgram
         uniformsMap.setUniform("pointLights["+ i +"].position",_pointLightPositions[i]);
         uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(0.0f,0.0f,0.0f));
         uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.8f,0.8f,0.8f));
-        uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(1.0f,1.0f,1.0f));
-        uniformsMap.setUniform("pointLights["+ i +"].constant",1.0f );
-        uniformsMap.setUniform("pointLights["+ i +"].linear", 0.09f);
-        uniformsMap.setUniform("pointLights["+ i +"].quadratic", 0.032f);
+        uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(0, 0, 0f));
+        uniformsMap.setUniform("pointLights["+ i +"].constant",0);
+        uniformsMap.setUniform("pointLights["+ i +"].linear", 0.0f);
+        uniformsMap.setUniform("pointLights["+ i +"].quadratic", 0f);
         }
 
         //kirim posisi light dan config light ke shader
-        uniformsMap.setUniform("spotLight.position",camera.getPosition());
-        uniformsMap.setUniform("spotLight.direction",camera.getDirection());
+        uniformsMap.setUniform("spotLight.position",new Vector3f(getCenterPoint().get(0)-1, getCenterPoint().get(1), getCenterPoint().get(2)-1));
+        uniformsMap.setUniform("spotLight.direction",new Vector3f(0, 0, 2));
         uniformsMap.setUniform("spotLight.ambient",new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("spotLight.diffuse",new Vector3f(1.0f,1.0f,1.0f));
         uniformsMap.setUniform("spotLight.specular",new Vector3f(1.0f,1.0f,1.0f));

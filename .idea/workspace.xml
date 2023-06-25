@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="obj">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/Lighting.java" afterDir="false" />
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="ocean2 - Tiro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Clement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Clement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" afterDir="false" />
@@ -252,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687727170479</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="ocean2 - Tiro">
+      <created>1687734366829</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1687734366829</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -286,6 +292,7 @@
     <MESSAGE value="Init" />
     <MESSAGE value="light Progress" />
     <MESSAGE value="obj" />
-    <option name="LAST_COMMIT_MESSAGE" value="obj" />
+    <MESSAGE value="ocean2 - Tiro" />
+    <option name="LAST_COMMIT_MESSAGE" value="ocean2 - Tiro" />
   </component>
 </project>

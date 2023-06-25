@@ -23,7 +23,7 @@ public class Clement
     ArrayList<Objects> objects = new ArrayList<>();
 
     boolean cameraMode = true;
-    float movement= 0.1f;
+    float movement= 0.01f;
 
     public static void main(String[] args)
     {
@@ -42,7 +42,7 @@ public class Clement
         GL.createCapabilities();
         glEnable(GL_DEPTH_TEST);
 //        camera.setPosition(0, 40,  -60f);
-        camera.setPosition(0, 0f,0f);
+        camera.setPosition(0f, 0f,0f);
 //        camera.setRotation((float) Math.toRadians(25f),  (float) Math.toRadians(180f));
 
         skybox = new SkyBoxCube();
@@ -151,7 +151,7 @@ public class Clement
                 )
         );
 
-        objects.get(0).translateObject(0f,-3f,0f);
+        objects.get(0).translateObject(0f,-15f,0f);
         objects.get(0).scaleObject(10f, 0.1f, 10f);
 
 
