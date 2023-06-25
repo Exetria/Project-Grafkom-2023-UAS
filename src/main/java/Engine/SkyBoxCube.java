@@ -78,7 +78,6 @@ public class SkyBoxCube extends ShaderProgram
                 new ShaderProgram.ShaderModuleData("resources/shaders/skybox.frag", GL_FRAGMENT_SHADER)));
         uniformsMap = new UniformsMap(getProgramId());
         textureId = loadCubeMap(TEXTURE_FILE_NAMES);
-        System.out.println(textureId);
         setupVAOVBO();
     }
 
@@ -140,15 +139,15 @@ public class SkyBoxCube extends ShaderProgram
             in.close();
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("Tried to load texture " + fileName + ", didn't work");
+            System.err.println(fileName + " salah");
             System.exit(-1);
         }
-//        System.out.println(fileName + " w " + width + " h " + height);
         return new TextureData(textureData, width, height);
     }
 
     private static int loadCubeMap(String[] textureFileNames)
     {
+        GL.getCapabilities();
         int textureID = GL11.glGenTextures();
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
         GL11.glBindTexture(GL13.GL_TEXTURE_CUBE_MAP, textureID);
