@@ -150,6 +150,7 @@ public class Okky {
         Vector4f warnatongkat = new Vector4f(0f, 0f, 1f, 1.f);
         Vector4f warnatongkatbawah = new Vector4f(1f, 107/255f, 196/255f, 1.f);
         Vector4f warnatangga = new Vector4f(121/255f, 124/255f, 132/255f, 1.f);
+        Vector4f warnakayu = new Vector4f(102/255f, 51/255f, 0/255f, 1.f);
 
 
         List<ShaderProgram.ShaderModuleData> shader = Arrays.asList(
@@ -166,7 +167,7 @@ public class Okky {
         objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnakapal),
+                new Vector4f(warnakayu),
                 new ArrayList<>(),
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\badan.obj"
 
@@ -256,7 +257,7 @@ public class Okky {
         objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnakayu),
                 new ArrayList<>(),
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayarbelakang1.obj"
 
@@ -266,7 +267,7 @@ public class Okky {
         objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnakayu),
                 new ArrayList<>(),
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayarbelakang2.obj"
 
@@ -276,7 +277,7 @@ public class Okky {
         objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnakayu),
                 new ArrayList<>(),
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayardepan1.obj"
 
@@ -286,7 +287,7 @@ public class Okky {
         objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnakayu),
                 new ArrayList<>(),
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayardepan2.obj"
 
@@ -296,7 +297,7 @@ public class Okky {
         objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnakayu),
                 new ArrayList<>(),
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayartengah1.obj"
 
@@ -306,7 +307,7 @@ public class Okky {
         objects.add(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnakayu),
                 new ArrayList<>(),
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayartengah2.obj"
 
@@ -749,6 +750,13 @@ public class Okky {
                 new ArrayList<>(),
                 "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarintai8.obj"
         ));
+        objects.add(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnakayu),
+                new ArrayList<>(),
+                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\speaker.obj"
+        ));
 
     }
     public void input(){
@@ -786,7 +794,7 @@ public class Okky {
         }
         if (window.isKeyPressed(GLFW_KEY_RIGHT)) {
             for(Objects i: objects){
-                i.rotateObject((float)Math.toRadians(0.1),0.0f,-1f,0.0f);
+                i.rotateObject(0.1f,0.0f,-1f,0.0f);
             }
             camera.rotateTowardsPoint(0.0f,(float)Math.toRadians(-0.1),0,0,0);
             belok=belok+0.1f;
@@ -799,7 +807,7 @@ public class Okky {
         }
         if (window.isKeyPressed(GLFW_KEY_LEFT)) {
             for(Objects i: objects){
-                i.rotateObject((float)Math.toRadians(0.1),0.0f,1f,0.0f);
+                i.rotateObject(0.1f,0.0f,1f,0.0f);
             }
             camera.rotateTowardsPoint(0.0f,(float)Math.toRadians(0.1),0,0,0);
             belok=belok-0.1f;
@@ -839,6 +847,9 @@ public class Okky {
         if (window.isKeyPressed(GLFW_KEY_X)) {
             camera.setPosition(posx,posy,posz);
             camera.setRotation(rotx,roty);
+        }
+        if (window.isKeyPressed(GLFW_KEY_SPACE)) {
+            objects.get(objects.size()-1).rotateObjectOnPoint(0.5f,0f,1f,0f);
         }
 
 
