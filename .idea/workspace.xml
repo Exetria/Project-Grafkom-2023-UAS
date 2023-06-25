@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="air-finish - Tiro">
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="light Progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/banDalamMobil.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/banDalamMobil.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/banMobil.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/banMobil.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/senjataMobil.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/resources/objects/Clement/senjataMobil.mtl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/objects/Clement/senjataMobil.obj" beforeDir="false" afterPath="$PROJECT_DIR$/resources/objects/Clement/senjataMobil.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Clement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Clement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Okky.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Okky.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tiro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687509964500</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="light Progress">
+      <created>1687727170479</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1687727170479</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -283,6 +281,7 @@
     <MESSAGE value="Week 13 - tinggal normal masih kacau" />
     <MESSAGE value="Week 14 - Multiple lighting kelas" />
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="light Progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="light Progress" />
   </component>
 </project>

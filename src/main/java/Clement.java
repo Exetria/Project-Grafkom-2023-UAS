@@ -76,7 +76,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(0.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banMobilDepan.obj"
+                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banDepanMobil.obj"
                 )
         );
         spheres.get(0).getChildObject().get(0).translateObject(1.03f,-0.64f,3.35f);
@@ -87,7 +87,7 @@ public class Clement
                                 (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                         new ArrayList<>(),
                         new Vector4f(0.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
-                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banMobilBelakang.obj"
+                        "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banBelakangMobil.obj"
                 )
         );
         spheres.get(0).getChildObject().get(1).translateObject(1.03f,-0.64f,0.17f);
@@ -395,7 +395,6 @@ public class Clement
             projection.setFOV(projection.getFOV() - (window.getMouseInput().getScroll().y * 0.01f));
             window.getMouseInput().setScroll(new Vector2f());
         }
-        camera.printPos();
     }
 
     public void loop()
