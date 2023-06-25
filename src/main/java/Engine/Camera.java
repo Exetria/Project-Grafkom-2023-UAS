@@ -87,9 +87,18 @@ public class Camera {
         recalculate();
     }
 
+    public void setPosition(Vector3f temp) {
+        position.set(temp);
+        recalculate();
+    }
+
     public void setRotation(float x, float y) {
         rotation.set(x, y);
         recalculate();
+    }
+
+    public Vector2f getRotation() {
+        return rotation;
     }
 
     public void rotateTowardsPoint(float rotateX, float rotateY, float x, float y, float z)
