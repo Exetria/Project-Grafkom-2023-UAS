@@ -32,15 +32,15 @@ public class Main
     float[] rotx = {0.0f, 0, 0};
     float[] roty = {(float) Math.toRadians(180), 0, 0};
     float[] temprotx = {(float) Math.toRadians(30), 0, 0};
-    float[] temproty;
-    float[] temposx;
-    float[] temposy;
-    float[] temposz;
+    float[] temproty ={0,0,0};
+    float[] temposx={0,0,0};
+    float[] temposy={0,0,0};
+    float[] temposz={0,0,0};
     float selisihx = 0;
     float selisihz = 0;
     boolean[] pos;
     boolean[] geser;
-    boolean fpp = false;
+    boolean fpp2, tpp2 = false;
     private Vector3f temp;
 
     boolean cameraMode = true, fired = false;
@@ -1284,16 +1284,33 @@ public class Main
         else if (input == 2)
         {
             if (window.isKeyPressed(GLFW_KEY_X)) {
-                fpp = true;
+                    fpp2 = true;
                 camera.setPosition(objects.get(0).getChildObject().get(0).getCenterPoint().get(0),
                         objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+7.1f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-24);
             }
-            if (window.isKeyPressed(GLFW_KEY_X)) {
-                fpp = true;
+            if (window.isKeyPressed(GLFW_KEY_V)) {
+                fpp2 = true;
                 camera.setPosition(objects.get(0).getChildObject().get(0).getCenterPoint().get(0),
-                        objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+7.1f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-24);
+                        objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+56f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-110);
             }
-            if(!fpp)
+            if (window.isKeyPressed(GLFW_KEY_C)) {
+                fpp2 = false;
+                tpp2 = false;
+            }
+            if (window.isKeyPressed(GLFW_KEY_Q)) {
+                objects.get(0).getChildObject().get(0).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
+                objects.get(0).getChildObject().get(1).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
+                objects.get(0).getChildObject().get(2).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
+                objects.get(0).getChildObject().get(3).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_E)) {
+                objects.get(0).getChildObject().get(0).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
+                objects.get(0).getChildObject().get(1).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
+                objects.get(0).getChildObject().get(2).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
+                objects.get(0).getChildObject().get(3).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
+            }
+            if(!fpp2)
             {
                 if (window.isKeyPressed(GLFW_KEY_W)) {
                     camera.moveForward(movement*10);
@@ -1311,35 +1328,14 @@ public class Main
                     camera.moveRight(movement*10);
                 }
 
-                if (cameraMode) {
-                    if (window.isKeyPressed(GLFW_KEY_Q)) {
-                        camera.moveDown(movement*10);
-                    }
-
-                    if (window.isKeyPressed(GLFW_KEY_E)) {
-                        camera.moveUp(movement*10);
-                    }
-                }
-                else {
+                if (tpp2)
+                {
                     if (window.isKeyPressed(GLFW_KEY_A)) {
-                        camera.rotateTowardsPoint(0, -0.01f, objects.get(2).getCenterPoint().get(0), objects.get(2).getCenterPoint().get(1), objects.get(2).getCenterPoint().get(2));
+                        camera.rotateTowardsPoint(0, -0.01f, objects.get(1).getCenterPoint().get(0), objects.get(1).getCenterPoint().get(1), objects.get(1).getCenterPoint().get(2));
                     }
 
                     if (window.isKeyPressed(GLFW_KEY_D)) {
-                        camera.rotateTowardsPoint(0, +0.01f, objects.get(2).getCenterPoint().get(0), objects.get(2).getCenterPoint().get(1), objects.get(2).getCenterPoint().get(2));
-                    }
-                    if (window.isKeyPressed(GLFW_KEY_Q)) {
-                        objects.get(0).getChildObject().get(0).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
-                        objects.get(0).getChildObject().get(1).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
-                        objects.get(0).getChildObject().get(2).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
-                        objects.get(0).getChildObject().get(3).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
-                    }
-
-                    if (window.isKeyPressed(GLFW_KEY_E)) {
-                        objects.get(0).getChildObject().get(0).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
-                        objects.get(0).getChildObject().get(1).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
-                        objects.get(0).getChildObject().get(2).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
-                        objects.get(0).getChildObject().get(3).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
+                        camera.rotateTowardsPoint(0, +0.01f, objects.get(1).getCenterPoint().get(0), objects.get(1).getCenterPoint().get(1), objects.get(1).getCenterPoint().get(2));
                     }
                 }
             }
@@ -1376,7 +1372,7 @@ public class Main
             {
                 if (window.isKeyPressed(GLFW_KEY_U)) {
                     objects.get(0).translateObject(0f, 0f, movement * 5);
-                        if(fpp)
+                        if(fpp2)
                         {
                             camera.setPosition(objects.get(0).getChildObject().get(0).getCenterPoint().get(0),
                                     objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+7.1f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-24);
@@ -1419,7 +1415,7 @@ public class Main
             if(window.isKeyPressed(GLFW_KEY_SPACE))
             {
                 System.out.println(camera.getPosition().x + " " + camera.getPosition().y + " " + camera.getPosition().z);
-                System.out.println(objects.get(0).getChildObject().get(0).getCenterPoint().get(0) + " " + objects.get(0).getChildObject().get(0).getCenterPoint().get(1) + " " + objects.get(0).getChildObject().get(0).getCenterPoint().get(2));
+                System.out.println(objects.get(0).getCenterPoint().get(0) + " " + objects.get(0).getCenterPoint().get(1) + " " + objects.get(0).getCenterPoint().get(2));
             }
             if (window.isKeyPressed(GLFW_KEY_R) && !fired)
             {
