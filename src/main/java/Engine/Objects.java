@@ -283,10 +283,6 @@ public class Objects extends ShaderProgram
                 negativeBorder.z = i.z;
             }
         }
-//        System.out.println("BORDERS");
-//        System.out.println(positiveBorder.x + " " + positiveBorder.y + " " + positiveBorder.z);
-//        System.out.println(negativeBorder.x + " " + negativeBorder.y + " " + negativeBorder.z);
-//        System.out.println();
 
         for(Objects obj: childObject)
         {
@@ -385,11 +381,11 @@ public class Objects extends ShaderProgram
         }
 
         //kirim posisi light dan config light ke shader
-        uniformsMap.setUniform("spotLight.position",new Vector3f());
-        uniformsMap.setUniform("spotLight.direction",new Vector3f(0, 0, 0));
-        uniformsMap.setUniform("spotLight.ambient",new Vector3f(0f,0f,0f));
-        uniformsMap.setUniform("spotLight.diffuse",new Vector3f(0f,0f,0f));
-        uniformsMap.setUniform("spotLight.specular",new Vector3f(0f,0f,0f));
+        uniformsMap.setUniform("spotLight.position",new Vector3f(80.21477f, 30.752567f, 111.83497f));
+        uniformsMap.setUniform("spotLight.direction",new Vector3f(0, 0, 1));
+        uniformsMap.setUniform("spotLight.ambient",new Vector3f(0.1f,0.1f,0.1f));
+        uniformsMap.setUniform("spotLight.diffuse",new Vector3f(0.1f,0.1f,0.1f));
+        uniformsMap.setUniform("spotLight.specular",new Vector3f(0.1f,0.1f,0.1f));
         uniformsMap.setUniform("spotLight.constant",0f);
         uniformsMap.setUniform("spotLight.linear",0.09f);
         uniformsMap.setUniform("spotLight.quadratic",0.032f);

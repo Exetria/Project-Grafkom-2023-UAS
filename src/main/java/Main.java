@@ -40,6 +40,7 @@ public class Main
     float selisihz = 0;
     boolean[] pos;
     boolean[] geser;
+    boolean fpp = false;
     private Vector3f temp;
 
     boolean cameraMode = true, fired = false;
@@ -60,7 +61,7 @@ public class Main
         window.init();
         GL.createCapabilities();
         glEnable(GL_DEPTH_TEST);
-        camera.setPosition(0, 0f, 0f);
+        camera.setPosition(0, 20f, 0f);
         camera.setRotation((float) Math.toRadians(0f), (float) Math.toRadians(180f));
 
         skybox = new SkyBoxCube();
@@ -1282,33 +1283,44 @@ public class Main
         }
         else if (input == 2)
         {
-            //WASDQE BUAT ROTATE ATAU TRANSLATE CAMERA
+            if (window.isKeyPressed(GLFW_KEY_X)) {
+                fpp = true;
+                camera.setPosition(objects.get(0).getChildObject().get(0).getCenterPoint().get(0),
+                        objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+7.1f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-24);
+            }
+            if (window.isKeyPressed(GLFW_KEY_X)) {
+                fpp = true;
+                camera.setPosition(objects.get(0).getChildObject().get(0).getCenterPoint().get(0),
+                        objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+7.1f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-24);
+            }
+            if(!fpp)
             {
                 if (window.isKeyPressed(GLFW_KEY_W)) {
-                    camera.moveForward(movement);
+                    camera.moveForward(movement*10);
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_S)) {
-                    camera.moveBackwards(movement);
+                    camera.moveBackwards(movement*10);
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_A)) {
-                    camera.moveLeft(movement);
+                    camera.moveLeft(movement*10);
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_D)) {
-                    camera.moveRight(movement);
+                    camera.moveRight(movement*10);
                 }
 
                 if (cameraMode) {
                     if (window.isKeyPressed(GLFW_KEY_Q)) {
-                        camera.moveDown(movement);
+                        camera.moveDown(movement*10);
                     }
 
                     if (window.isKeyPressed(GLFW_KEY_E)) {
-                        camera.moveUp(movement);
+                        camera.moveUp(movement*10);
                     }
-                } else {
+                }
+                else {
                     if (window.isKeyPressed(GLFW_KEY_A)) {
                         camera.rotateTowardsPoint(0, -0.01f, objects.get(2).getCenterPoint().get(0), objects.get(2).getCenterPoint().get(1), objects.get(2).getCenterPoint().get(2));
                     }
@@ -1330,6 +1342,11 @@ public class Main
                         objects.get(0).getChildObject().get(3).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
                     }
                 }
+            }
+            else
+            {
+                    camera.setPosition(objects.get(0).getChildObject().get(0).getCenterPoint().get(0),
+                            objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+7.1f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-24);
             }
 
             //================================================================================
@@ -1359,6 +1376,11 @@ public class Main
             {
                 if (window.isKeyPressed(GLFW_KEY_U)) {
                     objects.get(0).translateObject(0f, 0f, movement * 5);
+                        if(fpp)
+                        {
+                            camera.setPosition(objects.get(0).getChildObject().get(0).getCenterPoint().get(0),
+                                    objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+7.1f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-24);
+                        }
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_O)) {
@@ -1397,10 +1419,12 @@ public class Main
             if(window.isKeyPressed(GLFW_KEY_SPACE))
             {
                 System.out.println(camera.getPosition().x + " " + camera.getPosition().y + " " + camera.getPosition().z);
+                System.out.println(objects.get(0).getChildObject().get(0).getCenterPoint().get(0) + " " + objects.get(0).getChildObject().get(0).getCenterPoint().get(1) + " " + objects.get(0).getChildObject().get(0).getCenterPoint().get(2));
             }
             if (window.isKeyPressed(GLFW_KEY_R) && !fired)
             {
                 System.out.println("FIRED");
+                List<Float> gun = objects.get(0).getChildObject().get(0).getCenterPoint();
                 objects.get(0).addChildObject(new Objects
                         (
                                 Arrays.asList
@@ -1413,8 +1437,8 @@ public class Main
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).translateObject(1.2491567f, 5.067824f, 58.865852f);
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).scaleObject(0.7f, 0.7f, 0.7f);
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).rotateObject(-90f, 0f, 1f, 0f);
-                waypoints = objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).generateBezierPoints(1.2491567f, 5.067824f, 58.865852f,
-                        1.2491567f, 7.067824f, 70.865852f, 1.2491567f, 3.067824f, 1000.865852f);
+                waypoints = objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).generateBezierPoints(1.2491567f-100f, 5.067824f, 58.865852f-100f,
+                        1.2491567f-100f, 7.067824f, 70.865852f-100f, 1.2491567f-100f, 3.067824f, 1000.865852f-100f);
 
                 objects.get(0).addChildObject(new Objects
                         (
@@ -1428,8 +1452,8 @@ public class Main
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).translateObject(-1.2491567f, 9.067824f, 58.865852f);
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).scaleObject(0.7f, 0.7f, 0.7f);
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).rotateObject(-90f, 0f, 1f, 0f);
-                waypoints2 = objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).generateBezierPoints(-1.2491567f, 5.067824f, 58.865852f,
-                        -1.2491567f, 7.067824f, 70.865852f, -1.2491567f, 3.067824f, 1000.865852f);
+                waypoints2 = objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).generateBezierPoints(-1.2491567f-100f, 5.067824f, 58.865852f-100f,
+                        -1.2491567f-100f, 7.067824f, 70.865852f-100f, -1.2491567f-100f, 3.067824f, 1000.865852f-100f);
                 fired = true;
             }
             else if (window.isKeyPressed(GLFW_KEY_R)) {
@@ -1507,6 +1531,40 @@ public class Main
                     camera.moveRight(movement * 10);
 //                    camera.rotateTowardsPoint(0, 0.01f, objects.get(2).getCenterPoint().get(0), objects.get(2).getCenterPoint().get(1), objects.get(2).getCenterPoint().get(2));
                 }
+                //IJKL BUAT TRANSLATE OBJECT
+                {
+                    if (window.isKeyPressed(GLFW_KEY_U)) {
+                        objects.get(2).translateObject(0f, 0f, movement);
+                    }
+
+                    if (window.isKeyPressed(GLFW_KEY_O)) {
+                        objects.get(2).translateObject(0f, 0f, -movement);
+                    }
+
+                    if (window.isKeyPressed(GLFW_KEY_I)) {
+                        objects.get(2).translateObject(0f, movement, 0f);
+                    }
+
+                    if (window.isKeyPressed(GLFW_KEY_K)) {
+                        objects.get(2).translateObject(0f, 0 - movement, 0f);
+                    }
+
+                    if (window.isKeyPressed(GLFW_KEY_J)) {
+                        objects.get(2).translateObject(movement, 0f, 0f);
+                    }
+
+                    if (window.isKeyPressed(GLFW_KEY_L)) {
+                        objects.get(2).translateObject(-movement, 0f, 0f);
+                    }
+
+                    if (window.isKeyPressed(GLFW_KEY_N)) {
+                        objects.get(2).getChildObject().get(6).rotateObjectOnPoint(0.1f, 0f, -1f, 0f);
+                    }
+
+                    if (window.isKeyPressed(GLFW_KEY_M)) {
+                        objects.get(2).getChildObject().get(6).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
+                    }
+                }
             }
         }
 
@@ -1533,40 +1591,7 @@ public class Main
 
         //================================================================================
 
-        //IJKL BUAT TRANSLATE OBJECT
-        {
-            if (window.isKeyPressed(GLFW_KEY_U)) {
-                objects.get(2).translateObject(0f, 0f, movement);
-            }
 
-            if (window.isKeyPressed(GLFW_KEY_O)) {
-                objects.get(2).translateObject(0f, 0f, -movement);
-            }
-
-            if (window.isKeyPressed(GLFW_KEY_I)) {
-                objects.get(2).translateObject(0f, movement, 0f);
-            }
-
-            if (window.isKeyPressed(GLFW_KEY_K)) {
-                objects.get(2).translateObject(0f, 0 - movement, 0f);
-            }
-
-            if (window.isKeyPressed(GLFW_KEY_J)) {
-                objects.get(2).translateObject(movement, 0f, 0f);
-            }
-
-            if (window.isKeyPressed(GLFW_KEY_L)) {
-                objects.get(2).translateObject(-movement, 0f, 0f);
-            }
-
-            if (window.isKeyPressed(GLFW_KEY_N)) {
-                objects.get(2).getChildObject().get(6).rotateObjectOnPoint(0.1f, 0f, -1f, 0f);
-            }
-
-            if (window.isKeyPressed(GLFW_KEY_M)) {
-                objects.get(2).getChildObject().get(6).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
-            }
-        }
 
         //================================================================================
 
