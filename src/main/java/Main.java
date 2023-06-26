@@ -656,7 +656,6 @@ public class Main
             objects.get(0).translateObject(-1f,0f,-1f);
         }
 
-
         if(window.isKeyPressed(GLFW_KEY_LEFT_SHIFT))
         {
             for (Objects i: objects)
