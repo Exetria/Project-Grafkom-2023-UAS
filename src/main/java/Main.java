@@ -26,9 +26,9 @@ public class Main
 
     //milik okky
     float[] belok;
-    float[] posx = {0f, 0f, 0f};
-    float[] posy = {2.5f, 0f, 0f};
-    float[] posz = {-2.25f, 0f, 0f};
+    float[] posx = {0f, -100f, 100f};
+    float[] posy = {2.5f, 0f, 4.1f};
+    float[] posz = {-2.25f, -100f, 100f};
     float[] rotx = {0.0f, 0, 0};
     float[] roty = {(float) Math.toRadians(180), 0, 0};
     float[] temprotx = {(float) Math.toRadians(30), 0, 0};
@@ -186,16 +186,6 @@ public class Main
                             "resources/objects/Tiro/fence.obj"
                     )
             );
-
-//            objects.add(new Objects
-//                (
-//                        Arrays.asList
-//                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
-//                        new ArrayList<>(),
-//                        new Vector4f(0.1f, 0.1f, 0.1f, 1.0f), new ArrayList<>(),
-//                        "resources/objects/Tiro/box1.obj"
-//                )
-//            );
         }
         objects.get(0).translateObject(-100f, 0f, -100f);
 
@@ -914,6 +904,7 @@ public class Main
                     )
             );
         }
+        objects.get(2).translateObject(100f, 4.1f, 100f);
 
         //ENVIRONMENT
         {
@@ -944,8 +935,6 @@ public class Main
                             "resources/objects/Tiro/rocks.obj"
                     )
             );
-            environment.get(0).scaleObject(3f, 3f, 3f);
-            environment.get(0).translateObject(100f, 0f, 100f);
 
             environment.add(new Objects
                     (
@@ -1029,6 +1018,8 @@ public class Main
             );
             environment.get(9).translateObject(-160f, 0f, -160f);
         }
+        environment.get(0).scaleObject(3f, 3f, 3f);
+        environment.get(0).translateObject(100f, 0f, 100f);
     }
 
     boolean checkCollision(List<Vector3f> v1, List<Vector3f> v2) {
@@ -1076,8 +1067,7 @@ public class Main
         return true; // Terdapat tumbukan pada semua sumbu
     }
 
-    public void input()
-    {
+    public void input() {
         {
             if (window.isKeyPressed(GLFW_KEY_1)) {
                 input = 1;
@@ -1087,7 +1077,8 @@ public class Main
                 input = 3;
             }
         }
-        if (input == 1) {
+        if (input == 1)
+        {
             if (!geser[0]) {
                 if (window.isKeyPressed(GLFW_KEY_RIGHT)) {
                     objects.get(1).rotateObject(0.1f, 0.0f, -1f, 0.0f);
@@ -1289,9 +1280,26 @@ public class Main
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).rotateObjectOnPoint(0.5f, 0f, 1f, 0f);
             }
         }
-        else if (input == 2) {
+        else if (input == 2)
+        {
             //WASDQE BUAT ROTATE ATAU TRANSLATE CAMERA
             {
+                if (window.isKeyPressed(GLFW_KEY_W)) {
+                    camera.moveForward(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_S)) {
+                    camera.moveBackwards(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_A)) {
+                    camera.moveLeft(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_D)) {
+                    camera.moveRight(movement);
+                }
+
                 if (cameraMode) {
                     if (window.isKeyPressed(GLFW_KEY_Q)) {
                         camera.moveDown(movement);
@@ -1300,49 +1308,22 @@ public class Main
                     if (window.isKeyPressed(GLFW_KEY_E)) {
                         camera.moveUp(movement);
                     }
-
-                    if (window.isKeyPressed(GLFW_KEY_W)) {
-                        camera.moveForward(movement);
-                    }
-
-                    if (window.isKeyPressed(GLFW_KEY_S)) {
-                        camera.moveBackwards(movement);
-                    }
-
+                } else {
                     if (window.isKeyPressed(GLFW_KEY_A)) {
-                        camera.moveLeft(movement);
+                        camera.rotateTowardsPoint(0, -0.01f, objects.get(2).getCenterPoint().get(0), objects.get(2).getCenterPoint().get(1), objects.get(2).getCenterPoint().get(2));
                     }
 
                     if (window.isKeyPressed(GLFW_KEY_D)) {
-                        camera.moveRight(movement);
+                        camera.rotateTowardsPoint(0, +0.01f, objects.get(2).getCenterPoint().get(0), objects.get(2).getCenterPoint().get(1), objects.get(2).getCenterPoint().get(2));
                     }
-                }
-                else
-                {
                     if (window.isKeyPressed(GLFW_KEY_Q)) {
-                        camera.moveUp(movement);
-                    }
-
-                    if (window.isKeyPressed(GLFW_KEY_E)) {
-                        camera.moveUp(movement);
-                    }
-
-                    if (window.isKeyPressed(GLFW_KEY_W)) {
-                        camera.moveForward(movement);
-                    }
-
-                    if (window.isKeyPressed(GLFW_KEY_S)) {
-                        camera.moveBackwards(movement);
-                    }
-
-                    if (window.isKeyPressed(GLFW_KEY_A)) {
                         objects.get(0).getChildObject().get(0).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
                         objects.get(0).getChildObject().get(1).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
                         objects.get(0).getChildObject().get(2).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
                         objects.get(0).getChildObject().get(3).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
                     }
 
-                    if (window.isKeyPressed(GLFW_KEY_D)) {
+                    if (window.isKeyPressed(GLFW_KEY_E)) {
                         objects.get(0).getChildObject().get(0).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
                         objects.get(0).getChildObject().get(1).rotateObjectOnPoint(-0.1f, 0f, 1f, 0f);
                         objects.get(0).getChildObject().get(2).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
@@ -1356,19 +1337,19 @@ public class Main
             //ARROWS BUAT ROTATE CAMERA
             {
                 if (window.isKeyPressed(GLFW_KEY_UP)) {
-                    camera.addRotation(((float) Math.toRadians(-1)), 0);
+                    camera.addRotation(((float) Math.toRadians(-0.1)), 0);
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_DOWN)) {
-                    camera.addRotation(((float) Math.toRadians(1)), 0);
+                    camera.addRotation(((float) Math.toRadians(0.1)), 0);
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_LEFT)) {
-                    camera.addRotation(0f, ((float) Math.toRadians(-1)));
+                    camera.addRotation(0f, ((float) Math.toRadians(-0.1)));
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_RIGHT)) {
-                    camera.addRotation(0f, ((float) Math.toRadians(1)));
+                    camera.addRotation(0f, ((float) Math.toRadians(0.1)));
                 }
             }
 
@@ -1377,73 +1358,49 @@ public class Main
             //IJKL BUAT TRANSLATE OBJECT
             {
                 if (window.isKeyPressed(GLFW_KEY_U)) {
-                    for (Objects i : objects) {
-//                    i.translateObject(0f, 0f, movement, objects);
-                    }
-                    objects.get(0).translateObject(0f, 0f, movement, objects);
+                    objects.get(0).translateObject(0f, 0f, movement * 5);
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_O)) {
-                    for (Objects i : objects) {
-//                    i.translateObject(0f, 0f, -movement, objects);
-                    }
-                    objects.get(0).translateObject(0f, 0f, -movement, objects);
+                    objects.get(0).translateObject(0f, 0f, -movement * 5);
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_I)) {
-                    for (Objects i : objects) {
-//                    i.translateObject(0f, movement, 0f, objects);
-                    }
-                    objects.get(0).translateObject(0f, movement, 0f, objects);
+                    objects.get(0).translateObject(0f, movement * 5, 0f);
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_K)) {
-                    for (Objects i : objects) {
-//                    i.translateObject(0f, -movement, 0f, objects);
-                    }
-                    objects.get(0).translateObject(0f, -movement, 0f, objects);
+                    objects.get(0).translateObject(0f, -movement * 5, 0f);
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_J)) {
-                    for (Objects i : objects) {
-//                    i.translateObject(-movement, 0f, 0f, objects);
-                    }
-                    objects.get(0).translateObject(-movement, 0f, 0f, objects);
+                    objects.get(0).translateObject(-movement * 5, 0f, 0f);
                 }
 
                 if (window.isKeyPressed(GLFW_KEY_L)) {
-                    for (Objects i : objects) {
-//                    i.translateObject(movement, 0f, 0f, objects);
-                    }
-                    objects.get(0).translateObject(movement, 0f, 0f, objects);
+                    objects.get(0).translateObject(movement * 5, 0f, 0f);
                 }
             }
 
             //================================================================================
-
-            if (window.isKeyPressed(GLFW_KEY_G))
-            {
+            if (checkCollision(objects.get(0).getUpdatedVertice(), environment.get(0).getUpdatedVertice())) {
+                objects.get(0).translateObject(-1f, 0f, -1f);
+            }
+            if (window.isKeyPressed(GLFW_KEY_G)) {
                 cameraMode = false;
                 System.out.println("OBJ");
             }
-        if (checkCollision(objects.get(0).getUpdatedVertice(), environment.get(0).getUpdatedVertice()))
-        {
-            objects.get(0).translateObject(-1f,0f,-1f);
-        }
-
-        if(window.isKeyPressed(GLFW_KEY_G))
-        {
-            cameraMode = false;
-            System.out.println("OBJ");
-        }
-
-            if (window.isKeyPressed(GLFW_KEY_F))
-            {
+            if (window.isKeyPressed(GLFW_KEY_F)) {
                 cameraMode = true;
                 System.out.println("CAM");
             }
+            if(window.isKeyPressed(GLFW_KEY_SPACE))
+            {
+                System.out.println(camera.getPosition().x + " " + camera.getPosition().y + " " + camera.getPosition().z);
+            }
             if (window.isKeyPressed(GLFW_KEY_R) && !fired)
             {
+                System.out.println("FIRED");
                 objects.get(0).addChildObject(new Objects
                         (
                                 Arrays.asList
@@ -1457,7 +1414,7 @@ public class Main
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).scaleObject(0.7f, 0.7f, 0.7f);
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).rotateObject(-90f, 0f, 1f, 0f);
                 waypoints = objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).generateBezierPoints(1.2491567f, 5.067824f, 58.865852f,
-                        1.2491567f, 5.067824f, 70.865852f, 1.2491567f, 3.067824f, 1000.865852f);
+                        1.2491567f, 7.067824f, 70.865852f, 1.2491567f, 3.067824f, 1000.865852f);
 
                 objects.get(0).addChildObject(new Objects
                         (
@@ -1472,47 +1429,174 @@ public class Main
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).scaleObject(0.7f, 0.7f, 0.7f);
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).rotateObject(-90f, 0f, 1f, 0f);
                 waypoints2 = objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).generateBezierPoints(-1.2491567f, 5.067824f, 58.865852f,
-                        -1.2491567f, 5.067824f, 70.865852f, -1.2491567f, 3.067824f, 1000.865852f);
+                        -1.2491567f, 7.067824f, 70.865852f, -1.2491567f, 3.067824f, 1000.865852f);
                 fired = true;
             }
-            else if (window.isKeyPressed(GLFW_KEY_R))
-            {
+            else if (window.isKeyPressed(GLFW_KEY_R)) {
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 2).moveToNextPoint(waypoints);
                 objects.get(0).getChildObject().get(objects.get(0).getChildObject().size() - 1).moveToNextPoint(waypoints2);
             }
 
-            if (window.isKeyPressed(GLFW_KEY_LEFT_SHIFT))
-            {
-                for (Objects i : objects) {
-                    camera.moveUp(movement);
-                }
+            if (window.isKeyPressed(GLFW_KEY_LEFT_SHIFT)) {
+                camera.moveUp(movement * 5);
             }
 
-            if (window.isKeyPressed(GLFW_KEY_LEFT_CONTROL))
-            {
-                for (Objects i : objects)
-                {
-                    camera.moveDown(movement);
-                }
+            if (window.isKeyPressed(GLFW_KEY_LEFT_CONTROL)) {
+                camera.moveDown(movement * 5);
             }
 
-            if (window.getMouseInput().isLeftButtonPressed())
-            {
+            if (window.getMouseInput().isLeftButtonPressed()) {
                 Vector2f displayVector = window.getMouseInput().getDisplVec();
                 camera.addRotation((float) Math.toRadians(displayVector.x * 0.1f), (float) Math.toRadians(displayVector.y * 0.1f));
             }
 
-            if (window.getMouseInput().getScroll().y != 0)
-            {
+            if (window.getMouseInput().getScroll().y != 0) {
                 projection.setFOV(projection.getFOV() - (window.getMouseInput().getScroll().y * 0.01f));
                 window.getMouseInput().setScroll(new Vector2f());
             }
         }
         else if (input == 3)
         {
+            if (cameraMode) {
+                if (window.isKeyPressed(GLFW_KEY_Q)) {
+                    camera.moveDown(movement);
+                }
 
+                if (window.isKeyPressed(GLFW_KEY_E)) {
+                    camera.moveUp(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_W)) {
+                    camera.moveForward(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_S)) {
+                    camera.moveBackwards(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_A)) {
+                    camera.moveLeft(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_D)) {
+                    camera.moveRight(movement);
+                }
+            } else {
+                if (window.isKeyPressed(GLFW_KEY_Q)) {
+                    camera.moveUp(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_E)) {
+                    camera.moveUp(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_W)) {
+                    camera.moveForward(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_S)) {
+                    camera.moveBackwards(movement);
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_A)) {
+                    camera.moveLeft(movement * 10);
+//                    camera.rotateTowardsPoint(0, -0.01f, objects.get(2).getCenterPoint().get(0), objects.get(2).getCenterPoint().get(1), objects.get(2).getCenterPoint().get(2));
+                }
+
+                if (window.isKeyPressed(GLFW_KEY_D)) {
+                    camera.moveRight(movement * 10);
+//                    camera.rotateTowardsPoint(0, 0.01f, objects.get(2).getCenterPoint().get(0), objects.get(2).getCenterPoint().get(1), objects.get(2).getCenterPoint().get(2));
+                }
+            }
         }
 
+        //================================================================================
+
+        //ARROWS BUAT ROTATE CAMERA
+        {
+            if (window.isKeyPressed(GLFW_KEY_UP)) {
+                camera.addRotation(((float) Math.toRadians(-1)), 0);
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_DOWN)) {
+                camera.addRotation(((float) Math.toRadians(1)), 0);
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_LEFT)) {
+                camera.addRotation(0f, ((float) Math.toRadians(-1)));
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_RIGHT)) {
+                camera.addRotation(0f, ((float) Math.toRadians(1)));
+            }
+        }
+
+        //================================================================================
+
+        //IJKL BUAT TRANSLATE OBJECT
+        {
+            if (window.isKeyPressed(GLFW_KEY_U)) {
+                objects.get(2).translateObject(0f, 0f, movement);
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_O)) {
+                objects.get(2).translateObject(0f, 0f, -movement);
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_I)) {
+                objects.get(2).translateObject(0f, movement, 0f);
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_K)) {
+                objects.get(2).translateObject(0f, 0 - movement, 0f);
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_J)) {
+                objects.get(2).translateObject(movement, 0f, 0f);
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_L)) {
+                objects.get(2).translateObject(-movement, 0f, 0f);
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_N)) {
+                objects.get(2).getChildObject().get(6).rotateObjectOnPoint(0.1f, 0f, -1f, 0f);
+            }
+
+            if (window.isKeyPressed(GLFW_KEY_M)) {
+                objects.get(2).getChildObject().get(6).rotateObjectOnPoint(0.1f, 0f, 1f, 0f);
+            }
+        }
+
+        //================================================================================
+
+        if (window.isKeyPressed(GLFW_KEY_F)) {
+            cameraMode = false;
+            System.out.println("OBJ");
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_G)) {
+            cameraMode = true;
+            System.out.println("CAM");
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_LEFT_SHIFT)) {
+            camera.moveUp(movement * 5);
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_LEFT_CONTROL)) {
+            camera.moveDown(movement*5);
+        }
+
+        if (window.getMouseInput().isLeftButtonPressed()) {
+            Vector2f displayVector = window.getMouseInput().getDisplVec();
+            camera.addRotation((float) Math.toRadians(displayVector.x * 0.1f), (float) Math.toRadians(displayVector.y * 0.1f));
+        }
+
+        if (window.getMouseInput().getScroll().y != 0) {
+            projection.setFOV(projection.getFOV() - (window.getMouseInput().getScroll().y * 0.01f));
+            window.getMouseInput().setScroll(new Vector2f());
+        }
     }
 
     public void loop()

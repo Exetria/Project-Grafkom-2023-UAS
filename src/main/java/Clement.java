@@ -153,14 +153,6 @@ public class Clement
 
         objects.get(0).translateObject(0f,-15f,0f);
         objects.get(0).scaleObject(10f, 0.1f, 10f);
-
-
-
-
-
-
-
-
     }
 
     public void input()
