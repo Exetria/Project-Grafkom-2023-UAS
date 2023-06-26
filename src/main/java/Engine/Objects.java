@@ -322,6 +322,16 @@ public class Objects extends ShaderProgram
         }
     }
 
+    public List<Vector3f> getUpdatedVertice (){
+        List<Vector3f> temp = new ArrayList<>();
+        for (int i = 0; i < vertices.size(); i++) {
+            Vector4f transformedVertex = new Vector4f(vertices.get(i), 1.0f);
+            model.transform(transformedVertex);
+            temp.add(new Vector3f(transformedVertex.x, transformedVertex.y, transformedVertex.z));
+        }
+        return temp;
+    }
+
     public void addVertices(Vector3f newVertices)
     {
         //Nambah vertice lalu setup VAO VBO NBO lagi
@@ -348,36 +358,36 @@ public class Objects extends ShaderProgram
         glVertexAttribPointer(1, 3, GL_FLOAT, false, 0, 0);
 
         //kirim direction ke shader
-//        uniformsMap.setUniform("dirLight.direction", new Vector3f(-0f,-1f,-0.0f));
-//        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.2f,0.2f,0.2f));
-//        uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f,0.4f,0.4f));
-//        uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("dirLight.direction", new Vector3f(-0f,-1f,-0.0f));
+        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.8f,0.8f,0.8f));
+        uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.4f,0.4f,0.4f));
+        uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f,0.5f));
 
 //        //posisi point light
         Vector3f[] _pointLightPositions =
         {
-            new Vector3f(6.751f, -7.0331f, 3.1479f)
-//            new Vector3f(2.3f, -3.3f, -4.0f),
-//            new Vector3f(4.160f, 3.550f, 5f),
-//            new Vector3f(0.0f, 0.0f, 30.0f)
+            new Vector3f(6.751f, -7.0331f, 3.1479f),
+            new Vector3f(2.3f, -3.3f, -4.0f),
+            new Vector3f(4.160f, 3.550f, 5f),
+            new Vector3f(0.0f, 0.0f, 30.0f)
         };
 //
 //        //kirim posisi light ke shader
-//        for(int i = 0;i< _pointLightPositions.length;i++)
-//        {
-            uniformsMap.setUniform("pointLights["+ 0 +"].position",_pointLightPositions[0]);
-            uniformsMap.setUniform("pointLights["+ 0 +"].ambient", new Vector3f(0.3f,0.3f,0.3f));
-            uniformsMap.setUniform("pointLights["+ 0 +"].diffuse", new Vector3f(0.8f,0.8f,0.8f));
-            uniformsMap.setUniform("pointLights["+ 0 +"].specular", new Vector3f(1.0f,1.0f,1.0f));
-            uniformsMap.setUniform("pointLights["+ 0 +"].constant",1.0f );
-            uniformsMap.setUniform("pointLights["+ 0 +"].linear", 0.09f);
-            uniformsMap.setUniform("pointLights["+ 0 +"].quadratic", 0.032f);
+        for(int i = 0;i< _pointLightPositions.length;i++)
+        {
+            uniformsMap.setUniform("pointLights["+ i +"].position",_pointLightPositions[i]);
+            uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(0.3f,0.3f,0.3f));
+            uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.8f,0.8f,0.8f));
+            uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(1.0f,1.0f,1.0f));
+            uniformsMap.setUniform("pointLights["+ i +"].constant",1.0f);
+            uniformsMap.setUniform("pointLights["+ i +"].linear", 0.09f);
+            uniformsMap.setUniform("pointLights["+ i +"].quadratic", 0.032f);
 
-//        }
+        }
 //
 //        //kirim posisi light dan config light ke shader
-        uniformsMap.setUniform("spotLight.position",new Vector3f( 0f, 0f,0f));
-        uniformsMap.setUniform("spotLight.direction",new Vector3f(0f,-0.2f,-2f));
+        uniformsMap.setUniform("spotLight.position",camera.getPosition());
+        uniformsMap.setUniform("spotLight.direction",camera.getDirection());
         uniformsMap.setUniform("spotLight.ambient",new Vector3f(1.0f, 1.0f, 1.0f));
         uniformsMap.setUniform("spotLight.diffuse",new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("spotLight.specular",new Vector3f(1.0f,1.0f,1.0f));
@@ -388,7 +398,6 @@ public class Objects extends ShaderProgram
         uniformsMap.setUniform("spotLight.outerCutOff",(float)Math.cos(Math.toRadians(12.5f)));
         uniformsMap.setUniform("viewPos",camera.getPosition());
 
-        camera.printPos(camera);
     }
 
     public void draw(Camera camera, Projection projection)

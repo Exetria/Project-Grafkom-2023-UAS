@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="obj">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.frag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Clement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
@@ -72,7 +71,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Clement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Clement" />
       <module name="Project-Grafkom-2023-UAS" />
@@ -129,9 +128,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Clement" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.TugasWeekXIII" />
         <item itemvalue="Application.TugasWeekXII" />
       </list>
@@ -251,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687727170479</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="obj">
+      <created>1687732447254</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1687732447254</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
