@@ -6,6 +6,7 @@ import org.lwjgl.opengl.GL;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
@@ -819,7 +820,101 @@ public class Main
 
         //CLEMENT GUNADI
         //C14210183
-        {}
+        {
+            objects.add(new Objects
+                    (
+                            Arrays.asList
+                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                            new ArrayList<>(),
+                            new Vector4f(0.98f, 0.83f, 0.64f, 1.0f), new ArrayList<>(),
+                            "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\badanMobil.obj"
+                    )
+            );
+
+            objects.get(2).getChildObject().add(new Objects
+                    (
+                            Arrays.asList
+                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                            new ArrayList<>(),
+                            new Vector4f(0.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
+                            "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banDepanMobil.obj"
+                    )
+            );
+            objects.get(2).getChildObject().get(0).translateObject(1.03f,-0.64f,3.35f);
+
+            objects.get(2).getChildObject().add(new Objects
+                    (
+                            Arrays.asList
+                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                            new ArrayList<>(),
+                            new Vector4f(0.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
+                            "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\banBelakangMobil.obj"
+                    )
+            );
+            objects.get(2).getChildObject().get(1).translateObject(1.03f,-0.64f,0.17f);
+
+            objects.get(2).getChildObject().add(new Objects
+                    (
+                            Arrays.asList
+                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                            new ArrayList<>(),
+                            new Vector4f(0.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
+                            "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\objectWarnaHitam.obj"
+                    )
+            );
+
+            objects.get(2).getChildObject().add(new Objects
+                    (
+                            Arrays.asList
+                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                            new ArrayList<>(),
+                            new Vector4f(1.0f, 1.0f, 1.0f, 1.0f), new ArrayList<>(),
+                            "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\kacaMobil.obj"
+                    )
+            );
+
+            objects.get(2).getChildObject().add(new Objects
+                    (
+                            Arrays.asList
+                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                            new ArrayList<>(),
+                            new Vector4f(1.0f, 0.0f, 0.0f, 1.0f), new ArrayList<>(),
+                            "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\lampuMerah.obj"
+                    )
+            );
+
+            objects.get(2).getChildObject().add(new Objects
+                    (
+                            Arrays.asList
+                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                            new ArrayList<>(),
+                            new Vector4f(1.0f, 0.45f, 0.09f, 1.0f), new ArrayList<>(),
+                            "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\lampuOrange.obj"
+                    )
+            );
+
+            objects.get(2).getChildObject().add(new Objects
+                    (
+                            Arrays.asList
+                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                            new ArrayList<>(),
+                            new Vector4f(0.98f, 0.8f, 0.64f, 1.0f), new ArrayList<>(),
+                            "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\senjataMobil.obj"
+                    )
+            );
+
+            objects.get(2).getChildObject().get(6).translateObject(1.05f,0.9f,1.2f);
+
+            objects.get(2).getChildObject().add(new Objects
+                    (
+                            Arrays.asList
+                                    (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
+                            new ArrayList<>(),
+                            new Vector4f(1.0f, 1.0f, 1.0f, 1.0f), new ArrayList<>(),
+                            "C:\\Users\\Clement\\Intellij\\Project-Grafkom-2023-UAS\\resources\\objects\\Clement\\lampuMobil.obj"
+                    )
+            );
+        }
 
         //ENVIRONMENT
         {
@@ -944,6 +1039,51 @@ public class Main
 //            );
 //            environment.get(9).translateObject(320f, 0f, 0f);
         }
+    }
+
+    boolean checkCollision(List<Vector3f> v1, List<Vector3f> v2) {
+        float minX1 = 999999999999999f, minY1 = 999999999999999f, minZ1 = 999999999999999f;
+        float maxX1 = -999999999999999f, maxY1 = -999999999999999f, maxZ1 = -999999999999999f;
+
+        float minX2 = 999999999999999f, minY2 = 999999999999999f, minZ2 = 999999999999999f;
+        float maxX2 = -999999999999999f, maxY2 = -999999999999999f, maxZ2 = -999999999999999f;
+
+        for (Vector3f vertex : v1) {
+            minX1 = Math.min(minX1, vertex.x);
+            minY1 = Math.min(minY1, vertex.y);
+            minZ1 = Math.min(minZ1, vertex.z);
+
+            maxX1 = Math.max(maxX1, vertex.x);
+            maxY1 = Math.max(maxY1, vertex.y);
+            maxZ1 = Math.max(maxZ1, vertex.z);
+        }
+
+        for (Vector3f vertex : v2) {
+            minX2 = Math.min(minX2, vertex.x);
+            minY2 = Math.min(minY2, vertex.y);
+            minZ2 = Math.min(minZ2, vertex.z);
+
+            maxX2 = Math.max(maxX2, vertex.x);
+            maxY2 = Math.max(maxY2, vertex.y);
+            maxZ2 = Math.max(maxZ2, vertex.z);
+        }
+
+        // Memeriksa tumbukan pada sumbu x
+        if (maxX1 < minX2 || minX1 > maxX2) {
+            return false; // Terjadi pemisahan pada sumbu x
+        }
+
+        // Memeriksa tumbukan pada sumbu y
+        if (maxY1 < minY2 || minY1 > maxY2) {
+            return false; // Terjadi pemisahan pada sumbu y
+        }
+
+        // Memeriksa tumbukan pada sumbu z
+        if (maxZ1 < minZ2 || minZ1 > maxZ2) {
+            return false; // Terjadi pemisahan pada sumbu z
+        }
+
+        return true; // Terdapat tumbukan pada semua sumbu
     }
 
     public void input()
@@ -1343,6 +1483,11 @@ public class Main
         }
 
         //================================================================================
+
+        if (checkCollision(objects.get(0).getUpdatedVertice(), environment.get(0).getUpdatedVertice()))
+        {
+            objects.get(0).translateObject(-1f,0f,-1f);
+        }
 
         if(window.isKeyPressed(GLFW_KEY_G))
         {
