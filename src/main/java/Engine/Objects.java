@@ -322,6 +322,16 @@ public class Objects extends ShaderProgram
         }
     }
 
+    public List<Vector3f> getUpdatedVertice (){
+        List<Vector3f> temp = new ArrayList<>();
+        for (int i = 0; i < vertices.size(); i++) {
+            Vector4f transformedVertex = new Vector4f(vertices.get(i), 1.0f);
+            model.transform(transformedVertex);
+            temp.add(new Vector3f(transformedVertex.x, transformedVertex.y, transformedVertex.z));
+        }
+        return temp;
+    }
+
     public void addVertices(Vector3f newVertices)
     {
         //Nambah vertice lalu setup VAO VBO NBO lagi
@@ -356,10 +366,10 @@ public class Objects extends ShaderProgram
         //posisi point light
         Vector3f[] _pointLightPositions =
         {
-            new Vector3f(6.751f, -7.0331f, 3.1479f)
-//            new Vector3f(2.3f, -3.3f, -4.0f),
-//            new Vector3f(4.160f, 3.550f, 5f),
-//            new Vector3f(0.0f, 0.0f, 30.0f)
+            new Vector3f(6.751f, -7.0331f, 3.1479f),
+            new Vector3f(2.3f, -3.3f, -4.0f),
+            new Vector3f(4.160f, 3.550f, 5f),
+            new Vector3f(0.0f, 0.0f, 30.0f)
         };
 
         //kirim posisi light ke shader
@@ -385,9 +395,6 @@ public class Objects extends ShaderProgram
         uniformsMap.setUniform("spotLight.quadratic",0.032f);
         uniformsMap.setUniform("spotLight.cutOff",(float)Math.cos(Math.toRadians(12.5f)));
         uniformsMap.setUniform("spotLight.outerCutOff",(float)Math.cos(Math.toRadians(12.5f)));
-
-
-//        camera.printPos(camera);
     }
 
     public void draw(Camera camera, Projection projection)

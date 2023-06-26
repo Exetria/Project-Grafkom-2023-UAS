@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="ocean2 - Tiro">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Clement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" afterDir="false" />
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="main on progress">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,12 +68,10 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Clement">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Clement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="19" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Clement" />
-      <module name="untitled" />
+      <module name="Project-Grafkom-2023-UAS" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,9 +125,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Clement" />
-        <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Clement" />
         <item itemvalue="Application.TugasWeekXIII" />
         <item itemvalue="Application.TugasWeekXII" />
       </list>
@@ -251,18 +247,36 @@
       <option name="project" value="LOCAL" />
       <updated>1687727170479</updated>
     </task>
-    <task id="LOCAL-00016" summary="ocean2 - Tiro">
-      <created>1687734366829</created>
+    <task id="LOCAL-00016" summary="obj">
+      <created>1687732447254</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1687734366829</updated>
+      <updated>1687732447254</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="main on progress">
+      <created>1687746665522</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1687746665522</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.obj" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -292,7 +306,7 @@
     <MESSAGE value="Init" />
     <MESSAGE value="light Progress" />
     <MESSAGE value="obj" />
-    <MESSAGE value="ocean2 - Tiro" />
-    <option name="LAST_COMMIT_MESSAGE" value="ocean2 - Tiro" />
+    <MESSAGE value="main on progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="main on progress" />
   </component>
 </project>
