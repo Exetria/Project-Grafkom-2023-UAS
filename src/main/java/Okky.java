@@ -34,7 +34,6 @@ public class Okky {
     float posz=-2.25f;
     float rotx=0.0f;
     float roty=(float)Math.toRadians(180);
-
     float temprotx=(float)Math.toRadians(30);
     float temproty;
     float temposx;
@@ -71,7 +70,7 @@ public class Okky {
         camera.setPosition(posx,posy,posz);
         camera.setRotation(0,roty);
         //code
-//        objects.add(new Object2d(
+//        objects.get(0).addChildObject(new Object2d(
 //            Arrays.asList(
 //                //shaderFile lokasi menyesuaikan objectnya
 //                new ShaderProgram.ShaderModuleData
@@ -90,7 +89,7 @@ public class Okky {
 //            ),
 //            new Vector4f(0.0f,1.0f,1.0f,1.0f)
 //        ));
-//        objects.add(new Objects(
+//        objects.get(0).addChildObject(new Objects(
 //            Arrays.asList(
 //                //shaderFile lokasi menyesuaikan objectnya
 //                new ShaderProgram.ShaderModuleData
@@ -153,14 +152,13 @@ public class Okky {
 //            new Vector4f(0.0f,1.0f,1.0f,1.0f)
 //        ));
 
-        Vector4f warnasetir = new Vector4f(70/255f, 200/255f, 125/255f, 1f);
-        Vector4f warnakapal = new Vector4f(43/255f, 125/255f, 26/255f, 1f);
         Vector4f warnalayar = new Vector4f(1f, 1f, 1f,1f);
+        Vector4f warnaspeaker = new Vector4f(60/255f, 60/255f, 63/255f,1f);
         Vector4f warnamoncong = new Vector4f(0f, 0f, 0f,1.f);
-        Vector4f warnatongkat = new Vector4f(0f, 0f, 1f, 1.f);
-        Vector4f warnatongkatbawah = new Vector4f(1f, 107/255f, 196/255f, 1.f);
-        Vector4f warnatangga = new Vector4f(121/255f, 124/255f, 132/255f, 1.f);
-        Vector4f warnakayu = new Vector4f(102/255f, 51/255f, 0/255f, 1.f);
+        Vector4f warnatongkat = new Vector4f(22/255f, 6/255f, 9/255f, 1.0f);
+        Vector4f warnatongkatbawah = new Vector4f(7/255f, 2/255f, 7/255f, 1.f);
+        Vector4f warnakayu = new Vector4f(76/255f, 36/255f, 20/255f, 1.f);
+        Vector4f warnasetir = new Vector4f(20/255f, 16/255f, 19/255f,1.0f);
 
 
         List<ShaderProgram.ShaderModuleData> shader = Arrays.asList(
@@ -175,597 +173,567 @@ public class Okky {
 
         //1
         objects.add(new Objects(
-                shader,
+                Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                 new ArrayList<>(),
                 new Vector4f(warnakayu),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\badan.obj"
+                "resources/objects/okky/badan.obj"
 
         ));
 
         //2
-        objects.add(new Objects(
-                shader,
+        objects.get(0).addChildObject(new Objects(
+                Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                 new ArrayList<>(),
-                new Vector4f(warnakapal),
+                new Vector4f(warnakayu),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\intaibawah.obj"
+                "resources/objects/okky/intaibawah.obj"
 
         ));
 
         //3
-        objects.add(new Objects(
-                shader,
+        objects.get(0).addChildObject(new Objects(
+                Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                 new ArrayList<>(),
                 new Vector4f(warnalayar),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\layardepan.obj"
+                "resources/objects/okky/layardepan.obj"
 
         ));
 
         //4
-        objects.add(new Objects(
-                shader,
+        objects.get(0).addChildObject(new Objects(
+                Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                 new ArrayList<>(),
                 new Vector4f(warnalayar),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\layarbelakang.obj"
+                "resources/objects/okky/layarbelakang.obj"
 
         ));
 
         //5
-        objects.add(new Objects(
-                shader,
+        objects.get(0).addChildObject(new Objects(
+                Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                 new ArrayList<>(),
                 new Vector4f(warnalayar),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\mainsail.obj"
+                "resources/objects/okky/mainsail.obj"
 
         ));
 
         //6
-        objects.add(new Objects(
-                shader,
+        objects.get(0).addChildObject(new Objects(
+                Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                 new ArrayList<>(),
                 new Vector4f(warnamoncong),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\meriamkanan.obj"
+                "resources/objects/okky/meriamkanan.obj"
 
         ));
 
         //7
-        objects.add(new Objects(
-                shader,
+        objects.get(0).addChildObject(new Objects(
+                Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                 new ArrayList<>(),
                 new Vector4f(warnamoncong),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\meriamkiri.obj"
+                "resources/objects/okky/meriamkiri.obj"
 
         ));
 
         //8
-        objects.add(new Objects(
-                shader,
+        objects.get(0).addChildObject(new Objects(
+                Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                 new ArrayList<>(),
                 new Vector4f(warnamoncong),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\moncong.obj"
+                "resources/objects/okky/moncong.obj"
 
         ));
 
         //9
-        objects.add(new Objects(
-                shader,
+        objects.get(0).addChildObject(new Objects(
+                Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\standsetir.obj"
+                "resources/objects/okky/standsetir.obj"
 
         ));
 
         //10
-        objects.add(new Objects(
-                shader,
+        objects.get(0).addChildObject(new Objects(
+                Arrays.asList
+                                (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                 new ArrayList<>(),
                 new Vector4f(warnakayu),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayarbelakang1.obj"
+                "resources/objects/okky/gaganglayarbelakang1.obj"
 
         ));
 
         //11
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnakayu),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayarbelakang2.obj"
+                "resources/objects/okky/gaganglayarbelakang2.obj"
 
         ));
 
         //12
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnakayu),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayardepan1.obj"
+                "resources/objects/okky/gaganglayardepan1.obj"
 
         ));
 
         //13
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnakayu),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayardepan2.obj"
+                "resources/objects/okky/gaganglayardepan2.obj"
 
         ));
 
         //14
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnakayu),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayartengah1.obj"
+                "resources/objects/okky/gaganglayartengah1.obj"
 
         ));
 
         //15
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnakayu),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayartengah2.obj"
+                "resources/objects/okky/gaganglayartengah2.obj"
 
         ));
 
         //16
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\tongkatdepan.obj"
+                "resources/objects/okky/tongkatdepan.obj"
         ));
 
         //17
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\tongkattengah.obj"
+                "resources/objects/okky/tongkattengah.obj"
 
         ));
 
         //18
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\tongkatbelakang.obj"
+                "resources/objects/okky/tongkatbelakang.obj"
 
         ));
 
         //19
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkatbawah),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\tongkatbawahdepan.obj"
+                "resources/objects/okky/tongkatbawahdepan.obj"
 
         ));
 
         //20
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkatbawah),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\tongkatbawahtengah.obj"
+                "resources/objects/okky/tongkatbawahtengah.obj"
 
         ));
 
         //21
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnatongkatbawah),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\tongkatbawahbelakang.obj"
+                "resources/objects/okky/tongkatbawahbelakang.obj"
 
         ));
 
         //22
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarkanandepan.obj"
+                "resources/objects/okky/pagarkanandepan.obj"
 
         ));
 
         //23
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagardepansetir.obj"
+                "resources/objects/okky/pagardepansetir.obj"
 
         ));
 
         //24
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarbelakang.obj"
+                "resources/objects/okky/pagarbelakang.obj"
 
         ));
 
         //25
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarkiribelakang.obj"
+                "resources/objects/okky/pagarkiribelakang.obj"
 
         ));
 
         //26
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarkiribelakang2.obj"
+                "resources/objects/okky/pagarkiribelakang2.obj"
 
         ));
 
         //27
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarkiridepan.obj"
+                "resources/objects/okky/pagarkiridepan.obj"
 
         ));
 
         //28
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarkiri.obj"
+                "resources/objects/okky/pagarkiri.obj"
 
         ));
 
         //29
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarkanan.obj"
+                "resources/objects/okky/pagarkanan.obj"
 
         ));
 
         //30
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarkanandepan.obj"
+                "resources/objects/okky/pagarkanandepan.obj"
         ));
 
         //31
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarkiridepan.obj"
+                "resources/objects/okky/pagarkiridepan.obj"
         ));
 
         //32
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarsetir.obj"
+                "resources/objects/okky/pagarsetir.obj"
         ));
 
         //33
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
-                new Vector4f(warnasetir),
+                new Vector4f(warnatongkat),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagardepansetir.obj"
+                "resources/objects/okky/pagardepansetir.obj"
 
         ));
 
         //34
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarintai1.obj"
-
-        ));
-
-        //35
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarintai2.obj"
-
-        ));
-
-        //36
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayardepan1.obj"
-
-        ));
-
-        //37
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(163/255f, 160/255f, 52/255f,1.0f),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayardepan2.obj"
-
-        ));
-
-        //38
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayartengah1.obj"
-
-        ));
-
-        //39
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\gaganglayartengah2.obj"
-
-        ));
-
-        //40
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnatangga),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\tanggakanan.obj"
-
-        ));
-
-        //41
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnatangga),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\tanggakiri.obj"
-
-        ));
-
-        //42
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setirdalam.obj"
-
-        ));
-
-        //43
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setirdalam1.obj"
-
-        ));
-
-        //44
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setirdalam2.obj"
-
-        ));
-
-        //45
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setirdalam3.obj"
-        ));
-
-        //46
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setirdalam4.obj"
-        ));
-
-        //47
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setir.obj"
-        ));
-
-        //48
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setir1.obj"
-        ));
-
-        //49
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setir2.obj"
-        ));
-
-        //50
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setir3.obj"
-        ));
-
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setir4.obj"
-        ));
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setir5.obj"
-        ));
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setir6.obj"
-        ));
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setir7.obj"
-        ));
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\setir8.obj"
-        ));
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\intaiatas.obj"
-        ));
-
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarintai3.obj"
-        ));
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarintai4.obj"
-        ));
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarintai5.obj"
-        ));
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarintai6.obj"
-        ));
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarintai7.obj"
-        ));
-
-        objects.add(new Objects(
-                shader,
-                new ArrayList<>(),
-                new Vector4f(warnasetir),
-                new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\pagarintai8.obj"
-        ));
-        objects.add(new Objects(
+        objects.get(0).addChildObject(new Objects(
                 shader,
                 new ArrayList<>(),
                 new Vector4f(warnakayu),
                 new ArrayList<>(),
-                "C:\\Java\\Git\\UAS\\Project-Grafkom-2023-UAS\\resources\\objects\\okky\\speaker.obj"
+                "resources/objects/okky/pagarintai1.obj"
+
+        ));
+
+        //35
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnakayu),
+                new ArrayList<>(),
+                "resources/objects/okky/pagarintai2.obj"
+
+        ));
+
+        //40
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnatongkat),
+                new ArrayList<>(),
+                "resources/objects/okky/tanggakanan.obj"
+
+        ));
+
+        //41
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnatongkat),
+                new ArrayList<>(),
+                "resources/objects/okky/tanggakiri.obj"
+
+        ));
+
+        //42
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setirdalam.obj"
+
+        ));
+
+        //43
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setirdalam1.obj"
+
+        ));
+
+        //44
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setirdalam2.obj"
+
+        ));
+
+        //45
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setirdalam3.obj"
+        ));
+
+        //46
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setirdalam4.obj"
+        ));
+
+        //47
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setir.obj"
+        ));
+
+        //48
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setir1.obj"
+        ));
+
+        //49
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setir2.obj"
+        ));
+
+        //50
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setir3.obj"
+        ));
+
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setir4.obj"
+        ));
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setir5.obj"
+        ));
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setir6.obj"
+        ));
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setir7.obj"
+        ));
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnasetir),
+                new ArrayList<>(),
+                "resources/objects/okky/setir8.obj"
+        ));
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnakayu),
+                new ArrayList<>(),
+                "resources/objects/okky/intaiatas.obj"
+        ));
+
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnakayu),
+                new ArrayList<>(),
+                "resources/objects/okky/pagarintai3.obj"
+        ));
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnakayu),
+                new ArrayList<>(),
+                "resources/objects/okky/pagarintai4.obj"
+        ));
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnakayu),
+                new ArrayList<>(),
+                "resources/objects/okky/pagarintai5.obj"
+        ));
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnakayu),
+                new ArrayList<>(),
+                "resources/objects/okky/pagarintai6.obj"
+        ));
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnakayu),
+                new ArrayList<>(),
+                "resources/objects/okky/pagarintai7.obj"
+        ));
+
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnakayu),
+                new ArrayList<>(),
+                "resources/objects/okky/pagarintai8.obj"
+        ));
+        objects.get(0).addChildObject(new Objects(
+                shader,
+                new ArrayList<>(),
+                new Vector4f(warnaspeaker),
+                new ArrayList<>(),
+                "resources/objects/okky/speaker.obj"
         ));
 
     }
@@ -807,6 +775,7 @@ public class Okky {
                 for(Objects i: objects){
                     i.rotateObject(0.1f,0.0f,-1f,0.0f);
                 }
+                camera.setPosition(posx,posy,posz);
                 camera.rotateTowardsPoint(0.0f,(float)Math.toRadians(-0.1),0,0,0);
                 belok=belok+0.1f;
                 posx=camera.getPosition().x();
@@ -844,6 +813,7 @@ public class Okky {
 //                rotx=camera.getRotation().x();
 //                roty=camera.getRotation().y();
 //            }
+                camera.setPosition(posx,posy,posz);
                 camera.rotateTowardsPoint(0.0f,(float)Math.toRadians(0.1),0,0,0);
                 posx=camera.getPosition().x();
                 posy=camera.getPosition().y();
@@ -908,22 +878,36 @@ public class Okky {
             }
 
             if(!pos){
-                selisihx=temposx-posx;
-                selisihz=temposz-posz;
-                camera.setPosition(posx,posy,posz);
-                camera.setRotation(0,roty);
-                camera.moveBackwards(move);
-                camera.setRotation((float)Math.toRadians(30),roty);
-                posx=camera.getPosition().x();
-                posy=camera.getPosition().y();
-                posz=camera.getPosition().z();
-                rotx=camera.getRotation().x();
-                roty=camera.getRotation().y();
+                if(geser){
+                    selisihx=temposx-posx;
+                    selisihz=temposz-posz;
+                    camera.setPosition(posx,posy,posz);
+                    camera.setRotation(0,roty);
+                    camera.moveBackwards(move);
+                    camera.setRotation((float)Math.toRadians(30),roty);
+                    posx=camera.getPosition().x();
+                    posy=camera.getPosition().y();
+                    posz=camera.getPosition().z();
+                    rotx=camera.getRotation().x();
+                    roty=camera.getRotation().y();
+                    temposx=posx+selisihx;
+                    temposz=posz+selisihz;
+                    camera.setPosition(temposx,temposy,temposz);
+                    camera.setRotation(temprotx, temproty);
+                }
+                else{
+                    camera.setRotation(0, roty);
+                    camera.moveBackwards(move);
+                    camera.setRotation((float) Math.toRadians(30), roty);
+                    posx=camera.getPosition().x();
+                    posy=camera.getPosition().y();
+                    posz=camera.getPosition().z();
+                    rotx=camera.getRotation().x();
+                    roty=camera.getRotation().y();
+                }
 
-                temposx=posx+selisihx;
-                temposz=posz+selisihz;
-                camera.setPosition(temposx,temposy,temposz);
-                camera.setRotation(temprotx, temproty);
+
+
             }
             else{
                 camera.moveBackwards(move);
@@ -971,6 +955,11 @@ public class Okky {
             geser=false;
             pos=true;
             camera.setRotation(0,roty);
+            posx=camera.getPosition().x();
+            posy=camera.getPosition().y();
+            posz=camera.getPosition().z();
+            rotx=camera.getRotation().x();
+            roty=camera.getRotation().y();
         }
 
         if (window.isKeyPressed(GLFW_KEY_Z)) {
@@ -985,13 +974,18 @@ public class Okky {
             pos = false;
             geser=false;
             camera.setRotation((float)Math.toRadians(30),roty);
+            posx=camera.getPosition().x();
+            posy=camera.getPosition().y();
+            posz=camera.getPosition().z();
+            rotx=camera.getRotation().x();
+            roty=camera.getRotation().y();
         }
 
 
 
 
         if (window.isKeyPressed(GLFW_KEY_SPACE)) {
-            objects.get(objects.size()-1).rotateObjectOnPoint(0.5f,0f,1f,0f);
+            objects.get(0).getChildObject().get(objects.get(0).getChildObject().size()-1).rotateObjectOnPoint(0.5f,0f,1f,0f);
         }
 
     }
