@@ -318,14 +318,14 @@ public class Objects extends ShaderProgram
         }
     }
 
-    public List<Vector3f> getUpdatedVertice (){
-        List<Vector3f> temp = new ArrayList<>();
+    public List<Vector3f> dataObject (){
+        List<Vector3f> dataObject = new ArrayList<>();
         for (int i = 0; i < vertices.size(); i++) {
-            Vector4f transformedVertex = new Vector4f(vertices.get(i), 1.0f);
-            model.transform(transformedVertex);
-            temp.add(new Vector3f(transformedVertex.x, transformedVertex.y, transformedVertex.z));
+            Vector4f vertex = new Vector4f(vertices.get(i), 1.0f);
+            model.transform(vertex);
+            dataObject.add(new Vector3f(vertex.x, vertex.y, vertex.z));
         }
-        return temp;
+        return dataObject;
     }
 
     public void addVertices(Vector3f newVertices)

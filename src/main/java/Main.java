@@ -1023,49 +1023,50 @@ public class Main
         environment.get(0).translateObject(100f, 0f, 100f);
     }
 
-    boolean checkCollision(List<Vector3f> v1, List<Vector3f> v2) {
-        float minX1 = 999999999999999f, minY1 = 999999999999999f, minZ1 = 999999999999999f;
-        float maxX1 = -999999999999999f, maxY1 = -999999999999999f, maxZ1 = -999999999999999f;
+    boolean collisionOccur(List<Vector3f> object1, List<Vector3f> object2) {
+        float nilaiMinXObject1 = 300f;
+        float nilaiMinYObject1 = 60f;
+        float nilaiMinZObject1 = 300f;
+        float nilaiMaxXObject1 = -300f;
+        float nilaiMaxYObject1 = -60f;
+        float nilaiMaxZObject1 = -300f;
 
-        float minX2 = 999999999999999f, minY2 = 999999999999999f, minZ2 = 999999999999999f;
-        float maxX2 = -999999999999999f, maxY2 = -999999999999999f, maxZ2 = -999999999999999f;
+        float nilaiMinXObject2 = 300f;
+        float nilaiMinYObject2 = 60f;
+        float nilaiMinZObject2 = 300f;
+        float nilaiMaxXObject2 = -300f;
+        float nilaiMaxYObject2 = -60f;
+        float nilaiMaxZObject2 = -300f;
 
-        for (Vector3f vertex : v1) {
-            minX1 = Math.min(minX1, vertex.x);
-            minY1 = Math.min(minY1, vertex.y);
-            minZ1 = Math.min(minZ1, vertex.z);
+        for (Vector3f vertex : object1) {
+            nilaiMinXObject1 = Math.min(nilaiMinXObject1, vertex.x);
+            nilaiMinYObject1 = Math.min(nilaiMinYObject1, vertex.y);
+            nilaiMinZObject1 = Math.min(nilaiMinZObject1, vertex.z);
 
-            maxX1 = Math.max(maxX1, vertex.x);
-            maxY1 = Math.max(maxY1, vertex.y);
-            maxZ1 = Math.max(maxZ1, vertex.z);
+            nilaiMaxXObject1 = Math.max(nilaiMaxXObject1, vertex.x);
+            nilaiMaxYObject1 = Math.max(nilaiMaxYObject1, vertex.y);
+            nilaiMaxZObject1 = Math.max(nilaiMaxZObject1, vertex.z);
         }
 
-        for (Vector3f vertex : v2) {
-            minX2 = Math.min(minX2, vertex.x);
-            minY2 = Math.min(minY2, vertex.y);
-            minZ2 = Math.min(minZ2, vertex.z);
+        for (Vector3f vertex : object2) {
+            nilaiMinXObject2 = Math.min(nilaiMinXObject2, vertex.x);
+            nilaiMinYObject2 = Math.min(nilaiMinYObject2, vertex.y);
+            nilaiMinZObject2 = Math.min(nilaiMinZObject2, vertex.z);
 
-            maxX2 = Math.max(maxX2, vertex.x);
-            maxY2 = Math.max(maxY2, vertex.y);
-            maxZ2 = Math.max(maxZ2, vertex.z);
+            nilaiMaxXObject2 = Math.max(nilaiMaxXObject2, vertex.x);
+            nilaiMaxYObject2 = Math.max(nilaiMaxYObject2, vertex.y);
+            nilaiMaxZObject2 = Math.max(nilaiMaxZObject2, vertex.z);
+        }
+        if (nilaiMaxXObject1 < nilaiMinXObject2 || nilaiMinXObject1 > nilaiMaxXObject2) {
+            return false;
         }
 
-        // Memeriksa tumbukan pada sumbu x
-        if (maxX1 < minX2 || minX1 > maxX2) {
-            return false; // Terjadi pemisahan pada sumbu x
+        if (nilaiMaxYObject1 < nilaiMinYObject2 || nilaiMinYObject1 > nilaiMaxYObject2) {
+            return false;
         }
 
-        // Memeriksa tumbukan pada sumbu y
-        if (maxY1 < minY2 || minY1 > maxY2) {
-            return false; // Terjadi pemisahan pada sumbu y
-        }
 
-        // Memeriksa tumbukan pada sumbu z
-        if (maxZ1 < minZ2 || minZ1 > maxZ2) {
-            return false; // Terjadi pemisahan pada sumbu z
-        }
-
-        return true; // Terdapat tumbukan pada semua sumbu
+        return !(nilaiMaxZObject1 < nilaiMinZObject2) && !(nilaiMinZObject1 > nilaiMaxZObject2);
     }
 
     public void input() {
@@ -1405,7 +1406,7 @@ public class Main
             }
 
             //================================================================================
-            if (checkCollision(objects.get(0).getUpdatedVertice(), environment.get(0).getUpdatedVertice())) {
+            if (collisionOccur(objects.get(0).dataObject(), environment.get(0).dataObject())) {
                 objects.get(0).translateObject(-1f, 0f, -1f);
             }
             if (window.isKeyPressed(GLFW_KEY_G)) {
