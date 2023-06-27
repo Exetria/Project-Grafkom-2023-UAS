@@ -89,7 +89,8 @@ public class Main
                             Arrays.asList
                                     (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                             new ArrayList<>(),
-                            new Vector4f(86 / 255f, 99 / 255f, 107 / 255f, 1.0f), new ArrayList<>(),
+                            new Vector4f(86 / 255f, 99 / 255f, 107 / 255f, 1.0f),
+                            new ArrayList<>(),
                             "resources/objects/Tiro/body.obj"
                     )
             );
@@ -100,7 +101,8 @@ public class Main
                             Arrays.asList
                                     (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                             new ArrayList<>(),
-                            new Vector4f(162 / 255f, 138 / 255f, 41 / 255f, 1.0f), new ArrayList<>(),
+                            new Vector4f(162 / 255f, 138 / 255f, 41 / 255f, 1.0f),
+                            new ArrayList<>(),
                             "resources/objects/Tiro/gun.obj"
                     )
             );
@@ -112,7 +114,8 @@ public class Main
                             Arrays.asList
                                     (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                             new ArrayList<>(),
-                            new Vector4f(162 / 255f, 138 / 255f, 41 / 255f, 1.0f), new ArrayList<>(),
+                            new Vector4f(162 / 255f, 138 / 255f, 41 / 255f, 1.0f),
+                            new ArrayList<>(),
                             "resources/objects/Tiro/gun.obj"
                     )
             );
@@ -124,7 +127,8 @@ public class Main
                             Arrays.asList
                                     (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
                             new ArrayList<>(),
-                            new Vector4f(162 / 255f, 138 / 255f, 41 / 255f, 1.0f), new ArrayList<>(),
+                            new Vector4f(162 / 255f, 138 / 255f, 41 / 255f, 1.0f),
+                            new ArrayList<>(),
                             "resources/objects/Tiro/gun.obj"
                     )
             );

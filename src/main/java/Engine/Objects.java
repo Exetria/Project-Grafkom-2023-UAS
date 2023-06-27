@@ -19,12 +19,10 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
 public class Objects extends ShaderProgram
 {
-    boolean collision;
     int vao, vbo, nbo;
 
     String path;
     UniformsMap uniformsMap;
-    Vector3f positiveBorder, negativeBorder, determinator1, determinator2;
     Vector4f color;
     Matrix4f model;
 
@@ -47,12 +45,7 @@ public class Objects extends ShaderProgram
         childObject = new ArrayList<>();
         centerPoint = Arrays.asList(0f,0f,0f);
 
-        positiveBorder = new Vector3f(0, 0, 0);
-        negativeBorder = new Vector3f(0, 0, 0);
-
         loadObject();
-
-        createBorders();
 
         setupVAOVBO();
     }
@@ -70,9 +63,6 @@ public class Objects extends ShaderProgram
         childObject = new ArrayList<>();
         centerPoint = otherObject.centerPoint;
 
-        positiveBorder = new Vector3f(otherObject.positiveBorder);
-        negativeBorder = new Vector3f(otherObject.negativeBorder);
-
         setupVAOVBO();
     }
 
@@ -82,52 +72,12 @@ public class Objects extends ShaderProgram
         model = new Matrix4f().translate(offsetX,offsetY,offsetZ).mul(new Matrix4f(model));
         updateCenterPoint();
 
-        System.out.println();
         for(Objects child:childObject)
         {
             child.translateObject(offsetX,offsetY,offsetZ);
         }
     }
-    public void translateObject(Float offsetX,Float offsetY,Float offsetZ, List<Objects> otherObjects)
-    {
-        model = new Matrix4f().translate(offsetX,offsetY,offsetZ).mul(new Matrix4f(model));
-        updateCenterPoint();
-        for(Objects child:childObject)
-        {
-            child.translateObject(offsetX,offsetY,offsetZ);
-        }
 
-        determinator1 = new Vector3f(getCenterPoint().get(0)+Math.abs(positiveBorder.x)+0.001f, getCenterPoint().get(1)+Math.abs(positiveBorder.y)+0.001f, getCenterPoint().get(2)+Math.abs(positiveBorder.z)+0.001f);
-        determinator2 = new Vector3f(getCenterPoint().get(0)-Math.abs(negativeBorder.x)-0.001f, getCenterPoint().get(1)-Math.abs(negativeBorder.y)-0.001f, getCenterPoint().get(2)-Math.abs(negativeBorder.z)-0.001f);
-
-        for(Objects i: otherObjects)
-        {
-            if(i != this)
-            {
-                System.out.println("Det1: " + determinator1.x + " " + determinator1.y + " " + determinator1.z);
-                System.out.println("Det2: " + determinator2.x + " " + determinator2.y + " " + determinator2.z);
-                System.out.println();
-                if((determinator1.x > i.getCenterPoint().get(0)+Math.abs(positiveBorder.x)+0.001f && determinator2.x < i.getCenterPoint().get(0)-Math.abs(negativeBorder.x)-0.001f) &&
-                    (determinator1.y > i.getCenterPoint().get(1)+Math.abs(positiveBorder.y)+0.001f && determinator2.y < i.getCenterPoint().get(1)-Math.abs(negativeBorder.y)-0.001f) &&
-                    (determinator1.z > i.getCenterPoint().get(2)+Math.abs(positiveBorder.z)+0.001f && determinator2.z < i.getCenterPoint().get(2)-Math.abs(negativeBorder.z)-0.001f))
-                collision = true;
-                break;
-            }
-        }
-
-        if(collision)
-        {
-            model = new Matrix4f().translate(-offsetX,-offsetY,-offsetZ).mul(new Matrix4f(model));
-            updateCenterPoint();
-            for(Objects child:childObject)
-            {
-                child.translateObject(offsetX,offsetY,offsetZ);
-            }
-        }
-        System.out.println(collision);
-        System.out.println();
-        collision = false;
-    }
     public void rotateObject(Float degree, Float x,Float y,Float z)
     {
         model = new Matrix4f().rotate((float) Math.toRadians(degree),x,y,z).mul(new Matrix4f(model));
@@ -136,7 +86,6 @@ public class Objects extends ShaderProgram
         {
             child.rotateObject(degree,x,y,z);
         }
-        createBorders();
     }
     public void rotateObjectOnPoint(Float degree, Float x,Float y,Float z)
     {
@@ -150,18 +99,6 @@ public class Objects extends ShaderProgram
         }
         translateObject(temp.x, temp.y, temp.z);
     }
-    public void rotateObjectOnPoint(Float degree, Float x,Float y,Float z, List<Objects> otherObjects)
-    {
-        Vector3f temp = new Vector3f(getCenterPoint().get(0), getCenterPoint().get(1), getCenterPoint().get(2));
-        translateObject(-temp.x, -temp.y, -temp.z, otherObjects);
-        model = new Matrix4f().rotate((float) Math.toRadians(degree),x,y,z).mul(new Matrix4f(model));
-        updateCenterPoint();
-        for(Objects child:childObject)
-        {
-            child.rotateObject(degree,x,y,z);
-        }
-        translateObject(temp.x, temp.y, temp.z, otherObjects);
-    }
     public void scaleObject(Float scaleX,Float scaleY,Float scaleZ)
     {
         model = new Matrix4f().scale(scaleX,scaleY,scaleZ).mul(new Matrix4f(model));
@@ -171,7 +108,7 @@ public class Objects extends ShaderProgram
         }
     }
 
-    public boolean moveToNextPoint(ArrayList<Vector3f> waypoints)
+    public void moveToNextPoint(ArrayList<Vector3f> waypoints)
     {
         if(waypoints.size() != 0)
         {
@@ -181,12 +118,10 @@ public class Objects extends ShaderProgram
             diffZ = (waypoints.get(0).z - getCenterPoint().get(2));
             translateObject(diffX, diffY, diffZ);
             waypoints.remove(0);
-            return true;
         }
         else
         {
             vertices.clear();
-            return true;
         }
     }
 
@@ -201,15 +136,6 @@ public class Objects extends ShaderProgram
             newZ = (float) ((Math.pow((1-i), 2) * firstZ) + (2 * (1-i) * i * secondZ) + (Math.pow(i, 2) * thirdZ));
             result.add(new Vector3f(newX, newY, newZ));
         }
-
-//        childObject.add(new Objects(
-//                Arrays.asList
-//                        (new ShaderProgram.ShaderModuleData("resources/shaders/scene.vert", GL_VERTEX_SHADER), new ShaderProgram.ShaderModuleData("resources/shaders/scene.frag", GL_FRAGMENT_SHADER)),
-//                new ArrayList<>(),
-//                new Vector4f(66/255f, 80/255f, 93/255f, 1.0f), new ArrayList<>(),
-//                "resources/objects/Tiro/shell.obj"
-//                )
-//        );
         waypoints = new ArrayList<>(result);
         return result;
     }
@@ -252,72 +178,6 @@ public class Objects extends ShaderProgram
         glBufferData(GL_ARRAY_BUFFER, Utils.listoFloat(normal), GL_STATIC_DRAW);
     }
 
-    public void createBorders()
-    {
-        for(Vector3f i: vertices)
-        {
-            if(positiveBorder.x < i.x)
-            {
-                positiveBorder.x = i.x;
-            }
-            if(negativeBorder.x > i.x)
-            {
-                negativeBorder.x = i.x;
-            }
-
-            if(positiveBorder.y < i.y)
-            {
-                positiveBorder.y = i.y;
-            }
-            if(negativeBorder.y > i.y)
-            {
-                negativeBorder.y = i.y;
-            }
-
-            if(positiveBorder.z < i.z)
-            {
-                positiveBorder.z = i.z;
-            }
-            if(negativeBorder.z > i.z)
-            {
-                negativeBorder.z = i.z;
-            }
-        }
-
-        for(Objects obj: childObject)
-        {
-            for(Vector3f i: obj.vertices)
-            {
-                if(positiveBorder.x < i.x)
-                {
-                    positiveBorder.x = i.x;
-                }
-                if(negativeBorder.x > i.x)
-                {
-                    positiveBorder.x = i.x;
-                }
-
-                if(positiveBorder.y < i.y)
-                {
-                    positiveBorder.y = i.y;
-                }
-                if(negativeBorder.y > i.y)
-                {
-                    positiveBorder.y = i.y;
-                }
-
-                if(positiveBorder.z < i.z)
-                {
-                    positiveBorder.z = i.z;
-                }
-                if(negativeBorder.z > i.z)
-                {
-                    positiveBorder.z = i.z;
-                }
-            }
-        }
-    }
-
     public List<Vector3f> dataObject (){
         List<Vector3f> dataObject = new ArrayList<>();
         for (int i = 0; i < vertices.size(); i++) {
@@ -326,13 +186,6 @@ public class Objects extends ShaderProgram
             dataObject.add(new Vector3f(vertex.x, vertex.y, vertex.z));
         }
         return dataObject;
-    }
-
-    public void addVertices(Vector3f newVertices)
-    {
-        //Nambah vertice lalu setup VAO VBO NBO lagi
-        vertices.add(newVertices);
-        setupVAOVBO();
     }
 
     public void drawSetup(Camera camera, Projection projection)
@@ -355,7 +208,7 @@ public class Objects extends ShaderProgram
 
         //kirim direction ke shader
         uniformsMap.setUniform("dirLight.direction", new Vector3f(1f, -1f, 0f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.1f,0.1f,0.1f));
         uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f,0.5f));
 
@@ -363,9 +216,6 @@ public class Objects extends ShaderProgram
         Vector3f[] _pointLightPositions =
         {
             new Vector3f(-100.751f, -50.0331f, -100.1479f),
-            new Vector3f(-80, -20f, -100f),
-            new Vector3f(-180f, -20f, -100f),
-            new Vector3f(0.0f, -20.0f, 30.0f)
         };
 
         //kirim posisi light ke shader
@@ -377,18 +227,18 @@ public class Objects extends ShaderProgram
         uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("pointLights["+ i +"].constant",1f);
         uniformsMap.setUniform("pointLights["+ i +"].linear", 0.7f);
-        uniformsMap.setUniform("pointLights["+ i +"].quadratic", 0.44f);
+        uniformsMap.setUniform("pointLights["+ i +"].quadratic", 1.8f);
         }
 
         //kirim posisi light dan config light ke shader
-        uniformsMap.setUniform("spotLight.position",new Vector3f(80.21477f, 30.752567f, 111.83497f));
-        uniformsMap.setUniform("spotLight.direction",new Vector3f(0, 0, 1));
-        uniformsMap.setUniform("spotLight.ambient",new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("spotLight.position",new Vector3f(new Vector3f(80.21477f, 30.752567f, 111.83497f)));
+        uniformsMap.setUniform("spotLight.direction",new Vector3f(-1, 0.05f, -1));
+        uniformsMap.setUniform("spotLight.ambient",new Vector3f(0.7f,0.7f,0.7f));
         uniformsMap.setUniform("spotLight.diffuse",new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("spotLight.specular",new Vector3f(0.1f,0.1f,0.1f));
         uniformsMap.setUniform("spotLight.constant",0f);
-        uniformsMap.setUniform("spotLight.linear",0.7f);
-        uniformsMap.setUniform("spotLight.quadratic",0.44f);
+        uniformsMap.setUniform("spotLight.linear",0.0001f);
+        uniformsMap.setUniform("spotLight.quadratic",0.007f);
         uniformsMap.setUniform("spotLight.cutOff",(float)Math.cos(Math.toRadians(12.5f)));
         uniformsMap.setUniform("spotLight.outerCutOff",(float)Math.cos(Math.toRadians(12.5f)));
     }
@@ -437,9 +287,5 @@ public class Objects extends ShaderProgram
     public List<Objects> getChildObject()
     {
         return childObject;
-    }
-    public void setChildObject(List<Objects> childObject)
-    {
-        this.childObject = childObject;
     }
 }

@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="perbaikan dikit">
+    <list default="true" id="7265bded-3803-4b65-8f98-d5b995e8343e" name="Changes" comment="readme  - Tiro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/scene.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Objects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +83,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="19" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Project-Grafkom-2023-UAS" />
+      <module name="untitled" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -305,12 +308,12 @@
       <option name="project" value="LOCAL" />
       <updated>1687879379992</updated>
     </task>
-    <task id="LOCAL-00024" summary="perbaikan dikit">
-      <created>1687888948186</created>
+    <task id="LOCAL-00024" summary="readme  - Tiro">
+      <created>1687879527310</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1687888948186</updated>
+      <updated>1687879527310</updated>
     </task>
     <option name="localTasksCounter" value="25" />
     <servers />
@@ -364,7 +367,7 @@
     <MESSAGE value="Camera kapal bsr selesai - Tiro" />
     <MESSAGE value="final camera jadi - Tiro" />
     <MESSAGE value="linear quadratic fix - Tiro" />
-    <MESSAGE value="perbaikan dikit" />
-    <option name="LAST_COMMIT_MESSAGE" value="perbaikan dikit" />
+    <MESSAGE value="readme  - Tiro" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme  - Tiro" />
   </component>
 </project>
