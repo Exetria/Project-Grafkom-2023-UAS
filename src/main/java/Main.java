@@ -1407,7 +1407,7 @@ public class Main
 
             //================================================================================
             if (collisionOccur(objects.get(0).dataObject(), environment.get(0).dataObject())) {
-                objects.get(0).translateObject(-1f, 0f, -1f);
+                objects.get(0).translateObject(-0.1f, 0f, -0.1f);
             }
             if (window.isKeyPressed(GLFW_KEY_G)) {
                 cameraMode = false;
