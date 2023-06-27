@@ -355,40 +355,40 @@ public class Objects extends ShaderProgram
 
         //kirim direction ke shader
         uniformsMap.setUniform("dirLight.direction", new Vector3f(1f, -1f, 0f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.1f,0.1f,0.1f));
+        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f,0.5f));
 
         //posisi point light
         Vector3f[] _pointLightPositions =
         {
-            new Vector3f(6.751f, -7.0331f, 3.1479f),
-            new Vector3f(2.3f, -3.3f, -4.0f),
-            new Vector3f(4.160f, 3.550f, 5f),
-            new Vector3f(0.0f, 0.0f, 30.0f)
+            new Vector3f(-100.751f, -50.0331f, -100.1479f),
+            new Vector3f(-80, -20f, -100f),
+            new Vector3f(-180f, -20f, -100f),
+            new Vector3f(0.0f, -20.0f, 30.0f)
         };
 
         //kirim posisi light ke shader
         for(int i = 0;i< _pointLightPositions.length;i++)
         {
         uniformsMap.setUniform("pointLights["+ i +"].position",_pointLightPositions[i]);
-        uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(0.01f,0.01f,0.01f));
-        uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.1f, 0.1f, 0.1f));
-        uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(0.7f,0.7f,0.7f));
+        uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("pointLights["+ i +"].constant",1f);
-        uniformsMap.setUniform("pointLights["+ i +"].linear", 0.0014f);
-        uniformsMap.setUniform("pointLights["+ i +"].quadratic", 0.000007f);
+        uniformsMap.setUniform("pointLights["+ i +"].linear", 0.7f);
+        uniformsMap.setUniform("pointLights["+ i +"].quadratic", 0.44f);
         }
 
         //kirim posisi light dan config light ke shader
         uniformsMap.setUniform("spotLight.position",new Vector3f(80.21477f, 30.752567f, 111.83497f));
         uniformsMap.setUniform("spotLight.direction",new Vector3f(0, 0, 1));
-        uniformsMap.setUniform("spotLight.ambient",new Vector3f(0.1f,0.1f,0.1f));
-        uniformsMap.setUniform("spotLight.diffuse",new Vector3f(0.1f,0.1f,0.1f));
+        uniformsMap.setUniform("spotLight.ambient",new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("spotLight.diffuse",new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("spotLight.specular",new Vector3f(0.1f,0.1f,0.1f));
         uniformsMap.setUniform("spotLight.constant",0f);
-        uniformsMap.setUniform("spotLight.linear",0.09f);
-        uniformsMap.setUniform("spotLight.quadratic",0.032f);
+        uniformsMap.setUniform("spotLight.linear",0.7f);
+        uniformsMap.setUniform("spotLight.quadratic",0.44f);
         uniformsMap.setUniform("spotLight.cutOff",(float)Math.cos(Math.toRadians(12.5f)));
         uniformsMap.setUniform("spotLight.outerCutOff",(float)Math.cos(Math.toRadians(12.5f)));
     }

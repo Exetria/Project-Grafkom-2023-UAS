@@ -1288,10 +1288,11 @@ public class Main
                 camera.setPosition(objects.get(0).getChildObject().get(0).getCenterPoint().get(0),
                         objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+7.1f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-24);
             }
-            if (window.isKeyPressed(GLFW_KEY_V)) {
-                fpp2 = true;
-                camera.setPosition(objects.get(0).getChildObject().get(0).getCenterPoint().get(0),
-                        objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+56f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-110);
+            if (window.isKeyPressed(GLFW_KEY_V))
+            {
+                tpp2 = true;
+                camera.setPosition(objects.get(0).getCenterPoint().get(0),
+                        objects.get(0).getCenterPoint().get(1) + 60f, objects.get(0).getCenterPoint().get(2)-200);
             }
             if (window.isKeyPressed(GLFW_KEY_C)) {
                 fpp2 = false;
@@ -1341,8 +1342,11 @@ public class Main
             }
             else
             {
+                if(fpp2)
+                {
                     camera.setPosition(objects.get(0).getChildObject().get(0).getCenterPoint().get(0),
                             objects.get(0).getChildObject().get(0).getCenterPoint().get(1)+7.1f, objects.get(0).getChildObject().get(0).getCenterPoint().get(2)-24);
+                }
             }
 
             //================================================================================
