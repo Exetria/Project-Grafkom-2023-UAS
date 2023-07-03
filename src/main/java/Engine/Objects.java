@@ -208,26 +208,35 @@ public class Objects extends ShaderProgram
 
         //kirim direction ke shader
         uniformsMap.setUniform("dirLight.direction", new Vector3f(1f, -1f, 0f));
-        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.1f,0.1f,0.1f));
+        uniformsMap.setUniform("dirLight.ambient", new Vector3f(0.6f,0.6f,0.6f));
         uniformsMap.setUniform("dirLight.diffuse", new Vector3f(0.5f,0.5f,0.5f));
-        uniformsMap.setUniform("dirLight.specular", new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("dirLight.specular", new Vector3f(0.6f,0.6f,0.6f));
 
         //posisi point light
         Vector3f[] _pointLightPositions =
         {
-            new Vector3f(-100.751f, -50.0331f, -100.1479f),
+                new Vector3f(-102.78f, 5.32f, -171.59f),
+                new Vector3f(-102.90f, 6.05f, -150.60f),
+                new Vector3f(-102.73f, 8.67f, -136.17f),
+                new Vector3f(-105.24f, 7.8f, -123.71f),
+                new Vector3f(-105.54f, 9.01f, -112.65f),
+                new Vector3f(-105.09f, 11.19f, -97.23f),
+                new Vector3f(-105.55f, 10.64f, -90.18f),
+                new Vector3f(-105.48f, 9.22f, -77.99f),
+                new Vector3f(-103.31f, 6.66f, -66.30f),
+                new Vector3f(-103.35f, 4.10f, -55.00f),
         };
 
         //kirim posisi light ke shader
         for(int i = 0;i< _pointLightPositions.length;i++)
         {
         uniformsMap.setUniform("pointLights["+ i +"].position",_pointLightPositions[i]);
-        uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(0.5f,0.5f,0.5f));
-        uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.5f,0.5f,0.5f));
+        uniformsMap.setUniform("pointLights["+ i +"].ambient", new Vector3f(0.65f,0.65f,0.65f));
+        uniformsMap.setUniform("pointLights["+ i +"].diffuse", new Vector3f(0.6f,0.6f,0.6f));
         uniformsMap.setUniform("pointLights["+ i +"].specular", new Vector3f(0.5f,0.5f,0.5f));
         uniformsMap.setUniform("pointLights["+ i +"].constant",1f);
-        uniformsMap.setUniform("pointLights["+ i +"].linear", 0.7f);
-        uniformsMap.setUniform("pointLights["+ i +"].quadratic", 1.8f);
+        uniformsMap.setUniform("pointLights["+ i +"].linear", 0.08f);
+        uniformsMap.setUniform("pointLights["+ i +"].quadratic", 0.08f);
         }
 
         //kirim posisi light dan config light ke shader
